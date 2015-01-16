@@ -32,6 +32,7 @@ public class Arthur : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		/*
 		box = new Rect (
 			collider.bounds.min.x,
 			collider.bounds.min.y,
@@ -43,6 +44,7 @@ public class Arthur : MonoBehaviour {
 		if (velocity.y < 0) {
 			falling = true;
 		}
+		*/
 
 	}
 	void LaterUpdate () {
