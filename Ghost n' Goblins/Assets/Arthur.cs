@@ -1,0 +1,62 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Arthur : MonoBehaviour {
+
+	public float acceleration  = 4f;
+	public float maxSpeed = 150f;
+	public float gravity = 9.8f;
+	public float maxfall = 200f;
+	public float jump = 200f;
+
+	int layerMask;
+
+	Rect box;
+
+	public Vector3 velocity;
+
+	bool grounded = false;
+	bool falling = false;
+
+	int horizontalRays = 6;
+	int verticalRays = 4;
+	int margin = 2;
+	
+	// Use this for initialization
+	void Start() {
+		layerMask = LayerMask.NameToLayer ("normalCollisions");
+	}
+
+	void FixedUpdate(){
+		box = new Rect (
+			collider.bounds.min.x,
+			collider.bounds.min.y,
+			collider.bounds.size.x,
+			collider.bounds.size.y
+		);
+		if (!grounded)
+			velocity = new Vector2 (velocity.x, Mathf.Max (velocity.y = gravity, -maxfall));
+		if (velocity.y < 0) {
+			falling = true;
+		}
+
+	}
+	void LaterUpdate () {
+
+		transform.Translate (velocity * Time.deltaTime);
+		//movement = Input.GetAxis ("Horizontal")
+		/*if (Input.GetKey(KeyCode.LeftArrow))
+		{
+			Vector3 pos = transform.position;
+			pos.x += -1 * velocity * Time.deltaTime;
+			transform.position = pos;
+		}
+		if (Input.GetKey(KeyCode.RightArrow))
+		{
+			Vector3 pos = transform.position;
+			pos.x += 1 * velocity * Time.deltaTime;
+			transform.position = pos;
+		}	*/
+	}
+}
+
