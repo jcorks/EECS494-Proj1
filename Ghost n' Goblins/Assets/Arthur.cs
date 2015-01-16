@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+//Trying to work on a raycasting solution for collision based upon
+//http://deranged-hermit.blogspot.com/2014/01/2d-platformer-collision-detection-with.html
+
 public class Arthur : MonoBehaviour {
 
 	public float acceleration  = 4f;
