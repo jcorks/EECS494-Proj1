@@ -83,10 +83,18 @@ public class PhysObj : MonoBehaviour {
 		return active;
 	}
 
+	public void movement(float direction) {
+		if (isActive ()){
+			Vector2 pos = transform.position;
+			pos.x = direction * 3 * Time.deltaTime;
+			transform.position = pos;
+		}
+	}
 
 
 	//. Collision 
 	void OnTriggerEnter(Collider other) {
+		//Debug.Log ("entered");
 		PhysObj otherPhys = other.gameObject.GetComponent<PhysObj>();
 		if (otherPhys)
 			resolveCollision (otherPhys);
@@ -97,6 +105,7 @@ public class PhysObj : MonoBehaviour {
 		if (otherPhys)
 			resolveCollision (otherPhys);
 	}
+
 	private void resolveCollision(PhysObj other) {
 		print ("I collided!");
 
