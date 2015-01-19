@@ -7,25 +7,6 @@ using System.Collections;
 
 public class Arthur : MonoBehaviour {
 
-	/*public float acceleration  = 4f;
-	public float maxSpeed = 150f;
-	public float gravity = 9.8f;
-	public float maxfall = 200f;
-	public float jump = 200f;
-
-	int layerMask;
-
-	Rect box;
-
-	public Vector3 velocity;
-
-	bool grounded = false;
-	bool falling = false;
-
-	int horizontalRays = 6;
-	int verticalRays = 4;
-	int margin = 2;*/
-	
 	// Use this for initialization
 
 	public int health;
@@ -34,8 +15,8 @@ public class Arthur : MonoBehaviour {
 	private GameObject arthurObject;
 	private bool crouching;
 	private bool sides;
-
-
+	private float speed = 2f;
+	
 	void Start() {
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
 		arthurObject = this.gameObject;
@@ -52,13 +33,16 @@ public class Arthur : MonoBehaviour {
 	}
 
 	void Update () {
-
-		if (Input.GetKeyDown(KeyCode.LeftArrow) && !crouching) 
+		//if (!thisPhys.isGrounded)
+			thisPhys.setVelocity (new Vector2(0f, thisPhys.getVelocity().y));
+		if (Input.GetKey(KeyCode.LeftArrow) && !crouching) 
 		{
-			Debug.Log ("movingLeft");
+			thisPhys.addVelocity(-speed, 0f);
+			Debug.Log ("movingleft");
 		}
 		if (Input.GetKey(KeyCode.RightArrow) && !crouching)
 		{
+			thisPhys.addVelocity(speed, 0f);
 			Debug.Log ("movingRight");
 		}	
 		if (Input.GetKey(KeyCode.DownArrow))
@@ -71,6 +55,12 @@ public class Arthur : MonoBehaviour {
 			crouching = false;
 			Debug.Log (crouching);
 		}
+		if (Input.GetKeyDown (KeyCode.Space)) 
+		{
+			//arthurObject.scale
+			Debug.Log ("shootWeapon");
+		}
+
 	}
 
 	void OnCollisionEnter(Collision coll){
