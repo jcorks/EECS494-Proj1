@@ -14,19 +14,21 @@ public class Arthur : MonoBehaviour {
 	public int health;
 	public int weapon;
 	public float sides;
+	public int weaponCount;
 
 	private PhysObj thisPhys;
 	private GameObject arthurObject;
 	private bool crouching;
 	private bool jumping;
 	private float speed = 2f;
+	private int weaponLimit = 2; //amount of weapon permitted on screen
 	
 	void Start() {
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
 		arthurObject = this.gameObject;
 		health = 2;
 		crouching = false;
-		weapon = 2;
+		weapon = 0;
 		sides = 1f;
 	}
 
@@ -51,17 +53,17 @@ public class Arthur : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && !jumping) 
 		{
-			sides = 1f;
+			sides = -1f;
 			thisPhys.addVelocity(-speed, 0f);
 			Debug.Log ("movingleft");
 		}
 		if (Input.GetKey(KeyCode.RightArrow) && !crouching && !jumping)
 		{
-			sides = -1f;
+			sides = 1f;
 			thisPhys.addVelocity(speed, 0f);
 			Debug.Log ("movingRight");
 		}	
-		if (Input.GetKey(KeyCode.DownArrow))
+		if (Input.GetKey(KeyCode.DownArrow) && !jumping)
 		{
 			crouching = true;
 			Debug.Log (crouching);
@@ -73,17 +75,26 @@ public class Arthur : MonoBehaviour {
 			crouching = false;
 			Debug.Log (crouching);
 		}
-		if (Input.GetKeyDown (KeyCode.Space)) 
+		if (Input.GetKeyDown (KeyCode.Space) && weaponCount < weaponLimit) 
 		{
 			//arthurObject.scale
-			Debug.Log ("shootWeapon");
+			weaponCount++;
+			Debug.Log ("weapon on " + weaponCount);
 			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
 			Weapon weaponComp = weaponObj.GetComponent<Weapon>();
+			weaponComp.thisArthur = this;
 			weaponComp.weapon = this.weapon;
 			weaponComp.sides = this.sides;
 			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + 0.6f); 
 		}
-
+		/*if (crouching) {
+			BoxCollider.transform.localScale.y = 0.5;
+			BoxCollider.center = new Vector3(0, -0.25f, 0);
+		}
+		else {
+			BoxCollider.transform.localScale.y = 1;
+			BoxCollider.center = new Vector3(0, 0, 0);	
+		}*/
 
 
 

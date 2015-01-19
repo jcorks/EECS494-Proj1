@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Arthur.cs" />
-     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\Items.cs" />
      <Compile Include="Assets\Scripts\PhysManager.cs" />
      <Compile Include="Assets\Scripts\PhysObj.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />

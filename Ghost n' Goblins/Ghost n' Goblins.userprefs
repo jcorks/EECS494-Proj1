@@ -1,14 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Weapon.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Arthur.cs">
     <Files>
-      <File FileName="Assets\Scripts\Arthur.cs" Line="69" Column="42" />
-      <File FileName="Assets\Scripts\PhysManager.cs" Line="41" Column="41" />
-      <File FileName="Assets\Scripts\PhysObj.cs" Line="109" Column="12" />
+      <File FileName="Assets\Scripts\Arthur.cs" Line="57" Column="31" />
+      <File FileName="Assets\Scripts\PhysManager.cs" Line="33" Column="8" />
+      <File FileName="Assets\Scripts\PhysObj.cs" Line="152" Column="1" />
       <File FileName="..\..\..\Apple Picker Prototype\Assets\AppleTree.cs" Line="24" Column="3" />
       <File FileName="..\..\..\Apple Picker Prototype\Assets\Basket.cs" Line="36" Column="36" />
-      <File FileName="..\..\..\Apple Picker Prototype\Assets\Apple.cs" Line="8" Column="2" />
-      <File FileName="Assets\Scripts\Weapon.cs" Line="15" Column="15" />
+      <File FileName="..\..\..\Apple Picker Prototype\Assets\Apple.cs" Line="14" Column="30" />
+      <File FileName="Assets\Scripts\Weapon.cs" Line="10" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
