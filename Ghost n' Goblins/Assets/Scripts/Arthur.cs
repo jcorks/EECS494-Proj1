@@ -14,6 +14,7 @@ public class Arthur : MonoBehaviour {
 	private PhysObj thisPhys;
 	private GameObject arthurObject;
 	private bool crouching;
+	private bool jumping;
 	private bool sides;
 	private float speed = 2f;
 	
@@ -33,14 +34,22 @@ public class Arthur : MonoBehaviour {
 	}
 
 	void Update () {
-		//if (!thisPhys.isGrounded)
+
+		if (jumping && thisPhys.isGrounded) {
+			jumping = false;
+		}
+
+		if (!jumping)
 			thisPhys.setVelocity (new Vector2(0f, thisPhys.getVelocity().y));
-		if (Input.GetKey(KeyCode.LeftArrow) && !crouching) 
+
+
+
+		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && !jumping) 
 		{
 			thisPhys.addVelocity(-speed, 0f);
 			Debug.Log ("movingleft");
 		}
-		if (Input.GetKey(KeyCode.RightArrow) && !crouching)
+		if (Input.GetKey(KeyCode.RightArrow) && !crouching && !jumping)
 		{
 			thisPhys.addVelocity(speed, 0f);
 			Debug.Log ("movingRight");
@@ -50,8 +59,10 @@ public class Arthur : MonoBehaviour {
 			crouching = true;
 			Debug.Log (crouching);
 		}
-		if (Input.GetKeyUp(KeyCode.DownArrow))
+		if (!jumping && Input.GetKeyDown(KeyCode.UpArrow))
 		{
+			jumping = true;
+			thisPhys.addVelocity (9, 90);
 			crouching = false;
 			Debug.Log (crouching);
 		}
@@ -60,6 +71,9 @@ public class Arthur : MonoBehaviour {
 			//arthurObject.scale
 			Debug.Log ("shootWeapon");
 		}
+
+
+
 
 	}
 

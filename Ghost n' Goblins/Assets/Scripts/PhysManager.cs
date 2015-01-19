@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class PhysManager : MonoBehaviour {
 	
 	private static List<PhysObj> objs;
-	private static Vector2 accConstant = new Vector2(0.0f, -.8f);
+	private static Vector2 accConstant = new Vector2(0.0f, -.5f);
 
 
 	/* Public interface */
@@ -32,8 +32,11 @@ public class PhysManager : MonoBehaviour {
 
 
 			// Add gravity or (other constant) to the obj's velocity 
-			if (!co.isGrounded) {
+			if (!co.isGrounded && !co.ignoreGravity) {
+				//print ("added velocity");
 				co.addVelocity(accConstant);
+
+			} else {
 				co.isGrounded = false;
 			}
 
@@ -44,6 +47,8 @@ public class PhysManager : MonoBehaviour {
 						   (1.0f - co.getFriction ())*Time.fixedDeltaTime;
 
 			co.transform.position = newPos;
+
+
 		}
 	}
 }
