@@ -82,7 +82,9 @@ public class Arthur : MonoBehaviour {
 			Debug.Log ("weapon on " + weaponCount);
 			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
 			Weapon weaponComp = weaponObj.GetComponent<Weapon>();
-			weaponComp.thisArthur = this;
+			weaponComp.thisArthur = this.GetComponent<Arthur>();
+			Debug.Log (weaponComp.thisArthur.weaponCount);
+
 			weaponComp.weapon = this.weapon;
 			weaponComp.sides = this.sides;
 			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + 0.6f); 
