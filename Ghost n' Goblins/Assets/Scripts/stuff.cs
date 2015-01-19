@@ -5,9 +5,9 @@ using System.Collections;
 //Trying to work on a raycasting solution for collision based upon
 //http://deranged-hermit.blogspot.com/2014/01/2d-platformer-collision-detection-with.html
 
-public class Arthur : MonoBehaviour {
-
-	public float acceleration  = 4f;
+public class stuff : MonoBehaviour {
+	
+	/*public float acceleration  = 4f;
 	public float maxSpeed = 150f;
 	public float gravity = 9.8f;
 	public float maxfall = 200f;
@@ -25,14 +25,20 @@ public class Arthur : MonoBehaviour {
 
 	int horizontalRays = 6;
 	int verticalRays = 4;
-	int margin = 2;
+	int margin = 2;*/
 	
 	// Use this for initialization
+	
+	private PhysObj thisPhys;
+	
 	void Start() {
-		layerMask = LayerMask.NameToLayer ("normalCollisions");
-		phys = GetComponent<PhysObj> ();
-	}
 
+		phys = GetComponent<PhysObj> ();
+
+		//layerMask = LayerMask.NameToLayer ("normalCollisions");
+
+	}
+	
 	void FixedUpdate(){
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			print ("I jumped");
@@ -52,8 +58,9 @@ public class Arthur : MonoBehaviour {
 			falling = true;
 		}
 		*/
-
+		
 	}
+
 	void Update () {
 
 		//transform.Translate (velocity * Time.deltaTime);
@@ -83,6 +90,12 @@ public class Arthur : MonoBehaviour {
 		} else {
 			phys.setVelocity (new Vector2(0, phys.getVelocity ().y));
 		}
+
+	void LaterUpdate () {
+		
+		//transform.Translate (velocity * Time.deltaTime);
+		//movement = Input.GetAxis ("Horizontal")
+
 	}
 }
 

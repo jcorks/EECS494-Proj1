@@ -85,6 +85,13 @@ public class PhysObj : MonoBehaviour {
 		return active;
 	}
 
+	public void movement(float direction) {
+		if (isActive ()){
+			Vector2 pos = transform.position;
+			pos.x = direction * 3 * Time.deltaTime;
+			transform.position = pos;
+		}
+	}
 
 
 	//. Collision 
@@ -102,8 +109,8 @@ public class PhysObj : MonoBehaviour {
 	}
 
 
-	private void resolveCollision(PhysObj other, bool enter) {
 
+	private void resolveCollision(PhysObj other, bool enter) {
 
 		if (!isActive()) return;
 
