@@ -28,23 +28,65 @@ public class Arthur : MonoBehaviour {
 	
 	// Use this for initialization
 
+	public int health;
+
 	private PhysObj thisPhys;
+	private GameObject arthurObject;
+	private bool crouching;
+	private bool sides;
+
 
 	void Start() {
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
-		//layerMask = LayerMask.NameToLayer ("normalCollisions");
+		arthurObject = this.gameObject;
+		health = 2;
+		crouching = false;
 	}
 
-	void FixedUpdate () {
-
-		if (Input.GetKey(KeyCode.LeftArrow))
-		{
-			thisPhys.movement(-1);
+	void changeSide(bool sides) {
+		if (sides) {
+			Vector3 theScale = transform.localScale;
+			theScale.z *= -1;
+			transform.localScale = theScale;
 		}
-		if (Input.GetKey(KeyCode.RightArrow))
+	}
+
+
+	void Update () {
+
+		if (Input.GetKeyDown(KeyCode.LeftArrow) && !crouching)
 		{
-			thisPhys.movement(1);
+			Debug.Log ("movingLeft");
+		}
+		if (Input.GetKey(KeyCode.RightArrow) && !crouching)
+		{
+			Debug.Log ("movingRight");
 		}	
+		if (Input.GetKey(KeyCode.DownArrow))
+		{
+			crouching = true;
+			Debug.Log (crouching);
+		}
+		if (Input.GetKeyUp(KeyCode.DownArrow))
+		{
+			crouching = false;
+			Debug.Log (crouching);
+		}
+	}
+
+	void OnCollisionEnter(Collision coll){
+		//Find out what hit this basket
+		GameObject collidedWith = coll.gameObject;
+		if (collidedWith.tag == "Enemy") {
+			health--;
+			if (health == 0) {
+				Destroy (Arthur);
+			}
+
+			//movement and invincibility
+
+			//change state
+		}
 	}
 }
 

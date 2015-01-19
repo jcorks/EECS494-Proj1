@@ -83,15 +83,6 @@ public class PhysObj : MonoBehaviour {
 		return active;
 	}
 
-	public void movement(float direction) {
-		if (isActive ()){
-			Vector2 pos = transform.position;
-			pos.x = direction * 3 * Time.deltaTime;
-			transform.position = pos;
-		}
-	}
-
-
 	//. Collision 
 	void OnTriggerEnter(Collider other) {
 		//Debug.Log ("entered");
