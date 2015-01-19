@@ -36,7 +36,7 @@ public class Arthur : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-
+		/*
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
 			thisPhys.movement(-1);
@@ -45,6 +45,27 @@ public class Arthur : MonoBehaviour {
 		{
 			thisPhys.movement(1);
 		}	
+		*/
+	}
+
+	void Update() {
+		if (Input.GetKey (KeyCode.LeftArrow)) {
+				thisPhys.setVelocity (new Vector2 (-1, thisPhys.getVelocity ().y));
+
+
+		} else {
+			thisPhys.setVelocity (new Vector2 (0, thisPhys.getVelocity ().y));
+		}
+
+
+
+
+		if (Input.GetKey (KeyCode.RightArrow)) {
+			thisPhys.setVelocity (new Vector2 (1, thisPhys.getVelocity ().y));
+
+		} else {
+			thisPhys.setVelocity (new Vector2 (0, thisPhys.getVelocity ().y));
+		}
 	}
 }
 

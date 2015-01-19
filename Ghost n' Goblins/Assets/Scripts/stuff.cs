@@ -7,7 +7,7 @@ using System.Collections;
 
 public class stuff : MonoBehaviour {
 	
-	/*public float acceleration  = 4f;
+	public float acceleration  = 4f;
 	public float maxSpeed = 150f;
 	public float gravity = 9.8f;
 	public float maxfall = 200f;
@@ -25,7 +25,7 @@ public class stuff : MonoBehaviour {
 
 	int horizontalRays = 6;
 	int verticalRays = 4;
-	int margin = 2;*/
+	int margin = 2;
 	
 	// Use this for initialization
 	
@@ -63,33 +63,26 @@ public class stuff : MonoBehaviour {
 
 	void Update () {
 
-		//transform.Translate (velocity * Time.deltaTime);
-		//movement = Input.GetAxis ("Horizontal")
-		if (Input.GetKey (KeyCode.LeftArrow)) {
-			phys.setVelocity (new Vector2 (-1, phys.getVelocity ().y));
-						/*
-			Vector3 pos = transform.position;
-			pos.x += -1 * velocity * Time.deltaTime;
-			transform.position = pos;
-			*/
-		} else {
-			phys.setVelocity (new Vector2(0, phys.getVelocity ().y));
-		}
+				//transform.Translate (velocity * Time.deltaTime);
+				//movement = Input.GetAxis ("Horizontal")
+				if (Input.GetKey (KeyCode.LeftArrow)) {
+						phys.setVelocity (new Vector2 (-1, phys.getVelocity ().y));
+						
+
+				} else {
+						phys.setVelocity (new Vector2 (0, phys.getVelocity ().y));
+				}
 
 
 
 
-		if (Input.GetKey(KeyCode.RightArrow))
-		{
-			phys.setVelocity (new Vector2(1, phys.getVelocity ().y));
-			/*
-			Vector3 pos = transform.position;
-			pos.x += 1 * velocity * Time.deltaTime;
-			transform.position = pos;
-			*/
-		} else {
-			phys.setVelocity (new Vector2(0, phys.getVelocity ().y));
-		}
+				if (Input.GetKey (KeyCode.RightArrow)) {
+						phys.setVelocity (new Vector2 (1, phys.getVelocity ().y));
+
+				} else {
+						phys.setVelocity (new Vector2 (0, phys.getVelocity ().y));
+				}
+	}
 
 	void LaterUpdate () {
 		
