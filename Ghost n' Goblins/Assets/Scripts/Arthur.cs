@@ -51,16 +51,9 @@ public class Arthur : MonoBehaviour {
 		}
 	}
 
-<<<<<<< HEAD
-
 	void Update () {
 
-		if (Input.GetKeyDown(KeyCode.LeftArrow) && !crouching)
-=======
-	void FixedUpdate () {
-		/*
-		if (Input.GetKey(KeyCode.LeftArrow))
->>>>>>> origin/master
+		if (Input.GetKeyDown(KeyCode.LeftArrow) && !crouching) 
 		{
 			Debug.Log ("movingLeft");
 		}
@@ -68,7 +61,6 @@ public class Arthur : MonoBehaviour {
 		{
 			Debug.Log ("movingRight");
 		}	
-<<<<<<< HEAD
 		if (Input.GetKey(KeyCode.DownArrow))
 		{
 			crouching = true;
@@ -87,34 +79,12 @@ public class Arthur : MonoBehaviour {
 		if (collidedWith.tag == "Enemy") {
 			health--;
 			if (health == 0) {
-				Destroy (Arthur);
+				Destroy (this.gameObject);
 			}
 
 			//movement and invincibility
 
 			//change state
-=======
-		*/
-	}
-
-	void Update() {
-		if (Input.GetKey (KeyCode.LeftArrow)) {
-				thisPhys.setVelocity (new Vector2 (-1, thisPhys.getVelocity ().y));
-
-
-		} else {
-			thisPhys.setVelocity (new Vector2 (0, thisPhys.getVelocity ().y));
-		}
-
-
-
-
-		if (Input.GetKey (KeyCode.RightArrow)) {
-			thisPhys.setVelocity (new Vector2 (1, thisPhys.getVelocity ().y));
-
-		} else {
-			thisPhys.setVelocity (new Vector2 (0, thisPhys.getVelocity ().y));
->>>>>>> origin/master
 		}
 	}
 }
