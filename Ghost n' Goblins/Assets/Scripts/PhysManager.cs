@@ -16,21 +16,32 @@ public class PhysManager : MonoBehaviour {
 		objs.Add (phys);
 	}
 
+	public static Vector2 getAccelerationConstant() {
+		return accConstant;
+	}
+
 
 	void Awake() {
 		objs = new List<PhysObj> ();
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		foreach (PhysObj co in objs) {
 			if (!co.isActive ()) continue;
-			co.setLastPos (co.transform.position);
+
 
 			// Add gravity or (other constant) to the obj's velocity 
+			if (!co.isGrounded) {
+				co.addVelocity(accConstant);
+				co.isGrounded = false;
+			}
 
-			co.setVelocity(co.getVelocity() + accConstant);
-			Vector2 newPos = co.getLastPos () + (co.getVelocity ()*Time.fixedDeltaTime) * (1.0f - co.getFriction ());
+
+			co.setLastPos(co.transform.position);
+			Vector2 newPos = co.getLastPos () 
+						 + (co.getVelocity ()) * 
+						   (1.0f - co.getFriction ())*Time.fixedDeltaTime;
 
 			co.transform.position = newPos;
 		}

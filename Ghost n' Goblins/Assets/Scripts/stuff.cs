@@ -7,11 +7,12 @@ using System.Collections;
 
 public class stuff : MonoBehaviour {
 	
-	/*public float acceleration  = 4f;
+	public float acceleration  = 4f;
 	public float maxSpeed = 150f;
 	public float gravity = 9.8f;
 	public float maxfall = 200f;
 	public float jump = 200f;
+	public PhysObj phys;
 
 	int layerMask;
 
@@ -24,17 +25,26 @@ public class stuff : MonoBehaviour {
 
 	int horizontalRays = 6;
 	int verticalRays = 4;
-	int margin = 2;*/
+	int margin = 2;
 	
 	// Use this for initialization
 	
 	private PhysObj thisPhys;
 	
 	void Start() {
+
+		phys = GetComponent<PhysObj> ();
+
 		//layerMask = LayerMask.NameToLayer ("normalCollisions");
+
 	}
 	
 	void FixedUpdate(){
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			print ("I jumped");
+			GetComponent<PhysObj>().addVelocity(new Vector2(0, 100));
+		}
+
 		/*
 		box = new Rect (
 			collider.bounds.min.x,
@@ -50,10 +60,35 @@ public class stuff : MonoBehaviour {
 		*/
 		
 	}
+
+	void Update () {
+
+				//transform.Translate (velocity * Time.deltaTime);
+				//movement = Input.GetAxis ("Horizontal")
+				if (Input.GetKey (KeyCode.LeftArrow)) {
+						phys.setVelocity (new Vector2 (-1, phys.getVelocity ().y));
+						
+
+				} else {
+						phys.setVelocity (new Vector2 (0, phys.getVelocity ().y));
+				}
+
+
+
+
+				if (Input.GetKey (KeyCode.RightArrow)) {
+						phys.setVelocity (new Vector2 (1, phys.getVelocity ().y));
+
+				} else {
+						phys.setVelocity (new Vector2 (0, phys.getVelocity ().y));
+				}
+	}
+
 	void LaterUpdate () {
 		
 		//transform.Translate (velocity * Time.deltaTime);
 		//movement = Input.GetAxis ("Horizontal")
+
 	}
 }
 
