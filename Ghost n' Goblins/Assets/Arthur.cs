@@ -12,6 +12,7 @@ public class Arthur : MonoBehaviour {
 	public float gravity = 9.8f;
 	public float maxfall = 200f;
 	public float jump = 200f;
+	public PhysObj phys;
 
 	int layerMask;
 
@@ -29,9 +30,15 @@ public class Arthur : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		layerMask = LayerMask.NameToLayer ("normalCollisions");
+		phys = GetComponent<PhysObj> ();
 	}
 
 	void FixedUpdate(){
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			print ("I jumped");
+			GetComponent<PhysObj>().addVelocity(new Vector2(0, 100));
+		}
+
 		/*
 		box = new Rect (
 			collider.bounds.min.x,
@@ -47,22 +54,35 @@ public class Arthur : MonoBehaviour {
 		*/
 
 	}
-	void LaterUpdate () {
+	void Update () {
 
-		transform.Translate (velocity * Time.deltaTime);
+		//transform.Translate (velocity * Time.deltaTime);
 		//movement = Input.GetAxis ("Horizontal")
-		/*if (Input.GetKey(KeyCode.LeftArrow))
-		{
+		if (Input.GetKey (KeyCode.LeftArrow)) {
+			phys.setVelocity (new Vector2 (-1, phys.getVelocity ().y));
+						/*
 			Vector3 pos = transform.position;
 			pos.x += -1 * velocity * Time.deltaTime;
 			transform.position = pos;
+			*/
+		} else {
+			phys.setVelocity (new Vector2(0, phys.getVelocity ().y));
 		}
+
+
+
+
 		if (Input.GetKey(KeyCode.RightArrow))
 		{
+			phys.setVelocity (new Vector2(1, phys.getVelocity ().y));
+			/*
 			Vector3 pos = transform.position;
 			pos.x += 1 * velocity * Time.deltaTime;
 			transform.position = pos;
-		}	*/
+			*/
+		} else {
+			phys.setVelocity (new Vector2(0, phys.getVelocity ().y));
+		}
 	}
 }
 

@@ -15,9 +15,12 @@ public class PhysObj : MonoBehaviour {
 	public Vector2 InitialVelocity;
 
 	private Vector2 vel			= new Vector2(0.0f, 0.0f);
-	private Vector2 lastPos;
+	private Vector2 lastPos; // previous position;
 	private float friction		= 0.0f; 
 	private bool active 		= true;
+	public  bool isGround 		= false;
+
+	public bool isGrounded = false;
 
 
 	/* Public Interface */
@@ -68,10 +71,9 @@ public class PhysObj : MonoBehaviour {
 		return lastPos;
 	}
 
-	public void setLastPos(Vector2 newLastP) {
-		lastPos = newLastP;
+	public void setLastPos(Vector2 v) {
+		lastPos = v;
 	}
-
 
 
 	//. Inactive
@@ -87,22 +89,33 @@ public class PhysObj : MonoBehaviour {
 
 	//. Collision 
 	void OnTriggerEnter(Collider other) {
+
 		PhysObj otherPhys = other.gameObject.GetComponent<PhysObj>();
 		if (otherPhys)
-			resolveCollision (otherPhys);
+			resolveCollision (otherPhys, true);
 	}
 
 	void OnTriggerStay(Collider other) {
 		PhysObj otherPhys = other.gameObject.GetComponent<PhysObj>();
 		if (otherPhys)
-			resolveCollision (otherPhys);
+			resolveCollision (otherPhys, false);
 	}
-	private void resolveCollision(PhysObj other) {
-		print ("I collided!");
+
+
+	private void resolveCollision(PhysObj other, bool enter) {
+
 
 		if (!isActive()) return;
-		transform.position = getLastPos ();
-		setVelocity (new Vector2(0.0f, 0.0f));
+
+		if (other.isGround) {
+			isGrounded = true;
+			if (enter) {
+				print ("I hit! " + enter);
+				transform.position = getLastPos ();
+				setVelocity (new Vector2 (vel.x, 0.0f));
+			}
+		}
+
 
 	}
 
@@ -118,6 +131,10 @@ public class PhysObj : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+	}
+
+	void LateUpdate() {
+
 	}
 }
