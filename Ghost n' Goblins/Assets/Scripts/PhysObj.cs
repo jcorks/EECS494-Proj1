@@ -21,6 +21,8 @@ public class PhysObj : MonoBehaviour {
 	public  bool isGround 		= false;
 
 	public bool isGrounded = false;
+	public bool isObstacle = false;
+	public bool ignoreGravity = false;
 
 
 	/* Public Interface */
@@ -29,8 +31,8 @@ public class PhysObj : MonoBehaviour {
 
 	// Adds a velocity component given a velocity amount and degree direction
 	public void addVelocity(float velocity, float degrees) {
-		vel.x = velocity * Mathf.Cos (degrees * (Mathf.PI / 180.0f));
-		vel.y = velocity * Mathf.Sin (degrees * (Mathf.PI / 180.0f));
+		vel.x += velocity * Mathf.Cos (degrees * (Mathf.PI / 180.0f));
+		vel.y += velocity * Mathf.Sin (degrees * (Mathf.PI / 180.0f));
 	}
 
 	// Adds a velocity component
@@ -106,12 +108,23 @@ public class PhysObj : MonoBehaviour {
 		if (!isActive()) return;
 
 		if (other.isGround) {
-			isGrounded = true;
-			if (enter) {
-				print ("I hit! " + enter);
-				transform.position = getLastPos ();
+
+			if (vel.y < 0) {
+				//transform.position = getLastPos ();
+				transform.position = new Vector3(
+					transform.position.x, 
+					other.transform.position.y + GetComponent<BoxCollider>().collider.bounds.extents.y,
+					transform.position.z);
+
+				// nullify y component
 				setVelocity (new Vector2 (vel.x, 0.0f));
 			}
+			isGrounded = true;
+		}
+
+		if (other.isObstacle && enter) {
+			print ("i hit a wall");
+			setVelocity (new Vector2(0.0f, vel.y)); 
 		}
 
 
