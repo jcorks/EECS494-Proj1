@@ -13,8 +13,15 @@ public class Weapon : MonoBehaviour {
 	void Start () {
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
 		Debug.Log (weaponSpeed*sides);
-		Debug.Log (sides);
-		thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 4f));
+		Debug.Log (weapon);
+		if (weapon == 0) {
+			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 0f));
+		}
+		if (weapon == 2) {
+			thisPhys.ignoreGravity = false;
+			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 2f));
+		}
+		//thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 4f));
 	}
 	
 	// Update is called once per frame
