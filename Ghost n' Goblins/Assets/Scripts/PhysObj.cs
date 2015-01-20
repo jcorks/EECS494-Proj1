@@ -18,11 +18,13 @@ public class PhysObj : MonoBehaviour {
 	private Vector2 lastPos; // previous position;
 	private float friction		= 0.0f; 
 	private bool active 		= true;
-	public  bool isGround 		= false;
 
+	public  bool isGround 		= false;
+	public float maxVelocity    = 1000.0f;
 	public bool isGrounded = false;
 	public bool isObstacle = false;
 	public bool ignoreGravity = false;
+	public bool ignoreObstacles = false;
 
 
 	/* Public Interface */
@@ -109,7 +111,7 @@ public class PhysObj : MonoBehaviour {
 
 		if (other.isGround) {
 
-			if (vel.y < 0) {
+			if (vel.y < 0 && transform.position.y >= other.transform.position.y) {
 				//transform.position = getLastPos ();
 				transform.position = new Vector3(
 					transform.position.x, 
@@ -122,7 +124,7 @@ public class PhysObj : MonoBehaviour {
 			isGrounded = true;
 		}
 
-		if (other.isObstacle && enter) {
+		if (other.isObstacle && !ignoreObstacles &&  enter) {
 			print ("i hit a wall");
 			//Debug.Log(other.gameObject);
 			setVelocity (new Vector2(0.0f, vel.y)); 
@@ -135,7 +137,7 @@ public class PhysObj : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		active = ActiveObject;
-		vel = InitialVelocity;
+		vel = InitialVelocity;	
 
 			
 	}
@@ -146,7 +148,20 @@ public class PhysObj : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (vel.x > maxVelocity) {
+			vel.x = maxVelocity;
+		}
+		if (vel.y > maxVelocity) {
+			vel.y = maxVelocity;
+		}
 
+		if (vel.x < -maxVelocity) {
+			vel.x = -maxVelocity;
+		}
+
+		if (vel.y < -maxVelocity) {
+			vel.y = -maxVelocity;
+		}
 	}
 
 	void LateUpdate() {

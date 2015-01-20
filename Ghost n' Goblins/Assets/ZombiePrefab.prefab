@@ -115,9 +115,11 @@ MonoBehaviour:
   ActiveObject: 1
   InitialVelocity: {x: 0, y: 0}
   isGround: 0
+  maxVelocity: 1000
   isGrounded: 0
   isObstacle: 0
   ignoreGravity: 0
+  ignoreObstacles: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
