@@ -23,9 +23,9 @@ public class Arthur : MonoBehaviour {
 	private bool jumping;
 	private float speed = 2f;
 	private int weaponLimit = 2; //amount of weapon permitted on screen
-	private Vector3 crouchState1 = new Vector3(1f, 0.5f, 1f);
-	private Vector3 crouchState2 = new Vector3(0f, -0.25f, 0f);
-	private Vector3 standState1 = new Vector3(1f, 1f, 1f);
+	private Vector3 crouchState1 = new Vector3(1f, 0.8f, 1f);
+	private Vector3 crouchState2 = new Vector3(0f, -0.4f, 0f);
+	private Vector3 standState1 = new Vector3(1f, 1.5f, 1f);
 	private Vector3 standState2 = new Vector3(0f, 0f, 0f);
 	private float verticalWeaponSpawn;
 	private BoxCollider boxCollider;
@@ -67,12 +67,20 @@ public class Arthur : MonoBehaviour {
 			thisPhys.addVelocity(-speed, 0f);
 			Debug.Log ("movingleft");
 		}
+		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && jumping) 
+		{
+			sides = -1f;
+		}
 		if (Input.GetKey(KeyCode.RightArrow) && !crouching && !jumping)
 		{
 			sides = 1f;
 			thisPhys.addVelocity(speed, 0f);
 			Debug.Log ("movingRight");
 		}	
+		if (Input.GetKey(KeyCode.RightArrow) && !crouching && jumping) 
+		{
+			sides = 1f;
+		}
 		if (Input.GetKey(KeyCode.DownArrow) && !jumping)
 		{
 			crouching = true;
@@ -88,7 +96,7 @@ public class Arthur : MonoBehaviour {
 		if (!jumping && Input.GetKeyDown(KeyCode.UpArrow) && !crouching)
 		{
 			jumping = true;
-			thisPhys.addVelocity (9, 90);
+			thisPhys.addVelocity (9, 0);
 			crouching = false;
 			Debug.Log (crouching);
 		}
