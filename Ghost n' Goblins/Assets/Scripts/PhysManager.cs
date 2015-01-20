@@ -41,6 +41,7 @@ public class PhysManager : MonoBehaviour {
 			}
 
 
+
 			co.setLastPos(co.transform.position);
 			Vector2 newPos = co.getLastPos () 
 						 + (co.getVelocity ()) * 
