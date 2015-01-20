@@ -661,8 +661,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1991181158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4138c04120f6c5142b1640891a924bb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 16ffe30cc02c9bd4096daf03a1da5e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  example: {fileID: 109232, guid: b272eb765a2114d4dbc80f1b732ca28b, type: 2}
-  arthurPrefab: {fileID: 171948, guid: 6c305da0df8247c40bd5f04b7e2c8f56, type: 2}
+  zombiePrefab: {fileID: 109232, guid: b272eb765a2114d4dbc80f1b732ca28b, type: 2}
+  respawnRateSeconds: 3

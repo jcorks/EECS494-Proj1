@@ -27,6 +27,7 @@ public class Arthur : MonoBehaviour {
 	private Vector3 crouchState2 = new Vector3(0f, -0.25f, 0f);
 	private Vector3 standState1 = new Vector3(1f, 1f, 1f);
 	private Vector3 standState2 = new Vector3(0f, 0f, 0f);
+	private float verticalWeaponSpawn;
 	private BoxCollider boxCollider;
 
 			
@@ -75,14 +76,16 @@ public class Arthur : MonoBehaviour {
 		if (Input.GetKey(KeyCode.DownArrow) && !jumping)
 		{
 			crouching = true;
+			verticalWeaponSpawn = 0.2f;
 			Debug.Log (crouching);
 		}
 		if (Input.GetKeyUp(KeyCode.DownArrow) && !jumping)
 		{
 			crouching = false;
+			verticalWeaponSpawn = 0.5f;
 			Debug.Log (crouching);
 		}
-		if (!jumping && Input.GetKeyDown(KeyCode.UpArrow))
+		if (!jumping && Input.GetKeyDown(KeyCode.UpArrow) && !crouching)
 		{
 			jumping = true;
 			thisPhys.addVelocity (9, 90);
@@ -101,7 +104,7 @@ public class Arthur : MonoBehaviour {
 
 			weaponComp.weapon = this.weapon;
 			weaponComp.sides = this.sides;
-			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + 0.6f); 
+			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn); 
 		}
 		if (crouching) {
 			boxCollider.transform.localScale = crouchState1;
