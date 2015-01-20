@@ -115,10 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fca48ed456e9b418b43a39d7baf116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponPrefab: {fileID: 133618, guid: 5d0c01483f9031641914886a4f7df8e4, type: 2}
+  WeaponPrefab: {fileID: 169690, guid: 70c9b2b5fbfd3bd478ede1d6f80a8b4f, type: 2}
   health: 0
   weapon: 0
   sides: 0
+  weaponCount: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -23,7 +23,14 @@ public class Weapon : MonoBehaviour {
 		}
 		//thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 4f));
 	}
-	
+
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Hostile") {
+			thisArthur.weaponCount--;
+			Destroy (this.gameObject);
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		//Keeps track if weapon is offscreen;

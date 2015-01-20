@@ -33,7 +33,13 @@ public class Zombie : MonoBehaviour {
 	void Start () {
 		
 	}
-	
+
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Weapon") {
+			Destroy(this.gameObject);
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (spawnTime < 0 && !spawned) {
