@@ -26,6 +26,8 @@ public class PhysObj : MonoBehaviour {
 	public bool ignoreGravity = false;
 	public bool ignoreObstacles = false;
 
+	private GameObject lastFloor = null;
+
 
 	/* Public Interface */
 
@@ -35,16 +37,19 @@ public class PhysObj : MonoBehaviour {
 	public void addVelocity(float velocity, float degrees) {
 		vel.x += velocity * Mathf.Cos (degrees * (Mathf.PI / 180.0f));
 		vel.y += velocity * Mathf.Sin (degrees * (Mathf.PI / 180.0f));
+		if (vel.y > 0.0001) isGrounded = false;
 	}
 
 	// Adds a velocity component
 	public void addVelocity(Vector2 newVel) {
 		vel += newVel;
+		if (vel.y > 0.0001) isGrounded = false;
 	}
 
 	// Explicitly sets the velocity to the specified value
 	public void setVelocity(Vector2 newVel) {
 		vel = newVel;
+		if (vel.y > 0.0001) isGrounded = false;
 	}
 
 	// Returns the current Velocity
@@ -103,7 +108,12 @@ public class PhysObj : MonoBehaviour {
 			resolveCollision (otherPhys, false);
 	}
 
-
+	void OnTriggerExit(Collider other) {
+		if (lastFloor && other.gameObject.GetInstanceID () == lastFloor.GetInstanceID ()) {
+			isGrounded = false;
+			lastFloor = null;
+		}
+	}
 
 	private void resolveCollision(PhysObj other, bool enter) {
 
@@ -122,6 +132,7 @@ public class PhysObj : MonoBehaviour {
 				setVelocity (new Vector2 (vel.x, 0.0f));
 			}
 			isGrounded = true;
+			lastFloor = other.gameObject;
 		}
 
 		if (other.isObstacle && !ignoreObstacles &&  enter) {
@@ -131,6 +142,8 @@ public class PhysObj : MonoBehaviour {
 		}
 
 	}
+
+
 
 
 
@@ -162,9 +175,10 @@ public class PhysObj : MonoBehaviour {
 		if (vel.y < -maxVelocity) {
 			vel.y = -maxVelocity;
 		}
+
 	}
 
 	void LateUpdate() {
-
+		
 	}
 }

@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 109232, guid: b272eb765a2114d4dbc80f1b732ca28b, type: 2}
-  respawnRateSeconds: 4
+  respawnRateSeconds: 199
 --- !u!114 &1991181166
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,9 +36,7 @@ public class PhysManager : MonoBehaviour {
 				//print ("added velocity");
 				co.addVelocity(accConstant);
 
-			} else {
-				co.isGrounded = false;
-			}
+			} 
 
 
 

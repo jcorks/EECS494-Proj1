@@ -59,39 +59,51 @@ public class Arthur : MonoBehaviour {
 
 	void Update () {
 
+
+		if (!jumping && Input.GetKey(KeyCode.UpArrow) && !crouching)
+		{
+			jumping = true;
+			print ("Jump begin!");			
+			thisPhys.addVelocity (jumpVel, 90);
+			crouching = false;
+		}
 		if (jumping && thisPhys.isGrounded) {
 			if (!isHitOnGround) {
 				isHitOnGround = true;
 				print ("Grounded but hit");
 			}
+			print ("No longer jumping");
 			jumping = false;
 		}
+
+
 
 		if (!jumping)
 			thisPhys.setVelocity (new Vector2(0f, thisPhys.getVelocity().y));
 
 
-		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded) 
+
+
+		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping) 
 		{
 			sides = -1f;
 			thisPhys.addVelocity(-speed, 0f);
-			Debug.Log ("movingleft");
 		}
 		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && jumping) 
 		{
 			sides = -1f;
 		}
 
-		if (Input.GetKey(KeyCode.RightArrow) && !crouching && thisPhys.isGrounded)
+		if (Input.GetKey(KeyCode.RightArrow) && !crouching && thisPhys.isGrounded && !jumping)
 		{
 			sides = 1f;
 			thisPhys.addVelocity(speed, 0f);
-			Debug.Log ("movingRight");
 		}	
 		if (Input.GetKey(KeyCode.RightArrow) && !crouching && jumping) 
 		{
 			sides = 1f;
 		}
+
 
 		if (Input.GetKey(KeyCode.DownArrow) && !jumping && thisPhys.isGrounded)
 		{
@@ -105,14 +117,7 @@ public class Arthur : MonoBehaviour {
 			verticalWeaponSpawn = 0.5f;
 			Debug.Log (crouching);
 		}
-		if (!jumping && Input.GetKeyDown(KeyCode.UpArrow) && !crouching)
-		{
-			jumping = true;
 
-			thisPhys.addVelocity (jumpVel, 90);
-			crouching = false;
-			Debug.Log (crouching);
-		}
 		if (Input.GetKeyDown (KeyCode.Space) && weaponCount < weaponLimit) 
 		{
 			//arthurObject.scale
@@ -126,6 +131,8 @@ public class Arthur : MonoBehaviour {
 			weaponComp.weapon = this.weapon;
 			weaponComp.sides = this.sides;
 			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn); 
+
+
 		}
 		if (crouching) {
 			boxCollider.transform.localScale = crouchState1;
