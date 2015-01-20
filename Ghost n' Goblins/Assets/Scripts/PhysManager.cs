@@ -30,7 +30,7 @@ public class PhysManager : MonoBehaviour {
 		foreach (PhysObj co in objs) {
 			if (!co.isActive ()) continue;
 
-
+			if (co == null) continue;
 			// Add gravity or (other constant) to the obj's velocity 
 			if (!co.isGrounded && !co.ignoreGravity) {
 				//print ("added velocity");

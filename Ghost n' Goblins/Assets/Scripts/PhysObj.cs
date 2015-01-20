@@ -124,9 +124,9 @@ public class PhysObj : MonoBehaviour {
 
 		if (other.isObstacle && enter) {
 			print ("i hit a wall");
+			//Debug.Log(other.gameObject);
 			setVelocity (new Vector2(0.0f, vel.y)); 
 		}
-
 
 	}
 

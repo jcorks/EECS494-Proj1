@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour {
 	public PhysObj thisPhys;
 	public float sides;
 	public int weapon;
-	private float weaponSpeed = 7f;
+	private float weaponSpeed = 9f;
 
 	// Use this for initialization
 	void Start () {
@@ -26,13 +26,16 @@ public class Weapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		//Keeps track if weapon is offscreen;
-		/*if (transform.position.x > weaponDistance && sides == 1) {
+		if (transform.position.x > weaponDistance && sides == 1) {
+			Debug.Log ("weapon gone ");
+			thisArthur.weaponCount--;
 			Destroy (this.gameObject);
 		}
 		if (transform.position.x < -weaponDistance && sides == -1) {
-			Destroy (this.gameObject);
-		}*/
+			Debug.Log ("weapon gone ");
+			thisArthur.weaponCount--;
+			Destroy (this.gameObject);	
+		}
 	}
 }
