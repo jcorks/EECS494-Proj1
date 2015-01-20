@@ -9,12 +9,15 @@ public class Arthur : MonoBehaviour {
 
 	// Use this for initialization
 
+	public GameObject WeaponPrefab;
+
 	public int health;
+	public int weapon;
+	public float sides;
 
 	private PhysObj thisPhys;
 	private GameObject arthurObject;
 	private bool crouching;
-	private bool sides;
 	private float speed = 2f;
 	
 	void Start() {
@@ -22,6 +25,8 @@ public class Arthur : MonoBehaviour {
 		arthurObject = this.gameObject;
 		health = 2;
 		crouching = false;
+		weapon = 1;
+		sides = 1f;
 	}
 
 	void changeSide(bool sides) {
@@ -37,11 +42,13 @@ public class Arthur : MonoBehaviour {
 			thisPhys.setVelocity (new Vector2(0f, thisPhys.getVelocity().y));
 		if (Input.GetKey(KeyCode.LeftArrow) && !crouching) 
 		{
+			sides = 1f;
 			thisPhys.addVelocity(-speed, 0f);
 			Debug.Log ("movingleft");
 		}
 		if (Input.GetKey(KeyCode.RightArrow) && !crouching)
 		{
+			sides = -1f;
 			thisPhys.addVelocity(speed, 0f);
 			Debug.Log ("movingRight");
 		}	
@@ -59,6 +66,11 @@ public class Arthur : MonoBehaviour {
 		{
 			//arthurObject.scale
 			Debug.Log ("shootWeapon");
+			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
+			Weapon weaponComp = weaponObj.GetComponent<Weapon>();
+			weaponComp.weapon = this.weapon;
+			weaponComp.sides = this.sides;
+			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + 0.6f); 
 		}
 
 	}

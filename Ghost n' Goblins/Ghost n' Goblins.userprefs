@@ -1,11 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Arthur.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PhysManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Arthur.cs" Line="80" Column="37" />
-      <File FileName="Assets\Scripts\PhysManager.cs" Line="17" Column="3" />
-      <File FileName="Assets\Scripts\PhysObj.cs" Line="24" Column="2" />
-      <File FileName="Assets\Scripts\stuff.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Arthur.cs" Line="60" Column="24" />
+      <File FileName="Assets\Scripts\PhysManager.cs" Line="27" Column="2" />
+      <File FileName="Assets\Scripts\PhysObj.cs" Line="109" Column="12" />
+      <File FileName="Assets\Scripts\stuff.cs" Line="95" Column="1" />
       <File FileName="..\..\..\Apple Picker Prototype\Assets\AppleTree.cs" Line="29" Column="35" />
       <File FileName="..\..\..\Apple Picker Prototype\Assets\Basket.cs" Line="27" Column="1" />
     </Files>
