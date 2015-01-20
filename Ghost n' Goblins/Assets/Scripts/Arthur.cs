@@ -13,7 +13,7 @@ public class Arthur : MonoBehaviour {
 	public GameObject WeaponPrefab;
 
 	public int health;
-	public int weapon;
+	public WeaponType weapon;
 	public float sides;
 	public int weaponCount;
 
@@ -28,13 +28,22 @@ public class Arthur : MonoBehaviour {
 	private float isHitTimer = 0;
 	private bool isHitOnGround = false; // When hit, it does a special jump that does not show the invincibility amount
 	private bool invincibleVisual;
+	private Vector3 crouchState1 = new Vector3(1f, 0.5f, 1f);
+	private Vector3 crouchState2 = new Vector3(0f, -0.25f, 0f);
+	private Vector3 standState1 = new Vector3(1f, 1f, 1f);
+	private Vector3 standState2 = new Vector3(0f, 0f, 0f);
+	private float verticalWeaponSpawn;
+	private BoxCollider boxCollider;
+
+
 	
 	void Start() {
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
+		boxCollider = this.gameObject.collider as BoxCollider;
 		arthurObject = this.gameObject;
 		health = 2;
 		crouching = false;
-		weapon = 0;
+		weapon = WeaponType.LANCE;
 		sides = 1f;
 	}
 
@@ -76,9 +85,16 @@ public class Arthur : MonoBehaviour {
 		if (Input.GetKey(KeyCode.DownArrow) && !jumping && thisPhys.isGrounded)
 		{
 			crouching = true;
+			verticalWeaponSpawn = 0.2f;
 			Debug.Log (crouching);
 		}
-		if (!jumping && Input.GetKeyDown(KeyCode.UpArrow))
+		if (Input.GetKeyUp(KeyCode.DownArrow) && !jumping)
+		{
+			crouching = false;
+			verticalWeaponSpawn = 0.5f;
+			Debug.Log (crouching);
+		}
+		if (!jumping && Input.GetKeyDown(KeyCode.UpArrow) && !crouching)
 		{
 			jumping = true;
 			thisPhys.addVelocity (jumpVel, 90);
@@ -97,16 +113,16 @@ public class Arthur : MonoBehaviour {
 
 			weaponComp.weapon = this.weapon;
 			weaponComp.sides = this.sides;
-			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + 0.6f); 
+			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn); 
 		}
-		/*if (crouching) {
-			BoxCollider.transform.localScale.y = 0.5;
-			BoxCollider.center = new Vector3(0, -0.25f, 0);
+		if (crouching) {
+			boxCollider.transform.localScale = crouchState1;
+			boxCollider.center = crouchState2;
 		}
 		else {
-			BoxCollider.transform.localScale.y = 1;
-			BoxCollider.center = new Vector3(0, 0, 0);	
-		}*/
+			boxCollider.transform.localScale = standState1;
+			boxCollider.center = standState2;	
+		}
 
 
 
@@ -128,6 +144,7 @@ public class Arthur : MonoBehaviour {
 		}
 	}
 
+
 	void drawInvincibleVisual() {
 		if (invincibleVisual) {
 			GetComponent<MeshRenderer>().renderer.enabled = false;
@@ -142,12 +159,23 @@ public class Arthur : MonoBehaviour {
 		GameObject collidedWith = coll.gameObject;
 		if (collidedWith.tag == "Hostile" && !isHit) {
 			takeHit();
+		}
 
-			//movement and invincibility
 
-			//change state
-		} 
+		if (collidedWith.tag == "Item") {
+			Debug.Log("item received");
+			ItemType received = collidedWith.GetComponent<Items>().get();
+			Destroy(collidedWith);
+			if (received == ItemType.LANCE)
+				weapon = WeaponType.LANCE;
+			if (received == ItemType.KNIFE)
+				weapon = WeaponType.KNIFE;
+			if (received == ItemType.FIREBALL)
+				weapon = WeaponType.FIREBALL;
+
+		}
 	}
+
 
 
 	// take a hit
@@ -166,6 +194,8 @@ public class Arthur : MonoBehaviour {
 		health--;
 		if (health == 0) {
 			Destroy (this.gameObject);
+
+
 		}
 	}
 }

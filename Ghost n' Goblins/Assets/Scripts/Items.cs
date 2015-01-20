@@ -1,15 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript1 : MonoBehaviour {
+public enum ItemType {
+	LANCE,
+	KNIFE,
+	FIREBALL,
+	ARMOR,
+	MONEY
+};
 
-	// Use this for initialization
-	void Start () {
-	
+public class Items : MonoBehaviour {
+
+	PhysObj phys;
+	public ItemType item;
+
+	public void init(ItemType what) {
+		item = what;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public ItemType get(){
+		return item;
 	}
+
 }
