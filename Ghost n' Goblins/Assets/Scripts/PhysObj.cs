@@ -133,11 +133,15 @@ public class PhysObj : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		active = ActiveObject;
 		vel = InitialVelocity;
 
-		PhysManager.register (this);	
+			
+	}
+
+	void Start() {
+		PhysManager.register (this);
 	}
 	
 	// Update is called once per frame
