@@ -2,36 +2,36 @@
 using System.Collections;
 
 public class Zombie : MonoBehaviour {
-
+	
 	PhysObj phys;
-	public static float zombieSpeedMin;
-	public static float zombieSpeedMax;
+	public static float zombieSpeedMin = 3;
+	public static float zombieSpeedMax = 5;
 	public Vector3 speed;
 	public bool spawned = false;
 	public float spawnTime = .6f;
-
-
+	
+	
 	public void init(Vector3 arthurPos) {
-
 		
-
+		
+		
 		phys = GetComponent<PhysObj> ();
-
+		
 		Vector3 speedVec = arthurPos - transform.position;
 		speedVec.Normalize ();
-
-		speed = speedVec * Random.Range (1, 2);
-
-
-
+		
+		speed = speedVec * Random.Range (zombieSpeedMin, zombieSpeedMax);
+		
+		
+		
 	}
-
-
-
-
+	
+	
+	
+	
 	// Use this for initialization
 	void Start () {
-
+		
 	}
 	
 	// Update is called once per frame

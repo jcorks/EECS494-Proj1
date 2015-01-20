@@ -95,12 +95,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 109232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c35eff60e5b1084d975e5cb2ef6d07a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1549c2d891cf8224ba84fd696422339e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0, z: 0}
   spawned: 0
-  spawnTime: 2
+  spawnTime: .600000024
 --- !u!114 &11435268
 MonoBehaviour:
   m_ObjectHideFlags: 1

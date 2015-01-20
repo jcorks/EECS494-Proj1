@@ -8,6 +8,7 @@ using System.Collections;
 public class Arthur : MonoBehaviour {
 
 	// Use this for initialization
+	public static Vector3 arthurPos;
 
 	public GameObject WeaponPrefab;
 
@@ -85,7 +86,7 @@ public class Arthur : MonoBehaviour {
 		}
 
 
-
+		arthurPos = transform.position;
 
 	}
 
