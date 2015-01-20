@@ -26,7 +26,7 @@ public class Arthur : MonoBehaviour {
 		arthurObject = this.gameObject;
 		health = 2;
 		crouching = false;
-		weapon = 1;
+		weapon = 2;
 		sides = 1f;
 	}
 
