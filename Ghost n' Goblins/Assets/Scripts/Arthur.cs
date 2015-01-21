@@ -20,7 +20,7 @@ public class Arthur : MonoBehaviour {
 
 	private PhysObj thisPhys;
 	private GameObject arthurObject;
-	private bool crouching;
+	private bool crouching = false;
 	private bool jumping = false;
 	private bool isHit = false;
 	private bool wall = false;
@@ -35,6 +35,7 @@ public class Arthur : MonoBehaviour {
 	private char hitSide;
 	private bool onLadder = false;
 	private bool upLadder = false;
+	private bool stepUp = false;
 
 	private Vector3 crouchState1 = new Vector3(1f, 0.75f, 1f);
 	private Vector3 crouchState2 = new Vector3(0f, -0.125f, 0f);
@@ -71,9 +72,12 @@ public class Arthur : MonoBehaviour {
 	}
 
 	void Update () {
+		if (upLadder) {
+			climbUp ();
+			return;
+		}
 
-
-		if (!jumping && Input.GetKey(KeyCode.UpArrow) && !crouching)
+		if (!jumping && Input.GetKey(KeyCode.Z) && !crouching)
 		{
 			jumping = true;
 			print ("Jump begin!");			
@@ -96,12 +100,26 @@ public class Arthur : MonoBehaviour {
 		
 		if (isDying) return;
 
-		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != '1') 
+		if (Input.GetKey(KeyCode.UpArrow) && !crouching && thisPhys.isGrounded && !jumping && onLadder) 
+		{
+			Debug.Log("going up");
+			thisPhys.isGrounded = false;
+			upLadder = true;
+			stepUp = true;
+		}
+
+		/*if (Input.GetKey(KeyCode.UpArrow) && onLadder) 
+		{
+			Debug.Log("going up");
+			upLadder = true;
+		}*/
+		
+		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'l') 
 		{
 			sides = -1f;
 			thisPhys.addVelocity(-speed, 0f);
 		}
-		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && jumping) 
+		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && jumping & !upLadder) 
 		{
 			sides = -1f;
 		}
@@ -111,7 +129,7 @@ public class Arthur : MonoBehaviour {
 			sides = 1f;
 			thisPhys.addVelocity(speed, 0f);
 		}	
-		if (Input.GetKey(KeyCode.RightArrow) && !crouching && jumping) 
+		if (Input.GetKey(KeyCode.RightArrow) && !crouching && jumping && !upLadder) 
 		{
 			sides = 1f;
 		}
@@ -131,7 +149,7 @@ public class Arthur : MonoBehaviour {
 			Debug.Log (crouching);
 		}
 
-		if (Input.GetKeyDown (KeyCode.Space) && weaponCount < weaponLimit) 
+		if (Input.GetKeyDown (KeyCode.X) && weaponCount < weaponLimit) 
 		{
 
 			//arthurObject.scale
@@ -215,7 +233,7 @@ public class Arthur : MonoBehaviour {
 			Debug.Log ("Wallhit");
 			if (collidedWith.transform.position.x  > this.transform.position.x)
 				hitSide = 'r';
-			else
+			if (collidedWith.transform.position.x  < this.transform.position.x)
 				hitSide = 'l';
 			Debug.Log (hitSide);
 
@@ -226,18 +244,45 @@ public class Arthur : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerStay(Collider coll){
+		GameObject collidedWith = coll.gameObject;
+		if (collidedWith.tag == "Ladder" && upLadder && stepUp) {
+			Debug.Log ("LadderOn");
+			stepUp = false;
+			transform.position = new Vector3(collidedWith.transform.position.x,
+			   transform.position.y+0.1f,collidedWith.transform.position.z);
+		}
+	}
+		
 	void OnTriggerExit(Collider coll){
-			GameObject collidedWith = coll.gameObject;
-			if (collidedWith.tag == "Wall") {
-					Debug.Log ("WallOff");
-					hitSide = 'n';
-			}
-			if (collidedWith.tag == "Ladder") {
-				Debug.Log ("LadderOff");
-				onLadder = false;
-			}
+		GameObject collidedWith = coll.gameObject;
+		if (collidedWith.tag == "Wall") {
+				Debug.Log ("WallOff");
+				hitSide = 'n';
+		}
+		if (collidedWith.tag == "Ladder") {
+			Debug.Log ("LadderOff");
+			onLadder = false;
+			upLadder = false;
+		}
 	}
 
+	void climbUp() {
+		thisPhys.setVelocity (new Vector2(0f, 0.5f));
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			Debug.Log ("up");
+			thisPhys.addVelocity (speed, 90f);
+		}
+		if (Input.GetKey (KeyCode.DownArrow)) {
+			if (thisPhys.isGrounded) {
+				Debug.Log ("grounded");
+				upLadder = false;
+			}
+			Debug.Log ("down");
+			thisPhys.addVelocity (-speed, 90f);
+		}
+
+	}
 
 	// take a hit
 	void takeHit() {

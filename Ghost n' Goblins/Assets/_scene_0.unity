@@ -877,7 +877,7 @@ MonoBehaviour:
   ActiveObject: 1
   InitialVelocity: {x: 0, y: 0}
   isGround: 0
-  maxVelocity: 10
+  maxVelocity: 13
   isGrounded: 0
   isObstacle: 0
   ignoreGravity: 0
