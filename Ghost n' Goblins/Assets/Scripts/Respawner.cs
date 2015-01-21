@@ -12,7 +12,7 @@ public class Respawner : MonoBehaviour {
 	void Update () {
 		if (Arthur.isDead) { 
 			GameObject inst = (GameObject)Instantiate (arthur);
-			inst.transform.position = new Vector3(0, 4, 0);
+			inst.transform.position = new Vector3(-10f, 0.78f, 0);
 		}
 	}
 }

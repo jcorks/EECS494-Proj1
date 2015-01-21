@@ -9,6 +9,9 @@ public class Zombie : MonoBehaviour {
 	public Vector3 speed;
 	public bool spawned = false;
 	public float spawnTime = 20.0f;
+	public float spawnPeriod = 1000.0f;
+
+	float timeSpawn = 0;
 	float curSpawnTime = 1000;
 	float originalYscale;
 	
@@ -38,6 +41,12 @@ public class Zombie : MonoBehaviour {
 		if (other.tag == "Weapon" && GetComponent<Enemy>().ready) {
 			Destroy(this.gameObject);
 		}
+	}
+
+	void FixedUpdate() {
+		timeSpawn++;
+		if (spawnPeriod == timeSpawn)
+			Destroy (this.gameObject);
 	}
 
 	// Update is called once per frame
