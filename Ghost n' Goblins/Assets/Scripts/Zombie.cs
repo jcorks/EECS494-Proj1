@@ -35,7 +35,7 @@ public class Zombie : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Weapon") {
+		if (other.tag == "Weapon" && GetComponent<Enemy>().ready) {
 			Destroy(this.gameObject);
 		}
 	}
@@ -43,14 +43,18 @@ public class Zombie : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (curSpawnTime < 0 && !spawned) {
-						Vector3 speedVec = Arthur.arthurPos - transform.position;
-						speedVec.Normalize ();
-						
-						speed = speedVec * Random.Range (zombieSpeedMin, zombieSpeedMax);
-						phys.addVelocity (speed);
-						spawned = true;
-						GetComponent<Enemy>().ready = true;
-						GetComponent<MeshRenderer> ().material.color = new Color (64, 0, 0, 255);
+			Vector3 speedVec = Arthur.arthurPos - transform.position;
+			speedVec.Normalize ();
+			if (speedVec == new Vector3(0, 0, 0)) {
+				speedVec = new Vector3(1, 0, 0);
+			}	
+			
+			speed = speedVec * Random.Range (zombieSpeedMin, zombieSpeedMax);
+			phys.addVelocity (speed);
+			spawned = true;
+
+			GetComponent<Enemy>().ready = true;
+			GetComponent<MeshRenderer> ().material.color = new Color (64, 0, 0, 255);
 		} else {
 			if (!spawned) {
 				curSpawnTime -= Time.deltaTime;

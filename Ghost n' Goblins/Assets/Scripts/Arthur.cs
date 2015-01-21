@@ -27,6 +27,7 @@ public class Arthur : MonoBehaviour {
 	private float speed = 3f;
 	private float jumpVel = 13f;
 	private int weaponLimit = 2; //amount of weapon permitted on screen
+	private Color origColor;
 
 	private float isHitTimer = 0;
 	private bool isHitOnGround = false; // When hit, it does a special jump that does not show the invincibility amount
@@ -39,7 +40,7 @@ public class Arthur : MonoBehaviour {
 	private Vector3 crouchState2 = new Vector3(0f, -0.125f, 0f);
 	private Vector3 standState1 = new Vector3(1f, 1f, 1f);
 	private Vector3 standState2 = new Vector3(0f, 0f, 0f);
-	private float verticalWeaponSpawn;
+	private float verticalWeaponSpawn = 0.5f;
 	private BoxCollider boxCollider;
 
 	private bool isDying = false;
@@ -47,6 +48,7 @@ public class Arthur : MonoBehaviour {
 
 	void Awake() {
 		isDead = false;
+		origColor = GetComponent<MeshRenderer> ().material.color;
 	}
 	
 	void Start() {
@@ -123,6 +125,7 @@ public class Arthur : MonoBehaviour {
 		}
 		if (Input.GetKeyUp(KeyCode.DownArrow) && !jumping)
 		{
+
 			crouching = false;
 			verticalWeaponSpawn = 0.5f;
 			Debug.Log (crouching);
@@ -130,6 +133,7 @@ public class Arthur : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space) && weaponCount < weaponLimit) 
 		{
+
 			//arthurObject.scale
 			weaponCount++;
 			Debug.Log ("weapon on " + weaponCount);
@@ -145,10 +149,12 @@ public class Arthur : MonoBehaviour {
 
 		}
 		if (crouching) {
+			GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
 			boxCollider.center = crouchState2;
 			boxCollider.size = crouchState1;
 		}
 		else {
+			GetComponent<MeshRenderer>().material.color = origColor;
 			boxCollider.center = standState2;	
 			boxCollider.size = standState1;
 		}
@@ -242,7 +248,7 @@ public class Arthur : MonoBehaviour {
 
 
 
-		Vector3 hitVel = new Vector3 (sides*speed, jumpVel, 0);
+		Vector3 hitVel = new Vector3 (-sides*speed, jumpVel, 0);
 		jumping = true;
 
 		thisPhys.setVelocity (hitVel);

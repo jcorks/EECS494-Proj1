@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour {
 	public PhysObj thisPhys;
 	public float sides;
 	public WeaponType weapon;
-	private float weaponSpeed = 9f;
+	private float weaponSpeed = 12f;
 	private bool burning = false;
 	private float burnCount = 0f;
 	private Vector3 arthurLastPos;
