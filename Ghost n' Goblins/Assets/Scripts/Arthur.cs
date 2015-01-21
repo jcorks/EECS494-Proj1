@@ -22,6 +22,7 @@ public class Arthur : MonoBehaviour {
 	private bool crouching;
 	private bool jumping = false;
 	private bool isHit = false;
+	private bool wall = false;
 	private float speed = 3f;
 	private float jumpVel = 9f;
 	private int weaponLimit = 2; //amount of weapon permitted on screen
@@ -29,10 +30,13 @@ public class Arthur : MonoBehaviour {
 	private float isHitTimer = 0;
 	private bool isHitOnGround = false; // When hit, it does a special jump that does not show the invincibility amount
 	private bool invincibleVisual;
+	private char hitSide;
+	private bool onLadder = false;
+	private bool upLadder = false;
 
-	private Vector3 crouchState1 = new Vector3(1f, 0.8f, 1f);
-	private Vector3 crouchState2 = new Vector3(0f, -0.4f, 0f);
-	private Vector3 standState1 = new Vector3(1f, 1.5f, 1f);
+	private Vector3 crouchState1 = new Vector3(1f, 0.75f, 1f);
+	private Vector3 crouchState2 = new Vector3(0f, -0.125f, 0f);
+	private Vector3 standState1 = new Vector3(1f, 1f, 1f);
 	private Vector3 standState2 = new Vector3(0f, 0f, 0f);
 	private float verticalWeaponSpawn;
 	private BoxCollider boxCollider;
@@ -82,9 +86,7 @@ public class Arthur : MonoBehaviour {
 			thisPhys.setVelocity (new Vector2(0f, thisPhys.getVelocity().y));
 
 
-
-
-		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping) 
+		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'l') 
 		{
 			sides = -1f;
 			thisPhys.addVelocity(-speed, 0f);
@@ -94,7 +96,7 @@ public class Arthur : MonoBehaviour {
 			sides = -1f;
 		}
 
-		if (Input.GetKey(KeyCode.RightArrow) && !crouching && thisPhys.isGrounded && !jumping)
+		if (Input.GetKey(KeyCode.RightArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'r')
 		{
 			sides = 1f;
 			thisPhys.addVelocity(speed, 0f);
@@ -135,12 +137,12 @@ public class Arthur : MonoBehaviour {
 
 		}
 		if (crouching) {
-			boxCollider.transform.localScale = crouchState1;
 			boxCollider.center = crouchState2;
+			boxCollider.size = crouchState1;
 		}
 		else {
-			boxCollider.transform.localScale = standState1;
 			boxCollider.center = standState2;	
+			boxCollider.size = standState1;
 		}
 
 
@@ -193,8 +195,32 @@ public class Arthur : MonoBehaviour {
 				weapon = WeaponType.FIREBALL;
 
 		}
+		if (collidedWith.tag == "Wall") {
+			Debug.Log ("Wallhit");
+			if (collidedWith.transform.position.x  > this.transform.position.x)
+				hitSide = 'r';
+			else
+				hitSide = 'l';
+			Debug.Log (hitSide);
+
+		}
+		if (collidedWith.tag == "Ladder") {
+			Debug.Log ("near ladder");
+			onLadder = true;
+		}
 	}
 
+	void OnTriggerExit(Collider coll){
+			GameObject collidedWith = coll.gameObject;
+			if (collidedWith.tag == "Wall") {
+					Debug.Log ("WallOff");
+					hitSide = 'n';
+			}
+			if (collidedWith.tag == "Ladder") {
+				Debug.Log ("LadderOff");
+				onLadder = false;
+			}
+	}
 
 
 	// take a hit

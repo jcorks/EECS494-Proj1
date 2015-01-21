@@ -16,12 +16,15 @@ public class Weapon : MonoBehaviour {
 	private float weaponSpeed = 9f;
 	private bool burning = false;
 	private float burnCount = 0f;
+	private Vector3 arthurLastPos;
 
 	// Use this for initialization
 	void Start () {
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
 		Debug.Log (weaponSpeed*sides);
 		Debug.Log (weapon);
+		arthurLastPos = thisArthur.transform.position;
+		Debug.Log (arthurLastPos);
 		if (weapon == WeaponType.LANCE) {
 			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 0f));
 		}
@@ -55,13 +58,13 @@ public class Weapon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Keeps track if weapon is offscreen;
-		if (transform.position.x > weaponDistance && sides == 1) {
-			Debug.Log ("weapon gone ");
+		if (transform.position.x > arthurLastPos.x+weaponDistance && sides == 1) {
+			//Debug.Log (arthurLastPos.x + '>' + transform.position.x+weaponDistance);
 			thisArthur.weaponCount--;
 			Destroy (this.gameObject);
 		}
-		if (transform.position.x < -weaponDistance && sides == -1) {
-			Debug.Log ("weapon gone ");
+		if (transform.position.x < arthurLastPos.x-weaponDistance && sides == -1) {
+			//Debug.Log ("weapon gone ");
 			thisArthur.weaponCount--;
 			Destroy (this.gameObject);	
 		}
