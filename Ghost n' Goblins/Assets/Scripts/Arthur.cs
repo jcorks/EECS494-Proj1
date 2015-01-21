@@ -274,6 +274,7 @@ public class Arthur : MonoBehaviour {
 			thisPhys.addVelocity (speed, 90f);
 		}
 		if (Input.GetKey (KeyCode.DownArrow)) {
+			Debug.Log (thisPhys.isGrounded);
 			if (thisPhys.isGrounded) {
 				Debug.Log ("grounded");
 				upLadder = false;
