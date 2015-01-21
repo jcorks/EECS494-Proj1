@@ -18,10 +18,7 @@ public class Zombie : MonoBehaviour {
 			
 		phys = GetComponent<PhysObj> ();
 		
-		Vector3 speedVec = arthurPos - transform.position;
-		speedVec.Normalize ();
-		
-		speed = speedVec * Random.Range (zombieSpeedMin, zombieSpeedMax);
+
 		
 		
 		
@@ -46,8 +43,14 @@ public class Zombie : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (curSpawnTime < 0 && !spawned) {
+						Vector3 speedVec = Arthur.arthurPos - transform.position;
+						speedVec.Normalize ();
+						
+						speed = speedVec * Random.Range (zombieSpeedMin, zombieSpeedMax);
 						phys.addVelocity (speed);
 						spawned = true;
+						GetComponent<Enemy>().ready = true;
+						GetComponent<MeshRenderer> ().material.color = new Color (64, 0, 0, 255);
 		} else {
 			if (!spawned) {
 				curSpawnTime -= Time.deltaTime;
@@ -57,8 +60,11 @@ public class Zombie : MonoBehaviour {
 	}
 
 	void drawSpawnAnimation() {
+		GetComponent<MeshRenderer> ().material.color = new Color (0, 0, 0, 255);
+		/*
 		Vector3 newScale = transform.localScale;
 		newScale.y = originalYscale * (1 - curSpawnTime / spawnTime);
 		transform.localScale = newScale;
+		*/
 	}
 }

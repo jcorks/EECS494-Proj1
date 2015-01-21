@@ -9,6 +9,7 @@ public class Arthur : MonoBehaviour {
 
 	// Use this for initialization
 	public static Vector3 arthurPos;
+	public static bool isDead = false;
 
 	public GameObject WeaponPrefab;
 
@@ -23,7 +24,7 @@ public class Arthur : MonoBehaviour {
 	private bool jumping = false;
 	private bool isHit = false;
 	private float speed = 3f;
-	private float jumpVel = 9f;
+	private float jumpVel = 13f;
 	private int weaponLimit = 2; //amount of weapon permitted on screen
 
 	private float isHitTimer = 0;
@@ -37,9 +38,15 @@ public class Arthur : MonoBehaviour {
 	private float verticalWeaponSpawn;
 	private BoxCollider boxCollider;
 
+	private bool isDying = false;
 
+
+	void Awake() {
+		isDead = false;
+	}
 	
 	void Start() {
+
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
 		boxCollider = this.gameObject.collider as BoxCollider;
 		arthurObject = this.gameObject;
@@ -82,7 +89,7 @@ public class Arthur : MonoBehaviour {
 			thisPhys.setVelocity (new Vector2(0f, thisPhys.getVelocity().y));
 
 
-
+		if (isDying) return;
 
 		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping) 
 		{
@@ -165,6 +172,7 @@ public class Arthur : MonoBehaviour {
 
 
 	void drawInvincibleVisual() {
+		if (isDying) return;
 		if (invincibleVisual) {
 			GetComponent<MeshRenderer>().renderer.enabled = false;
 		} else {
@@ -177,7 +185,8 @@ public class Arthur : MonoBehaviour {
 		//Find out what hit this basket
 		GameObject collidedWith = coll.gameObject;
 		if (collidedWith.tag == "Hostile" && !isHit) {
-			takeHit();
+			if (collidedWith.GetComponent<Enemy>().ready)
+				takeHit();
 		}
 
 
@@ -212,10 +221,17 @@ public class Arthur : MonoBehaviour {
 		thisPhys.setVelocity (hitVel);
 		health--;
 		if (health == 0) {
-			Destroy (this.gameObject);
-
-
+			isDying = true;
+			GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 255);
+			Invoke ("die", 3);
 		}
+	}
+
+	void die() {
+		isDead = true;
+		Destroy (this.gameObject);
+
+
 	}
 }
 
