@@ -39,7 +39,8 @@ public class Weapon : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Hostile") {
+		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready) {
+
 			thisArthur.weaponCount--;
 			Destroy (this.gameObject);
 		}

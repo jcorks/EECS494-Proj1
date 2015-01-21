@@ -33,7 +33,7 @@ public class ZombieSpawner : MonoBehaviour {
 		yield return new WaitForSeconds (Random.value*2);
 		GameObject z = (GameObject)Instantiate (zombiePrefab);
 		z.transform.position += new Vector3 (
-			Random.Range (-10, 10) + Arthur.arthurPos.x, .5f, 0);
+			Random.Range (-10, 10) + Arthur.arthurPos.x, 1.0f, 0);
 		
 		z.GetComponent<Zombie>().init (Arthur.arthurPos);
 		
