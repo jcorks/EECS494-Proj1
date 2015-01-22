@@ -102,6 +102,7 @@ MonoBehaviour:
   speed: {x: 0, y: 0, z: 0}
   spawned: 0
   spawnTime: .600000024
+  spawnPeriod: 1000
 --- !u!114 &11435268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfe6bc5d8973674eb703ad6e4afcfed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
   ready: 0
 --- !u!1001 &100100000
 Prefab:

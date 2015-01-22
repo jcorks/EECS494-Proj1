@@ -38,7 +38,7 @@ public class Zombie : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter(Collider other) {
+	/*void OnTriggerEnter(Collider other) {
 		if (other.tag == "Weapon" && GetComponent<Enemy>().ready) {
 			Destroy(this.gameObject);
 		}
@@ -46,7 +46,7 @@ public class Zombie : MonoBehaviour {
 		if (other.gameObject.GetComponent<Arthur> ()) {
 			print ("Hello, arthur!");
 		}
-	}
+	}*/
 
 	void FixedUpdate() {
 		timeSpawn++;
