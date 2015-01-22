@@ -49,6 +49,7 @@ public class Weapon : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 		if (other.tag == "Ground" && weapon == WeaponType.FIREBALL) {
+			Debug.Log("fireballHit");
 			thisPhys.setVelocity (new Vector2 (0f, 0f));
 			burning = true;
 			burnCount = Time.time;

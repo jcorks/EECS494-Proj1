@@ -34,6 +34,7 @@ public class Arthur : MonoBehaviour {
 	private bool invincibleVisual;
 	private char hitSide;
 	private bool onLadder = false;
+	private bool onLadderTop = false;
 	private bool upLadder = false;
 	private bool stepUp = false;
 
@@ -107,7 +108,17 @@ public class Arthur : MonoBehaviour {
 			upLadder = true;
 			stepUp = true;
 		}
-
+		if (Input.GetKey(KeyCode.DownArrow) && onLadderTop) 
+		{
+			onLadderTop = false;
+			onLadder = true;
+			Debug.Log("going up");
+			thisPhys.isGrounded = false;
+			upLadder = true;
+			stepUp = true;
+			//transform.position.y =  transform.position.y-1f;
+		}
+		
 		/*if (Input.GetKey(KeyCode.UpArrow) && onLadder) 
 		{
 			Debug.Log("going up");
@@ -242,6 +253,10 @@ public class Arthur : MonoBehaviour {
 			Debug.Log ("near ladder");
 			onLadder = true;
 		}
+		if (collidedWith.tag == "LadderTop") {
+			Debug.Log ("near ladderTop");
+			onLadderTop = true;
+		}
 	}
 
 	void OnTriggerStay(Collider coll){
@@ -251,6 +266,12 @@ public class Arthur : MonoBehaviour {
 			stepUp = false;
 			transform.position = new Vector3(collidedWith.transform.position.x,
 			   transform.position.y+0.1f,collidedWith.transform.position.z);
+		}
+		if (collidedWith.tag == "LadderTop" && upLadder && stepUp) {
+			Debug.Log ("LadderOn");
+			stepUp = false;
+			transform.position = new Vector3(collidedWith.transform.position.x,
+			                                 transform.position.y+0.1f,collidedWith.transform.position.z);
 		}
 	}
 		
