@@ -27,6 +27,8 @@ public class PhysObj : MonoBehaviour {
 	public bool ignoreObstacles = false;
 
 	private GameObject lastFloor = null;
+	private float preWallVel;
+	private GameObject lastWall = null;
 
 
 	/* Public Interface */
@@ -109,9 +111,17 @@ public class PhysObj : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider other) {
+
+
 		if (lastFloor && other.gameObject.GetInstanceID () == lastFloor.GetInstanceID ()) {
 			isGrounded = false;
 			lastFloor = null;
+		}
+
+
+		if (lastWall && other.gameObject.GetInstanceID () == lastWall.GetInstanceID ()) {
+			lastWall = null;
+			vel.x = preWallVel;
 		}
 	}
 
@@ -138,6 +148,8 @@ public class PhysObj : MonoBehaviour {
 		if (other.isObstacle && !ignoreObstacles &&  enter) {
 			print ("i hit a wall");
 			//Debug.Log(other.gameObject);
+			preWallVel = vel.x;
+			lastWall = other.gameObject;
 			setVelocity (new Vector2(0.0f, vel.y)); 
 		}
 
