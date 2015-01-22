@@ -101,6 +101,8 @@ public class Arthur : MonoBehaviour {
 		
 		if (isDying) return;
 
+
+		//If I am pressing up while on the latter
 		if (Input.GetKey(KeyCode.UpArrow) && !crouching && thisPhys.isGrounded && !jumping && onLadder) 
 		{
 			Debug.Log("going up");
@@ -108,6 +110,8 @@ public class Arthur : MonoBehaviour {
 			upLadder = true;
 			stepUp = true;
 		}
+
+		//If I press down while on top of the ladder
 		if (Input.GetKey(KeyCode.DownArrow) && onLadderTop) 
 		{
 			onLadderTop = false;
@@ -116,14 +120,11 @@ public class Arthur : MonoBehaviour {
 			thisPhys.isGrounded = false;
 			upLadder = true;
 			stepUp = true;
-			//transform.position.y =  transform.position.y-1f;
+			Vector3 temp = transform.position;
+			temp.y =  transform.position.y-1f;
+			transform.position = temp;
 		}
-		
-		/*if (Input.GetKey(KeyCode.UpArrow) && onLadder) 
-		{
-			Debug.Log("going up");
-			upLadder = true;
-		}*/
+
 		
 		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'l') 
 		{
