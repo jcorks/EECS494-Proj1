@@ -223,10 +223,7 @@ public class Arthur : MonoBehaviour {
 	void OnTriggerEnter(Collider coll){
 		//Find out what hit this basket
 		GameObject collidedWith = coll.gameObject;
-		if (collidedWith.tag == "Hostile" && !isHit) {
-			if (collidedWith.GetComponent<Enemy>().ready)
-				takeHit();
-		}
+
 
 
 		if (collidedWith.tag == "Item") {
@@ -273,6 +270,11 @@ public class Arthur : MonoBehaviour {
 			stepUp = false;
 			transform.position = new Vector3(collidedWith.transform.position.x,
 			                                 transform.position.y+0.1f,collidedWith.transform.position.z);
+		}
+
+		if (collidedWith.tag == "Hostile" && !isHit) {
+			if (collidedWith.GetComponent<Enemy>().ready)
+				takeHit();
 		}
 	}
 		
