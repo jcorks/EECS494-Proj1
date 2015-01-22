@@ -15,7 +15,8 @@ public class Zombie : MonoBehaviour {
 	float curSpawnTime = 1000;
 	float originalYscale;
 	
-	
+
+
 	public void init(Vector3 arthurPos) {
 		curSpawnTime = spawnTime;
 			
@@ -40,6 +41,10 @@ public class Zombie : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Weapon" && GetComponent<Enemy>().ready) {
 			Destroy(this.gameObject);
+		}
+
+		if (other.gameObject.GetComponent<Arthur> ()) {
+			print ("Hello, arthur!");
 		}
 	}
 
