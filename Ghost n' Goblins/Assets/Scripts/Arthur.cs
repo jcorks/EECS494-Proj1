@@ -20,6 +20,8 @@ public class Arthur : MonoBehaviour {
 
 	private PhysObj thisPhys;
 	private GameObject arthurObject;
+	private WeaponType priorWeapon;
+
 	private bool crouching = false;
 	private bool jumping = false;
 	private bool isHit = false;
@@ -60,7 +62,7 @@ public class Arthur : MonoBehaviour {
 		arthurObject = this.gameObject;
 		health = 2;
 		crouching = false;
-		weapon = WeaponType.LANCE;
+		weapon = priorWeapon;
 		sides = 1f;
 	}
 
@@ -333,7 +335,7 @@ public class Arthur : MonoBehaviour {
 	void die() {
 		isDead = true;
 		Destroy (this.gameObject);
-
+		priorWeapon = weapon;
 
 	}
 }

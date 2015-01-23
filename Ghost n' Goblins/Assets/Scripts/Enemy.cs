@@ -3,15 +3,20 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
+	PhysObj phys;
+	public int health = 0;
 	public bool ready = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Weapon" && ready) {
+			health--;
+			if (health < 1) {
+				Destroy(this.gameObject);
+			}
+		}
+		
+		if (other.gameObject.GetComponent<Arthur> ()) {
+			print ("Hello, arthur!");
+		}
 	}
 }
