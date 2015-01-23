@@ -129,9 +129,9 @@ public class PhysObj : MonoBehaviour {
 
 		if (!isActive()) return;
 
-		if (other.isGround) {
+		if (other.isGround && transform.position.y >= other.transform.position.y) {
 
-			if (vel.y < 0 && transform.position.y >= other.transform.position.y) {
+			if (vel.y < 0) {
 				//transform.position = getLastPos ();
 				transform.position = new Vector3(
 					transform.position.x, 

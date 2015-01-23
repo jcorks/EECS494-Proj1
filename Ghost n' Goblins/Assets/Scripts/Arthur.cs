@@ -24,8 +24,8 @@ public class Arthur : MonoBehaviour {
 	private bool jumping = false;
 	private bool isHit = false;
 	private bool wall = false;
-	private float speed = 3f;
-	private float jumpVel = 13f;
+	private float speed = 2.2f;
+	private float jumpVel = 10f;
 	private int weaponLimit = 2; //amount of weapon permitted on screen
 	private Color origColor;
 
