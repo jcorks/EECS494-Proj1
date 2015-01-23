@@ -4,7 +4,8 @@ using System.Collections;
 public enum WeaponType {
 	LANCE,
 	KNIFE,
-	FIREBALL
+	FIREBALL,
+	PROJECTILE
 };
 
 public class Weapon : MonoBehaviour {
