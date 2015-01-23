@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Manager.cs" />
      <Compile Include="Assets\Scripts\PhysManager.cs" />
      <Compile Include="Assets\Scripts\PhysObj.cs" />
+     <Compile Include="Assets\Scripts\RedArremer.cs" />
      <Compile Include="Assets\Scripts\Respawner.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\Zombie.cs" />
