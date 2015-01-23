@@ -26,7 +26,7 @@ public class RedArremer : MonoBehaviour {
 				grounded = true;
 				print ("awakened");
 			}
-			if (
+
 		}
 		
 		if (other.gameObject.GetComponent<Arthur> ()) {
