@@ -4,8 +4,8 @@ using System.Collections;
 public class Zombie : MonoBehaviour {
 	
 	PhysObj phys;
-	public static float zombieSpeedMin = 2;
-	public static float zombieSpeedMax = 4;
+	public static float zombieSpeedMin = 1.7f;
+	public static float zombieSpeedMax = 2.3f	;
 	public Vector3 speed;
 	public bool spawned = false;
 	public float spawnTime = 20.0f;
@@ -63,7 +63,7 @@ public class Zombie : MonoBehaviour {
 				speedVec = new Vector3(1, 0, 0);
 			}	
 			
-			speed = speedVec * Random.Range (zombieSpeedMin, zombieSpeedMax);
+			speed = speedVec * (Random.value * zombieSpeedMax + zombieSpeedMin);
 			phys.addVelocity (speed);
 			spawned = true;
 
