@@ -35,7 +35,7 @@ public class Zombie : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-
+		GetComponent<Enemy>().score = 100;
 	}
 
 	/*void OnTriggerEnter(Collider other) {

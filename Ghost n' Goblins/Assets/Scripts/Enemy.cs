@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour {
 
 	PhysObj phys;
 	public int health = 0;
+	public int score = 0;
 	public bool ready = false;
 
 	void OnTriggerEnter(Collider other) {

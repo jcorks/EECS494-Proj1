@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  score: 0
   ready: 1
 --- !u!54 &355022430
 Rigidbody:
@@ -581,6 +582,71 @@ Transform:
   - {fileID: 1652477626}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!1 &684667742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 684667746}
+  - 114: {fileID: 684667743}
+  - 132: {fileID: 684667744}
+  m_Layer: 0
+  m_Name: ScoreCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &684667743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684667742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6271b9b7c87f32a48b603925ca5882a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!132 &684667744
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684667742}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: 'Hello!
+
+'
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 10
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &684667746
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684667742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1001 &686238120
 Prefab:
   m_ObjectHideFlags: 0
@@ -1699,6 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fca48ed456e9b418b43a39d7baf116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreGT: {fileID: 0}
   WeaponPrefab: {fileID: 169690, guid: 70c9b2b5fbfd3bd478ede1d6f80a8b4f, type: 2}
   health: 0
   weapon: 0

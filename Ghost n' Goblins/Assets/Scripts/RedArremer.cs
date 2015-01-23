@@ -12,6 +12,8 @@ public class RedArremer : MonoBehaviour {
 		awaken = false;
 		grounded = false;
 		hover = false;
+		GetComponent<Enemy>().score = 500;
+
 	}
 	
 	// Update is called once per frame

@@ -6,6 +6,7 @@ using System.Collections;
 //http://deranged-hermit.blogspot.com/2014/01/2d-platformer-collision-detection-with.html
 
 public class Arthur : MonoBehaviour {
+	public GUIText scoreGT;
 
 	// Use this for initialization
 	public static Vector3 arthurPos;
@@ -56,7 +57,9 @@ public class Arthur : MonoBehaviour {
 	}
 	
 	void Start() {
-
+		GameObject scoreGo = GameObject.Find ("ScoreCounter");
+		scoreGT = scoreGo.GetComponent<GUIText> ();
+		scoreGT.text = "0";
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
 		boxCollider = this.gameObject.collider as BoxCollider;
 		arthurObject = this.gameObject;
@@ -238,6 +241,16 @@ public class Arthur : MonoBehaviour {
 				weapon = WeaponType.KNIFE;
 			if (received == ItemType.FIREBALL)
 				weapon = WeaponType.FIREBALL;
+			if (received == ItemType.MONEY) {
+				int score = int.Parse (scoreGT.text);
+				score += 100;
+				scoreGT.text = score.ToString ();
+			}
+			if (received == ItemType.ARMOR) {
+				int score = int.Parse (scoreGT.text);
+				score += 200;
+				scoreGT.text = score.ToString ();
+			}
 
 		}
 		if (collidedWith.tag == "Wall") {
@@ -291,6 +304,10 @@ public class Arthur : MonoBehaviour {
 			onLadder = false;
 			upLadder = false;
 		}
+		if (collidedWith.tag == "LadderTop") {
+			Debug.Log ("off ladderTop");
+			onLadderTop = false;
+		}
 	}
 
 	void climbUp() {
@@ -317,8 +334,6 @@ public class Arthur : MonoBehaviour {
 		isHit = true;
 		isHitTimer = 3.0f;
 		isHitOnGround = false;
-
-
 
 		Vector3 hitVel = new Vector3 (-sides*speed, jumpVel, 0);
 		jumping = true;

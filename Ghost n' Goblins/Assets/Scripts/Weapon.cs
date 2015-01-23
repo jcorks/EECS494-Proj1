@@ -41,9 +41,13 @@ public class Weapon : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready) {
-
-			thisArthur.weaponCount--;
-			Destroy (this.gameObject);
+			int score = int.Parse (thisArthur.scoreGT.text);
+			score += other.GetComponent<Enemy>().score;
+			thisArthur.scoreGT.text = score.ToString ();
+			if (!burning) {
+				thisArthur.weaponCount--;
+				Destroy (this.gameObject);
+			}
 		}
 		if (other.tag == "Wall") {
 			thisArthur.weaponCount--;

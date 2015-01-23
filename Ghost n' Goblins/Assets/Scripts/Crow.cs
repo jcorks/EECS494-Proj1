@@ -12,6 +12,7 @@ public class Crow : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		m_centerPosition = this.transform.position;
+		GetComponent<Enemy>().score = 100;
 	}
 	
 	// Update is called once per frame
