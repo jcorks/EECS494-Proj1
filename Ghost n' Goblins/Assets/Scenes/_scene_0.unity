@@ -197,6 +197,7 @@ GameObject:
   - 23: {fileID: 355022431}
   - 54: {fileID: 355022430}
   - 114: {fileID: 355022429}
+  - 114: {fileID: 355022435}
   m_Layer: 0
   m_Name: RedArremerPrefab
   m_TagString: Weapon
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  score: 0
+  score: 500
   ready: 1
 --- !u!54 &355022430
 Rigidbody:
@@ -284,11 +285,27 @@ Transform:
   m_PrefabInternal: {fileID: 1034113624}
   m_GameObject: {fileID: 355022428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.92999983, y: 2.0999999, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7.92999983, y: 2.3599999, z: 0}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &355022435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11437104, guid: 362fe9a183663634b92217b3ab241d75,
+    type: 2}
+  m_PrefabInternal: {fileID: 1034113624}
+  m_GameObject: {fileID: 355022428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa85444177f25e84994310cd465773b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  leftAndRightEdge: 0
+  thisArhthur: {fileID: 0}
+  distanceFromArthur: 0
 --- !u!1 &382930624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1103,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 490312, guid: 362fe9a183663634b92217b3ab241d75, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.0999999
+      value: 2.3599999
       objectReference: {fileID: 0}
     - target: {fileID: 490312, guid: 362fe9a183663634b92217b3ab241d75, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1115,6 +1132,14 @@ Prefab:
     - target: {fileID: 190312, guid: 362fe9a183663634b92217b3ab241d75, type: 2}
       propertyPath: m_TagString
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 490312, guid: 362fe9a183663634b92217b3ab241d75, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418130, guid: 362fe9a183663634b92217b3ab241d75, type: 2}
+      propertyPath: score
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 362fe9a183663634b92217b3ab241d75, type: 2}

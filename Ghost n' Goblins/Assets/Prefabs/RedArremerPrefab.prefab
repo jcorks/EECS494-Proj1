@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2390312}
   - 54: {fileID: 5464524}
   - 114: {fileID: 11418130}
+  - 114: {fileID: 11437104}
   m_Layer: 0
   m_Name: RedArremerPrefab
   m_TagString: Untagged
@@ -100,6 +101,17 @@ MonoBehaviour:
   health: 5
   score: 0
   ready: 1
+--- !u!114 &11437104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa85444177f25e84994310cd465773b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

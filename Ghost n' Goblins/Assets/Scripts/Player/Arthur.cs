@@ -129,7 +129,7 @@ public class Arthur : MonoBehaviour {
 			upLadder = true;
 			stepUp = true;
 			Vector3 temp = transform.position;
-			temp.y =  transform.position.y-1.5f;
+			temp.y =  transform.position.y-1.6f;
 			transform.position = temp;
 		}
 		
@@ -272,6 +272,10 @@ public class Arthur : MonoBehaviour {
 		if (collidedWith.tag == "LadderTop") {
 			Debug.Log ("near ladderTop");
 			onLadderTop = true;
+			if (upLadder) {transform.position = new Vector3(
+					collidedWith.transform.position.x,transform.position.y+1.4f,
+						collidedWith.transform.position.z);
+			}
 		}
 	}
 
