@@ -29,6 +29,7 @@ public class Arthur : MonoBehaviour {
 	private bool wall = false;
 	private float speed = 2.2f;
 	private float jumpVel = 10f;
+	private float weaponThrownWaitTime = .2f; // how long to wait after thrown weapon before able to move again
 	private int weaponLimit = 2; //amount of weapon permitted on screen
 	private Color origColor;
 
@@ -47,6 +48,8 @@ public class Arthur : MonoBehaviour {
 	private Vector3 standState2 = new Vector3(0f, 0f, 0f);
 	private float verticalWeaponSpawn = 0.5f;
 	private BoxCollider boxCollider;
+
+	private float weaponWaiting = 0;
 
 	private bool isDying = false;
 
@@ -99,6 +102,7 @@ public class Arthur : MonoBehaviour {
 			jumping = false;
 		}
 
+		weaponWaiting -= Time.deltaTime;
 
 
 		if (!jumping)
@@ -129,9 +133,26 @@ public class Arthur : MonoBehaviour {
 			temp.y =  transform.position.y-1f;
 			transform.position = temp;
 		}
-
 		
-		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'l') 
+		if (Input.GetKeyDown (KeyCode.X) && weaponCount < weaponLimit) 
+		{
+			
+			//arthurObject.scale
+			weaponCount++;
+			Debug.Log ("weapon on " + weaponCount);
+			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
+			Weapon weaponComp = weaponObj.GetComponent<Weapon>();
+			weaponComp.thisArthur = this.GetComponent<Arthur>();
+			Debug.Log (weaponComp.thisArthur.weaponCount);
+			
+			weaponComp.weapon = this.weapon;
+			weaponComp.sides = this.sides;
+			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn); 
+			weaponWaiting = weaponThrownWaitTime;
+			
+		}
+		
+		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'l' && weaponWaiting < 0) 
 		{
 			sides = -1f;
 			thisPhys.addVelocity(-speed, 0f);
@@ -141,7 +162,7 @@ public class Arthur : MonoBehaviour {
 			sides = -1f;
 		}
 
-		if (Input.GetKey(KeyCode.RightArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'r')
+		if (Input.GetKey(KeyCode.RightArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'r' && weaponWaiting < 0)
 		{
 			sides = 1f;
 			thisPhys.addVelocity(speed, 0f);
@@ -166,23 +187,6 @@ public class Arthur : MonoBehaviour {
 			Debug.Log (crouching);
 		}
 
-		if (Input.GetKeyDown (KeyCode.X) && weaponCount < weaponLimit) 
-		{
-
-			//arthurObject.scale
-			weaponCount++;
-			Debug.Log ("weapon on " + weaponCount);
-			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
-			Weapon weaponComp = weaponObj.GetComponent<Weapon>();
-			weaponComp.thisArthur = this.GetComponent<Arthur>();
-			Debug.Log (weaponComp.thisArthur.weaponCount);
-
-			weaponComp.weapon = this.weapon;
-			weaponComp.sides = this.sides;
-			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn); 
-
-
-		}
 		if (crouching) {
 			GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
 			boxCollider.center = crouchState2;
