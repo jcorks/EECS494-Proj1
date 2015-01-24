@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Manager : MonoBehaviour {
-	const float viewWidth = 11.5f;
+	const float viewWidth = 7f;
 	Vector3 prev;
 
 
