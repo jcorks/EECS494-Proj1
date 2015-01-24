@@ -119,14 +119,13 @@ public class Arthur : MonoBehaviour {
 		//If I press down while on top of the ladder
 		if (Input.GetKey(KeyCode.DownArrow) && onLadderTop) 
 		{
-			onLadderTop = false;
 			onLadder = true;
 			Debug.Log("going up");
 			thisPhys.isGrounded = false;
 			upLadder = true;
 			stepUp = true;
 			Vector3 temp = transform.position;
-			temp.y =  transform.position.y-1f;
+			temp.y =  transform.position.y-1.5f;
 			transform.position = temp;
 		}
 
