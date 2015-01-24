@@ -129,6 +129,11 @@ public class PhysObj : MonoBehaviour {
 
 		if (!isActive()) return;
 
+		// reset wall velocity is there is none to emulate preserving
+		if (Mathf.Abs (vel.x) < .001 && Mathf.Abs (vel.y) < .001) {
+			preWallVel = 0;
+		}
+
 		if (other.isGround && transform.position.y >= other.transform.position.y) {
 
 			if (vel.y < 0) {
