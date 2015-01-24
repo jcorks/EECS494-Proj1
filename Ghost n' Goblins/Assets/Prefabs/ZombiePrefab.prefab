@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  score: 0
   ready: 0
 --- !u!1001 &100100000
 Prefab:

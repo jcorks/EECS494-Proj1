@@ -46,20 +46,20 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Arthur.cs" />
-     <Compile Include="Assets\Scripts\Crow.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Crow.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\RedArremer.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Zombie.cs" />
+     <Compile Include="Assets\Scripts\Enemies\ZombieSpawner.cs" />
      <Compile Include="Assets\Scripts\Items.cs" />
      <Compile Include="Assets\Scripts\LadderTop.cs" />
-     <Compile Include="Assets\Scripts\Manager.cs" />
      <Compile Include="Assets\Scripts\PhysManager.cs" />
      <Compile Include="Assets\Scripts\PhysObj.cs" />
-     <Compile Include="Assets\Scripts\RedArremer.cs" />
-     <Compile Include="Assets\Scripts\Respawner.cs" />
-     <Compile Include="Assets\Scripts\Score.cs" />
-     <Compile Include="Assets\Scripts\Weapon.cs" />
-     <Compile Include="Assets\Scripts\Zombie.cs" />
-     <Compile Include="Assets\Scripts\ZombieSpawner.cs" />
+     <Compile Include="Assets\Scripts\Player\Arthur.cs" />
+     <Compile Include="Assets\Scripts\Player\Manager.cs" />
+     <Compile Include="Assets\Scripts\Player\Respawner.cs" />
+     <Compile Include="Assets\Scripts\Player\Score.cs" />
+     <Compile Include="Assets\Scripts\Player\Weapon.cs" />
      <Compile Include="Assets\Scripts\stuff.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
