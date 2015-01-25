@@ -18,9 +18,11 @@ public class Weapon : MonoBehaviour {
 	private bool burning = false;
 	private float burnCount = 0f;
 	private Vector3 arthurLastPos;
+	public int count;
 
 	// Use this for initialization
 	void Start () {
+		count = 0;
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
 		Debug.Log (weaponSpeed*sides);
 		Debug.Log (weapon);
@@ -44,9 +46,12 @@ public class Weapon : MonoBehaviour {
 			int score = int.Parse (thisArthur.scoreGT.text);
 			score += other.GetComponent<Enemy>().score;
 			thisArthur.scoreGT.text = score.ToString ();
+			count++;
+			print (count);
 			if (!burning) {
 				thisArthur.weaponCount--;
 				Destroy (this.gameObject);
+				count = 0;
 			}
 		}
 		if (other.tag == "Wall") {

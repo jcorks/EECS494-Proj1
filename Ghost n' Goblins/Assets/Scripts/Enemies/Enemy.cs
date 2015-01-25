@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour {
 	public bool ready = false;
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Weapon" && ready) {
+		if (other.tag == "Weapon" && ready && other.GetComponent<Weapon>().count == 1) {
+			print (other.GetComponent<Weapon>().count);
 			health--;
 			if (health < 1) {
 				Destroy(this.gameObject);

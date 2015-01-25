@@ -34,6 +34,7 @@ public class Arthur : MonoBehaviour {
 	private Color origColor;
 
 	private float isHitTimer = 0;
+	private float platformSpeed = 0;
 	private bool isHitOnGround = false; // When hit, it does a special jump that does not show the invincibility amount
 	private bool invincibleVisual;
 	private char hitSide;
@@ -215,6 +216,9 @@ public class Arthur : MonoBehaviour {
 				drawInvincibleVisual();
 			}
 		}
+		Vector3 pos = transform.position;
+		pos.x += platformSpeed * Time.deltaTime;
+		transform.position = pos;
 	}
 
 
@@ -293,10 +297,13 @@ public class Arthur : MonoBehaviour {
 			transform.position = new Vector3(collidedWith.transform.position.x,
 			                                 transform.position.y+0.1f,collidedWith.transform.position.z);
 		}
-
 		if (collidedWith.tag == "Hostile" && !isHit) {
 			if (collidedWith.GetComponent<Enemy>().ready)
 				takeHit();
+		}
+		if (collidedWith.tag == "Platform") {
+			Debug.Log("on platform");
+			platformSpeed = collidedWith.GetComponent<MovingPlatform>().speed; 			
 		}
 	}
 		
@@ -314,6 +321,10 @@ public class Arthur : MonoBehaviour {
 		if (collidedWith.tag == "LadderTop") {
 			Debug.Log ("off ladderTop");
 			onLadderTop = false;
+		}
+		if (collidedWith.tag == "Platform") {
+			Debug.Log("off platform");
+			platformSpeed = 0; 			
 		}
 	}
 

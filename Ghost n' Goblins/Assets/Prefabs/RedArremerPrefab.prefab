@@ -16,7 +16,7 @@ GameObject:
   - 114: {fileID: 11437104}
   m_Layer: 0
   m_Name: RedArremerPrefab
-  m_TagString: Untagged
+  m_TagString: Hostile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,6 +112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa85444177f25e84994310cd465773b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  leftAndRightEdge: 0
+  thisArhthur: {fileID: 0}
+  distanceFromArthur: 0
+  chanceToChangeDirection: 0
+  chanceToFly: 0
+  ground: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
