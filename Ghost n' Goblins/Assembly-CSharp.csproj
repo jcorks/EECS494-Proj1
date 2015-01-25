@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Enemies\Crow.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyProjectile.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Plant.cs" />
      <Compile Include="Assets\Scripts\Enemies\RedArremer.cs" />
      <Compile Include="Assets\Scripts\Enemies\Zombie.cs" />
      <Compile Include="Assets\Scripts\Enemies\ZombieSpawner.cs" />

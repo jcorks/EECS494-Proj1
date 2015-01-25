@@ -1,8 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Apple Picker Prototype\Assets\Basket.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\Manager.cs">
     <Files>
-      <File FileName="..\..\..\Apple Picker Prototype\Assets\Basket.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\Manager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PhysObj.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PhysManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\Arthur.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemies\ZombieSpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemies\Zombie.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemies\Plant.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\Weapon.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

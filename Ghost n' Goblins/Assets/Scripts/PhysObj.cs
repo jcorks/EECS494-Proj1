@@ -25,6 +25,7 @@ public class PhysObj : MonoBehaviour {
 	public bool isObstacle = false;
 	public bool ignoreGravity = false;
 	public bool ignoreObstacles = false;
+	public bool ignoreGround = false;
 
 	private GameObject lastFloor = null;
 	private float preWallVel;
@@ -134,7 +135,7 @@ public class PhysObj : MonoBehaviour {
 			preWallVel = 0;
 		}
 
-		if (other.isGround && transform.position.y >= other.transform.position.y) {
+		if (!ignoreGround && other.isGround && transform.position.y >= other.transform.position.y) {
 
 			if (vel.y < 0) {
 				//transform.position = getLastPos ();
