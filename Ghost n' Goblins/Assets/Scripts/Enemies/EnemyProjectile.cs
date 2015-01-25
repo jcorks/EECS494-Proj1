@@ -14,6 +14,7 @@ public class EnemyProjectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (Vector3.Distance (transform.position, Arthur.arthurPos) > 100)
+						Destroy (this.gameObject);
 	}
 }
