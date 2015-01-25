@@ -7,10 +7,10 @@ public class Enemy : MonoBehaviour {
 	public int health = 0;
 	public int score = 0;
 	public bool ready = false;
+	public bool ignoreProjectiles = false;
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Weapon" && ready && other.GetComponent<Weapon>().count == 1) {
-			print (other.GetComponent<Weapon>().count);
+		if (other.tag == "Weapon" && ready && !ignoreProjectiles) {
 			health--;
 			if (health < 1) {
 				Destroy(this.gameObject);

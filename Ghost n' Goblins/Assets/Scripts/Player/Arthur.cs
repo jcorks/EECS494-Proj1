@@ -87,7 +87,7 @@ public class Arthur : MonoBehaviour {
 			return;
 		}
 
-		if (!jumping && Input.GetKey(KeyCode.Z) && !crouching)
+		if (!jumping && Input.GetKeyDown(KeyCode.Z) && !crouching)
 		{
 			jumping = true;
 			print ("Jump begin!");			

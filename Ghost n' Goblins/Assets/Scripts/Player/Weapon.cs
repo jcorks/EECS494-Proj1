@@ -42,7 +42,8 @@ public class Weapon : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready) {
+		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready && !other.GetComponent<Enemy>().ignoreProjectiles) {
+			print ("hit!");
 			int score = int.Parse (thisArthur.scoreGT.text);
 			score += other.GetComponent<Enemy>().score;
 			thisArthur.scoreGT.text = score.ToString ();

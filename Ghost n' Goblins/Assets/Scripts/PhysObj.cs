@@ -25,6 +25,7 @@ public class PhysObj : MonoBehaviour {
 	public bool isObstacle = false;
 	public bool ignoreGravity = false;
 	public bool ignoreObstacles = false;
+	public bool ignoreGround = false;
 
 	private GameObject lastFloor = null;
 	private float preWallVel;
@@ -129,7 +130,12 @@ public class PhysObj : MonoBehaviour {
 
 		if (!isActive()) return;
 
-		if (other.isGround && transform.position.y >= other.transform.position.y) {
+		// reset wall velocity is there is none to emulate preserving
+		if (Mathf.Abs (vel.x) < .001 && Mathf.Abs (vel.y) < .001) {
+			preWallVel = 0;
+		}
+
+		if (!ignoreGround && other.isGround && transform.position.y >= other.transform.position.y) {
 
 			if (vel.y < 0) {
 				//transform.position = getLastPos ();

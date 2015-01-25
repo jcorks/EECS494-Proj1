@@ -9,12 +9,12 @@ public class Zombie : MonoBehaviour {
 	public Vector3 speed;
 	public bool spawned = false;
 	public float spawnTime = 20.0f;
-	public float spawnPeriod = 1000.0f;
+	public float lifetime = 5.0f; // seconds of life before despawn
 
-	float timeSpawn = 0;
+	float lifetick = 0;
 	float curSpawnTime = 1000;
 	float originalYscale;
-	
+	float despawnTime = 1.8f; // tiem it takes to despawn
 
 
 	public void init(Vector3 arthurPos) {
@@ -38,20 +38,22 @@ public class Zombie : MonoBehaviour {
 		GetComponent<Enemy>().score = 100;
 	}
 
-	/*void OnTriggerEnter(Collider other) {
-		if (other.tag == "Weapon" && GetComponent<Enemy>().ready) {
-			Destroy(this.gameObject);
-		}
 
-		if (other.gameObject.GetComponent<Arthur> ()) {
-			print ("Hello, arthur!");
-		}
-	}*/
 
 	void FixedUpdate() {
-		timeSpawn++;
-		if (spawnPeriod == timeSpawn)
+		lifetick += Time.deltaTime;
+		if (lifetick > lifetime) {
+			despawn ();
+		}
+	}
+
+	void despawn() {
+		GetComponent<PhysObj> ().setVelocity (new Vector2 (0, 0));
+		GetComponent<Enemy>().ready = false;
+		GetComponent<MeshRenderer>().material.color = new Color(255, 255, 0, 255);
+		if (lifetick - lifetime > despawnTime) {
 			Destroy (this.gameObject);
+		}
 	}
 
 	// Update is called once per frame
@@ -78,11 +80,16 @@ public class Zombie : MonoBehaviour {
 	}
 
 	void drawSpawnAnimation() {
-		GetComponent<MeshRenderer> ().material.color = new Color (0, 0, 0, 255);
+		GetComponent<MeshRenderer> ().material.color = new Color (255, 255, 255, 255);
 		/*
 		Vector3 newScale = transform.localScale;
 		newScale.y = originalYscale * (1 - curSpawnTime / spawnTime);
 		transform.localScale = newScale;
 		*/
+	}
+
+	void drawDespawnAnimation() {
+		GetComponent<MeshRenderer> ().material.color = new Color (255, 255, 255, 255);
+
 	}
 }
