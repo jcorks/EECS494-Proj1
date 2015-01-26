@@ -16,7 +16,7 @@ public class Wraith : MonoBehaviour {
 	Vector3 downPos;
 	float side = 0f;
 	float down = 0f;
-	float chanceToThrowProjectiles = 1f;
+	float chanceToThrowProjectiles = 0.1f;
 
 
 	// Use this for initialization

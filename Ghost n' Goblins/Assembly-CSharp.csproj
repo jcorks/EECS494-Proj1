@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Enemies\Plant.cs" />
      <Compile Include="Assets\Scripts\Enemies\RedArremer.cs" />
      <Compile Include="Assets\Scripts\Enemies\Wraith.cs" />
+     <Compile Include="Assets\Scripts\Enemies\WraithSpawner.cs" />
      <Compile Include="Assets\Scripts\Enemies\Zombie.cs" />
      <Compile Include="Assets\Scripts\Enemies\ZombieSpawner.cs" />
      <Compile Include="Assets\Scripts\Enemies\curve.cs" />
