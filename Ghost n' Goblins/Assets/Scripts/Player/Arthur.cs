@@ -49,6 +49,7 @@ public class Arthur : MonoBehaviour {
 	private Vector3 crouchState2 = new Vector3(0f, -0.125f, 0f);
 	private Vector3 standState1 = new Vector3(1f, 1f, 1f);
 	private Vector3 standState2 = new Vector3(0f, 0f, 0f);
+	private Vector3 ladderVec;
 	private float verticalWeaponSpawn = 0.5f;
 	private BoxCollider boxCollider;
 
@@ -133,7 +134,8 @@ public class Arthur : MonoBehaviour {
 			upLadder = true;
 			stepUp = true;
 			Vector3 temp = transform.position;
-			temp.y =  transform.position.y-1.6f;
+			temp.x = ladderVec.x;
+			temp.y =  transform.position.y-1f;
 			transform.position = temp;
 		}
 		
@@ -289,10 +291,7 @@ public class Arthur : MonoBehaviour {
 		if (collidedWith.tag == "LadderTop") {
 			Debug.Log ("near ladderTop");
 			onLadderTop = true;
-			if (upLadder) {transform.position = new Vector3(
-					collidedWith.transform.position.x,transform.position.y+1.4f,
-						collidedWith.transform.position.z);
-			}
+			ladderVec = collidedWith.transform.position;
 		}
 	}
 
@@ -367,6 +366,7 @@ public class Arthur : MonoBehaviour {
 		isHit = true;
 		isHitTimer = 3.0f;
 		isHitOnGround = false;
+		upLadder = false;
 
 		Vector3 hitVel = new Vector3 (-sides*speed, jumpVel, 0);
 		jumping = true;

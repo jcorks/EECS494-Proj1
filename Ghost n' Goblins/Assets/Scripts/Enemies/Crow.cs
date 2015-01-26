@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class Crow : MonoBehaviour {
-	
+
 	Vector3 m_centerPosition;
-	float m_degrees;
-	float m_speed = -2.5f;
-	float m_amplitude = 0.5f;
-	float m_period = 1f;
+	public float m_degrees;
+	public float m_speed = -2.5f;
+	public float m_amplitude = 0.5f;
+	public float m_period = 1f;
 	int timer = 100;
 	// Use this for initialization
 	void Start () {
