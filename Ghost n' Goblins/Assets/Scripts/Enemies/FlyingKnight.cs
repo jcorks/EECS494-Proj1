@@ -5,13 +5,17 @@ public class FlyingKnight : MonoBehaviour {
 
 	Vector3 pos;
 	float sAmplitude = 3f;
-	float speed = 2.2f;
+	float speed = -2.2f;
 	float sinInterval = 0;
-	float yOffset;
+	float yOffset = 0f;
+	public float degOffset;
+
+
 
 	// Use this for initialization
 	void Start () {
 		yOffset = transform.position.y;
+		sinInterval = degOffset;
 	}
 
 	void FixedUpdate() {
@@ -20,7 +24,6 @@ public class FlyingKnight : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// Move center along x axis
 		pos = transform.position;
 		pos.x += Time.deltaTime * speed;
 
