@@ -281,6 +281,11 @@ public class Arthur : MonoBehaviour {
 			Debug.Log ("near ladder");
 			onLadder = true;
 		}
+		if (collidedWith.tag == "Ground" && upLadder) {
+			Debug.Log ("hitFloor");
+			upLadder = false;
+			onLadder = true;
+		}
 		if (collidedWith.tag == "LadderTop") {
 			Debug.Log ("near ladderTop");
 			onLadderTop = true;
