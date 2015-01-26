@@ -18,11 +18,16 @@ public class Wraith : MonoBehaviour {
 	float down = 0f;
 	float chanceToThrowProjectiles = 0.1f;
 
-
 	// Use this for initialization
 	void Start () {
 		startingPos = transform.position; 
-		side = 1f;
+		if (Arthur.arthurPos.x < transform.position.x) {
+			side = -1;
+		}
+		else {
+			side = 1;
+		}
+
 	}
 
 	// Update is called once per frame
