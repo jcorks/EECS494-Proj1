@@ -1,12 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemies\ZombieSpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemies\curve.cs">
     <Files>
       <File FileName="..\..\..\Apple Picker Prototype\Assets\AppleTree.cs" Line="40" Column="1" />
       <File FileName="Assets\Scripts\Enemies\Plant.cs" Line="32" Column="3" />
       <File FileName="Assets\Scripts\Enemies\Leek.cs" Line="34" Column="1" />
       <File FileName="Assets\Scripts\PhysObj.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemies\ZombieSpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Enemies\ZombieSpawner.cs" Line="31" Column="28" />
+      <File FileName="Assets\Scripts\Enemies\Wraith.cs" Line="86" Column="1" />
+      <File FileName="Assets\Scripts\Enemies\Zombie.cs" Line="17" Column="55" />
+      <File FileName="Assets\Scripts\Enemies\Crow.cs" Line="10" Column="22" />
+      <File FileName="Assets\Scripts\Enemies\curve.cs" Line="94" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
