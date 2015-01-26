@@ -11,6 +11,8 @@ public class Arthur : MonoBehaviour {
 	// Use this for initialization
 	public static Vector3 arthurPos = new Vector3 (-100, -100, -100);
 	public static bool isDead = false;
+	public static int lives = 2;
+	static bool gameStarted = false;
 
 	public GameObject WeaponPrefab;
 
@@ -56,6 +58,7 @@ public class Arthur : MonoBehaviour {
 
 
 	void Awake() {
+
 		isDead = false;
 		origColor = GetComponent<MeshRenderer> ().material.color;
 	}
@@ -369,6 +372,7 @@ public class Arthur : MonoBehaviour {
 		isDead = true;
 		Destroy (this.gameObject);
 		priorWeapon = weapon;
+		Application.LoadLevel ("gameOver");
 
 	}
 }

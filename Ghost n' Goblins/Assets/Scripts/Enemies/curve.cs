@@ -98,7 +98,8 @@ public class curve : MonoBehaviour
 		transform.position = vec;
 		
 		t += 0.02f;
-		if( t > 1f )
+		if (t > 1f)
+						;
 			//t = 0f;
 	}
 }
