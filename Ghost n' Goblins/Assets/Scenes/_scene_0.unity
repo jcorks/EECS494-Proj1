@@ -131,6 +131,7 @@ MonoBehaviour:
   isObstacle: 0
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!23 &39810488
 Renderer:
   m_ObjectHideFlags: 0
@@ -240,11 +241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff147c0343fdde4a966743e71e774a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableDistanceCalculations: 1
-  DrawGizmos: 1
-  DrawControlPoints: 1
-  IsFullLoop: 0
-  SecondsForFullLoop: 20
 --- !u!1 &324244803
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +256,7 @@ GameObject:
   - 54: {fileID: 324244804}
   m_Layer: 0
   m_Name: top
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,6 +297,7 @@ MonoBehaviour:
   isObstacle: 0
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!23 &324244806
 Renderer:
   m_ObjectHideFlags: 0
@@ -391,6 +388,7 @@ MonoBehaviour:
   health: 5
   score: 500
   ready: 1
+  ignoreProjectiles: 0
 --- !u!54 &355022430
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1037,6 +1035,7 @@ MonoBehaviour:
   isObstacle: 0
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!54 &694404992
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1109,6 +1108,7 @@ MonoBehaviour:
   isObstacle: 1
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!23 &721136259
 Renderer:
   m_ObjectHideFlags: 0
@@ -1307,7 +1307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89043cbb4630bbc489ebbce16b1eff81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 1
 --- !u!1 &973424354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,6 +1375,7 @@ MonoBehaviour:
   isObstacle: 1
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!23 &973424358
 Renderer:
   m_ObjectHideFlags: 0
@@ -1458,7 +1458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89043cbb4630bbc489ebbce16b1eff81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 1
 --- !u!1001 &1034113624
 Prefab:
   m_ObjectHideFlags: 0
@@ -1583,6 +1582,7 @@ MonoBehaviour:
   isObstacle: 1
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!23 &1123788375
 Renderer:
   m_ObjectHideFlags: 0
@@ -1665,7 +1665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89043cbb4630bbc489ebbce16b1eff81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 2
 --- !u!1001 &1274445328
 Prefab:
   m_ObjectHideFlags: 0
@@ -1911,6 +1910,7 @@ MonoBehaviour:
   isObstacle: 0
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!23 &1408920563
 Renderer:
   m_ObjectHideFlags: 0
@@ -2220,7 +2220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89043cbb4630bbc489ebbce16b1eff81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 2
 --- !u!1 &1950565398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,6 +2447,7 @@ MonoBehaviour:
   isObstacle: 0
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!23 &2004959012
 Renderer:
   m_ObjectHideFlags: 0
@@ -2498,7 +2498,7 @@ Transform:
   m_GameObject: {fileID: 2004959008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.19000006, y: 2.31999993, z: 0}
-  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_LocalScale: {x: .800000012, y: 1.13999999, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9

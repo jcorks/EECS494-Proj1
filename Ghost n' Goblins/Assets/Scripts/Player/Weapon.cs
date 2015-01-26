@@ -42,12 +42,10 @@ public class Weapon : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready && !other.GetComponent<Enemy>().ignoreProjectiles) {
-			print ("hit!");
+		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready) {
 			int score = int.Parse (thisArthur.scoreGT.text);
 			score += other.GetComponent<Enemy>().score;
 			thisArthur.scoreGT.text = score.ToString ();
-			count++;
 			print (count);
 			if (!burning) {
 				thisArthur.weaponCount--;
