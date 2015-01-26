@@ -10,15 +10,16 @@ public class Leek : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		var transformPos = transform.position;
+		transformPos.y = transform.position.y - 1f;
+		transform.position = transformPos;
 		if (weaponDirection) {
 			var rotationVector = transform.rotation.eulerAngles;
 			rotationVector.z = 90f;
 			transform.rotation = Quaternion.Euler(rotationVector);
-			Debug.Log(speed);
 			GetComponent<PhysObj> ().addVelocity (-speed, 90f);	
 		}
 		else {
-			Debug.Log(side);
 			Vector2 dirVec = new Vector2(speed*side, 0f); 
 			GetComponent<PhysObj> ().addVelocity (dirVec);
 		}
