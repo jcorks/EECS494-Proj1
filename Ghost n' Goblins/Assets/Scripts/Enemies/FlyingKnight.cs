@@ -4,7 +4,7 @@ using System.Collections;
 public class FlyingKnight : MonoBehaviour {
 
 	Vector3 pos;
-	float sAmplitude = 3f;
+	float sAmplitude =3f;
 	float speed = -2.2f;
 	float sinInterval = 0;
 	float yOffset = 0f;
@@ -24,6 +24,14 @@ public class FlyingKnight : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	
+		// Only hitable if arthur is behind
+		GetComponent<Enemy> ().ready = (Arthur.arthurPos.x > transform.position.x);
+
+
+		if (transform.position.x < -40)
+						Destroy (this.gameObject);
+
 		pos = transform.position;
 		pos.x += Time.deltaTime * speed;
 

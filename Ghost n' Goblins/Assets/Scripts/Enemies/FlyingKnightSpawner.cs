@@ -14,9 +14,10 @@ public class FlyingKnightSpawner : MonoBehaviour {
 	float spawnTime = 0f;
 
 	int numPerWave = 3;
-	float[] yPosSource = {6.1f, 6.1f, 6.1f}; // low, med, hi positions
+
+	float[] yPosSource = {3.7f, 4.9f, 6f}; // low, med, hi positions
 	float xPos = 8;
-	float minXSpace = 1.0f;
+	float minXSpace = .5f;
 
 
 	enum Positions {
@@ -39,6 +40,10 @@ public class FlyingKnightSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
+
+
 		spawnTime += Time.deltaTime;
 		if (spawnTime > spawnInterval) {
 			spawnKnights();
@@ -57,8 +62,9 @@ public class FlyingKnightSpawner : MonoBehaviour {
 		float[] yPositions = new float[numPerWave];
 		int numLow = 0;
 
-		for (int i = 1; i < numPerWave; ++i) {
-			int candidateSourceIndex = (int)Random.Range (0, (int)Positions.HIGH);
+		for (int i = 0; i < numPerWave; ++i) {
+
+			int candidateSourceIndex = (int)Random.Range(0, 3);
 			if (candidateSourceIndex == (int)Positions.LOW) {
 			    if (numLow >= numPerWave - 1) { continue; };
 				numLow++;
@@ -66,7 +72,7 @@ public class FlyingKnightSpawner : MonoBehaviour {
 
 
 
-			if (i == numPerWave && numLow == 0) {
+			if (i == numPerWave - 1 && numLow == 0) {
 				yPositions[i] = yPosSource[(int)Positions.LOW];
 			} else {
 				yPositions[i] = yPosSource[candidateSourceIndex];
@@ -80,9 +86,9 @@ public class FlyingKnightSpawner : MonoBehaviour {
 			GameObject knight = (GameObject) Instantiate (FKprefab);
 
 
-			knight.GetComponent <FlyingKnight>().degOffset = degInterval*i * Random.value;
+			knight.GetComponent <FlyingKnight>().degOffset = degInterval*i* Random.value;
 			knight.transform.position = (new Vector3(Arthur.arthurPos.x + xPos, yPositions[i], 0)) 	
-								      + (new Vector3(minXSpace + Random.value, 0, 0)) * i;
+								      + (new Vector3(minXSpace + (Random.value*.3f+.6f), 0, 0)) * i;
 		}
 	}
 }
