@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 173940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .800000012, y: 0, z: 1}
+  m_LocalScale: {x: .75, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 473938}
   m_RootOrder: 0
@@ -315,6 +315,7 @@ MonoBehaviour:
   isObstacle: 1
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!114 &11473940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -334,6 +335,7 @@ MonoBehaviour:
   isObstacle: 0
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!114 &11473942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,6 +355,7 @@ MonoBehaviour:
   isObstacle: 1
   ignoreGravity: 0
   ignoreObstacles: 0
+  ignoreGround: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
