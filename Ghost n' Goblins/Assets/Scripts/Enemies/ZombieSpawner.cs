@@ -6,17 +6,28 @@ public class ZombieSpawner : MonoBehaviour {
 	public GameObject zombiePrefab;
 	
 	public float respawnRateSeconds = 3;
+	public float respawnXbegin = 0;
+	public float respawnXEnd = 50;
 	float timer;
+	public bool considerUpper = true;
+	float yUpper = 5f;
+	float yUpperThreshold = .3f;
+	float xUpperMin = 14.16f;
+	float xUpperMax = 37.16f;
+
+	bool firstWave = false;
 	
 	// Use this for initialization
 	void Start () {
-		timer = respawnRateSeconds;
+		timer = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		timer -= Time.deltaTime;
-		if (timer < 0) {
+		if (timer < 0 &&
+		    Arthur.arthurPos.x >= respawnXbegin &&
+		    Arthur.arthurPos.x <= respawnXEnd) {
 			
 			// stagger creation
 			StartCoroutine (createZombie());
@@ -30,12 +41,22 @@ public class ZombieSpawner : MonoBehaviour {
 	
 	// Delay creating a zombie
 	IEnumerator createZombie() {
-		yield return new WaitForSeconds (Random.value*2);
+		yield return new WaitForSeconds (Random.value*.8f);
 		GameObject z = (GameObject)Instantiate (zombiePrefab);
-		float randPos = Random.Range (0, 5) + 5;
+		float randPos = Random.Range (0, 5) + 3;
 		randPos *= (Random.value > .5 ? -1 : 1);
 		z.transform.position += new Vector3 (
 			randPos	 + Arthur.arthurPos.x, 1.0f, 0);
+
+		// Account for if on higher ground!
+		if (Arthur.arthurPos.y > yUpper - yUpperThreshold) {
+			float xPos = z.transform.position.x;
+			if (xPos < xUpperMin) xPos = xUpperMin + Random.value*2f;
+			if (xPos > xUpperMax) xPos = xUpperMax - Random.value*2f;
+						z.transform.position = new Vector3 (xPos,
+			                                   			   yUpper,
+			                                   			   z.transform.position.z);
+		}
 		
 		z.GetComponent<Zombie>().init (Arthur.arthurPos);
 		

@@ -9,7 +9,7 @@ public class Arthur : MonoBehaviour {
 	public GUIText scoreGT;
 
 	// Use this for initialization
-	public static Vector3 arthurPos;
+	public static Vector3 arthurPos = new Vector3 (-100, -100, -100);
 	public static bool isDead = false;
 
 	public GameObject WeaponPrefab;

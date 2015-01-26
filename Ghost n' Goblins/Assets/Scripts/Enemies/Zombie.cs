@@ -17,6 +17,8 @@ public class Zombie : MonoBehaviour {
 	float despawnTime = 1.8f; // tiem it takes to despawn
 
 
+
+
 	public void init(Vector3 arthurPos) {
 		curSpawnTime = spawnTime;
 			
@@ -44,6 +46,12 @@ public class Zombie : MonoBehaviour {
 		lifetick += Time.deltaTime;
 		if (lifetick > lifetime) {
 			despawn ();
+		}
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "ZDespawner") {
+			lifetick = lifetime;
 		}
 	}
 

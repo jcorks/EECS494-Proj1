@@ -10,15 +10,18 @@ public class FlyingKnightSpawner : MonoBehaviour {
 	 * high -> Will not hit the player. Meant to distract
 	 * At least one of the knights will be low
 	 */
-	public float spawnInterval = 10f;
+	public float spawnInterval = 7f;
 	float spawnTime = 0f;
 
 	int numPerWave = 3;
 
 	float[] yPosSource = {3.7f, 4.9f, 6f}; // low, med, hi positions
-	float xPos = 8;
+	float xPos = 9;
 	float minXSpace = .5f;
 
+
+	public float spawnXBegin = 71.0f;
+	public float spawnXEnd = 93.0f;
 
 	enum Positions {
 		LOW,
@@ -35,7 +38,7 @@ public class FlyingKnightSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		spawnTime = spawnInterval+1;
 	}
 	
 	// Update is called once per frame
@@ -45,7 +48,9 @@ public class FlyingKnightSpawner : MonoBehaviour {
 
 
 		spawnTime += Time.deltaTime;
-		if (spawnTime > spawnInterval) {
+		if (spawnTime > spawnInterval &&
+		    Arthur.arthurPos.x >= spawnXBegin &&
+		    Arthur.arthurPos.x <= spawnXEnd) {
 			spawnKnights();
 			spawnTime = 0;
 		}

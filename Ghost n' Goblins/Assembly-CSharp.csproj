@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Enemies\Plant.cs" />
      <Compile Include="Assets\Scripts\Enemies\RedArremer.cs" />
      <Compile Include="Assets\Scripts\Enemies\Wraith.cs" />
+     <Compile Include="Assets\Scripts\Enemies\WraithSpawner.cs" />
      <Compile Include="Assets\Scripts\Enemies\Zombie.cs" />
      <Compile Include="Assets\Scripts\Enemies\ZombieSpawner.cs" />
      <Compile Include="Assets\Scripts\Enemies\curve.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Scripts\PhysManager.cs" />
      <Compile Include="Assets\Scripts\PhysObj.cs" />
      <Compile Include="Assets\Scripts\Player\Arthur.cs" />
+     <Compile Include="Assets\Scripts\Player\CameraAnchor.cs" />
      <Compile Include="Assets\Scripts\Player\Manager.cs" />
      <Compile Include="Assets\Scripts\Player\Respawner.cs" />
      <Compile Include="Assets\Scripts\Player\Score.cs" />
