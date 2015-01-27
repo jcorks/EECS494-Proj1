@@ -2,12 +2,11 @@
 using System.Collections;
 
 public class CameraAnchor : MonoBehaviour {
-	public bool active;
+	public bool active = false;
 	float graceDist = 7.2f;
 
 	// Use this for initialization
 	void Start () {
-		active = false;
 	}
 	
 	// Update is called once per frame

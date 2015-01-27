@@ -10,7 +10,6 @@ public class Arthur : MonoBehaviour {
 
 	// Use this for initialization
 	public static Vector3 arthurPos = new Vector3 (-100, -100, -100);
-	public static bool isDead = false;
 	public static int lives = 2;
 	static bool gameStarted = false;
 
@@ -29,6 +28,7 @@ public class Arthur : MonoBehaviour {
 	private bool jumping = false;
 	private bool isHit = false;
 	private bool wall = false;
+	private bool gibsonMode = false;
 	private float speed = 2.2f;
 	private float jumpVel = 10f;
 	private float weaponThrownWaitTime = .2f; // how long to wait after thrown weapon before able to move again
@@ -59,7 +59,7 @@ public class Arthur : MonoBehaviour {
 
 	void Awake() {
 
-		isDead = false;
+
 		origColor = GetComponent<MeshRenderer> ().material.color;
 	}
 	
@@ -175,6 +175,11 @@ public class Arthur : MonoBehaviour {
 			sides = 1f;
 		}
 
+
+		if (Input.GetKeyDown (KeyCode.G)) {
+			gibsonMode = !gibsonMode;
+
+		}
 
 		if (Input.GetKey(KeyCode.DownArrow) && !jumping && thisPhys.isGrounded)
 		{
@@ -351,6 +356,8 @@ public class Arthur : MonoBehaviour {
 
 	// take a hit
 	void takeHit() {
+		if (gibsonMode) return;
+
 		print ("Ouch!");
 		isHit = true;
 		isHitTimer = 3.0f;
@@ -369,7 +376,6 @@ public class Arthur : MonoBehaviour {
 	}
 
 	void die() {
-		isDead = true;
 		Destroy (this.gameObject);
 		priorWeapon = weapon;
 		Application.LoadLevel ("gameOver");
