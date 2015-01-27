@@ -28,7 +28,7 @@ public class Arthur : MonoBehaviour {
 	private bool isHit = false;
 	private bool wall = false;
 	private bool gibsonMode = false;
-	private float speed = 2.2f;
+	private float speed = 2.4f;
 	private float jumpVel = 10f;
 	private float weaponThrownWaitTime = .2f; // how long to wait after thrown weapon before able to move again
 	private int weaponLimit = 2; //amount of weapon permitted on screen
@@ -55,6 +55,8 @@ public class Arthur : MonoBehaviour {
 	private float weaponWaiting = 0;
 
 	private bool isDying = false;
+	public bool jumpOverTombLeft = false;
+	public bool jumpOverTombRight = false;
 
 
 	void Awake() {
@@ -90,13 +92,7 @@ public class Arthur : MonoBehaviour {
 			return;
 		}
 
-		if (!jumping && Input.GetKeyDown(KeyCode.Z) && !crouching)
-		{
-			jumping = true;
-			print ("Jump begin!");			
-			thisPhys.addVelocity (jumpVel, 90);
-			crouching = false;
-		}
+
 		if (jumping && thisPhys.isGrounded) {
 			if (!isHitOnGround) {
 				isHitOnGround = true;
@@ -104,6 +100,8 @@ public class Arthur : MonoBehaviour {
 			}
 			print ("No longer jumping");
 			jumping = false;
+			jumpOverTombLeft = false;
+			jumpOverTombRight = false;
 		}
 
 		weaponWaiting -= Time.deltaTime;
@@ -113,6 +111,7 @@ public class Arthur : MonoBehaviour {
 			thisPhys.setVelocity (new Vector2(0f, thisPhys.getVelocity().y));
 		
 		if (isDying) return;
+
 
 
 		//If I am pressing up while on the latter
@@ -176,6 +175,24 @@ public class Arthur : MonoBehaviour {
 			sides = 1f;
 		}
 
+		if (!jumping && Input.GetKeyDown(KeyCode.Z) && !crouching && !isDying && thisPhys.isGrounded)
+		{
+			jumping = true;
+			print ("XVel: " + thisPhys.getVelocity ().x);			
+			thisPhys.addVelocity (jumpVel, 90);
+			crouching = false;
+
+
+			if (Input.GetKey (KeyCode.LeftArrow)) {
+				print ("jumping over the tombstone");
+				jumpOverTombLeft = true;
+			}
+			if (Input.GetKey (KeyCode.RightArrow)) {
+				print ("jumping over the tombstone");
+				jumpOverTombRight = true;
+			} 
+
+		}
 
 		if (Input.GetKeyDown (KeyCode.G)) {
 			gibsonMode = !gibsonMode;
@@ -323,6 +340,8 @@ public class Arthur : MonoBehaviour {
 		if (collidedWith.tag == "Wall") {
 				Debug.Log ("WallOff");
 				hitSide = 'n';
+				if (jumpOverTombLeft) thisPhys.addVelocity(-speed, 0f);
+				if (jumpOverTombRight) thisPhys.addVelocity(speed, 0f);
 		}
 		if (collidedWith.tag == "Ladder") {
 			Debug.Log ("LadderOff");

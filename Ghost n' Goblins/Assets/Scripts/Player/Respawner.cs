@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Respawner : MonoBehaviour {
 	public GameObject arthur;
-	static float checkpointX = -10f;
-	public float checkpoint1 = -10f;
-	public float checkpoint2 = 46f;
-	public float checkpoint3 = 73f;
-	public float checkpoint4 = 9000f;
+	static float checkpointX;
+	float checkpoint1 = -10f;
+	float checkpoint2 = 73f;
+	float checkpoint3 = 9000f;
+	float checkpoint4 = 9000f;
 	// Use this for initialization
 	void Start () {
 	}

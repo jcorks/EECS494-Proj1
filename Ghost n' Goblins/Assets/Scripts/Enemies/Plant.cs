@@ -6,6 +6,7 @@ public class Plant : MonoBehaviour {
 	public GameObject projPrefab;
 	public float fireRate = 2.0f;
 	float fireCount = 0;
+	bool mouthOpen = false;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,8 @@ public class Plant : MonoBehaviour {
 			launchProjectile();
 			fireCount = 0f;
 		}
+
+		mouthOpen = fireCount > fireRate / 2f;
 	}
 
 	void launchProjectile() {

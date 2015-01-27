@@ -122,7 +122,6 @@ public class PhysObj : MonoBehaviour {
 
 		if (lastWall && other.gameObject.GetInstanceID () == lastWall.GetInstanceID ()) {
 			lastWall = null;
-			vel.x = preWallVel;
 		}
 	}
 
@@ -153,9 +152,7 @@ public class PhysObj : MonoBehaviour {
 		}
 
 		if (other.isObstacle && !ignoreObstacles &&  enter) {
-			print ("i hit a wall");
 			//Debug.Log(other.gameObject);
-			preWallVel = vel.x;
 			lastWall = other.gameObject;
 			setVelocity (new Vector2(0.0f, vel.y)); 
 		}
