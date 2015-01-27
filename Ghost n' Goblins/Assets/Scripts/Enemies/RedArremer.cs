@@ -136,7 +136,7 @@ public class RedArremer : MonoBehaviour {
 		Vector3 p12 = (1 - u) * temp + u * dest;
 		Vector3 p012 = (1 - u) * p01 + u * p12;
 		transform.position = p012;
-		if (
+
 	}
 
 	void Shoot() {
@@ -195,7 +195,7 @@ public class RedArremer : MonoBehaviour {
 			speed *= -1; //Change direction randomly
 		}
 	}
-
+	/*
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Weapon" && GetComponent<Enemy>().ready) {
 			if (!awaken) {
@@ -218,4 +218,5 @@ public class RedArremer : MonoBehaviour {
 			print ("Hello, arthur!");
 		}
 	}
+	*/
 }
