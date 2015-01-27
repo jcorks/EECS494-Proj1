@@ -60,13 +60,13 @@ public class RedArremer : MonoBehaviour {
 		Cam = Cam1[0];
 		Vector3 camPos = Cam.transform.position;
 		camPos.z = 0f;
-		camPos.x += 6.54f;
-		camPos.y = 4.22f;
+		camPos.x += 5.54f;
+		camPos.y = 5.22f;
 		flightRight = camPos;
-		camPos.x -= 6.54f * 2f;
+		camPos.x -= 5.54f * 2f;
 		flightLeft = camPos;
 		swoopStart = 0f;
-		swoopDuration = 1.5f;
+		swoopDuration = 1.75f;
 		pastPos = transform.position;
 		down = false;
 
@@ -80,12 +80,12 @@ public class RedArremer : MonoBehaviour {
 			transform.position = pos;
 			//print (transform.position);
 			//Changing Direction
-			if (Arthur.arthurPos.x - 4f < transform.position.x) {
+			/*if (Arthur.arthurPos.x - 4f < transform.position.x) {
 				speed = Mathf.Abs (speed); // move right
 			} 
 			else if (Arthur.arthurPos.x + 4f > transform.position.x) {
 				speed = -Mathf.Abs (speed); // move right
-			}
+			}*/
 			if (groundedTimer > timeOnFloor) {
 				grounded = false;
 				hover = true;
@@ -173,7 +173,7 @@ public class RedArremer : MonoBehaviour {
 			Vector3 p012 = (1 - u) * p01 + u * p12;
 			transform.position = p012;
 			if (u > 1) {
-				Debug.Log("stop!");
+				//Debug.Log("stop!");
 				swoopStart = 0f;
 				return false;
 			}
@@ -199,14 +199,14 @@ public class RedArremer : MonoBehaviour {
 		Vector3 camPos = Cam.transform.position;
 		camPos.z = 0f;
 		camPos.x += 6.54f;
-		camPos.y = 3.22f;
+		camPos.y = 5.22f;
 		flightRight = camPos;
 		camPos.x -= 6.54f * 2f;
 		flightLeft = camPos;
 
 
 		if (hover && !swooping && top && !down) {
-			Debug.Log("No");
+			//Debug.Log("No");
 			Vector3 t = transform.position;
 			if (side) {
 				t.x = flightRight.x;
@@ -220,8 +220,8 @@ public class RedArremer : MonoBehaviour {
 		//Shift red arremer
 
 		pastPos = transform.position;
-		Debug.Log (flightRight);
-		Debug.Log (flightLeft);
+		//Debug.Log (flightRight);
+		//Debug.Log (flightLeft);
 	}
 
 	// Update is called once per frame
@@ -255,8 +255,8 @@ public class RedArremer : MonoBehaviour {
 				swooping = true;
 				swoopStart = Time.time;
 				floatingTimer = 0;
-				float height = Random.Range (3f, 4f);
-				float side = Random.Range (-4f, 4f);
+				float height = Random.Range (4f, 5f);
+				float side = Random.Range (-5f, 5f);
 				temp.y = Lock.y - height;
 				temp.x = Lock.x - side;
 				temp.z = 0;
@@ -297,7 +297,9 @@ public class RedArremer : MonoBehaviour {
 		//Shooting
 		timer2 += Time.deltaTime;
 		if (timeToShoot < timer2) {
-			Shoot();
+			float t = Random.Range(0,1f);
+			if (t < 0.5)
+				Shoot();
 			timer2 = 0f;
 		}
 	}

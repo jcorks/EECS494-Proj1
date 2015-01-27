@@ -11,12 +11,11 @@ public class Plant : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GetComponent<Enemy> ().ready = false;
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<Enemy> ().ready = GetComponent<MeshRenderer>().isVisible;
+		GetComponent<Enemy> ().ready = renderer.isVisible;
 		if (!GetComponent<Enemy> ().ready)
 						return;
 

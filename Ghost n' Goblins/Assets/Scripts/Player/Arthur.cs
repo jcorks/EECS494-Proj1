@@ -1,18 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-//Trying to work on a raycasting solution for collision based upon
-//http://deranged-hermit.blogspot.com/2014/01/2d-platformer-collision-detection-with.html
-
 public class Arthur : MonoBehaviour {
 	public static GUIText scoreGT;
+	public ArthurSprite Sprite;
 
 	// Use this for initialization
 	public static Vector3 arthurPos = new Vector3 (-100, -100, -100);
 	public static int lives = 2;
 	public static int weaponCount;
 	public static float sides;
+	
 	static bool gameStarted = false;
 
 	public GameObject WeaponPrefab;
@@ -215,10 +213,12 @@ public class Arthur : MonoBehaviour {
 
 		if (crouching) {
 			GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
+			Sprite.GetComponent<SpriteRenderer>().sprite = arthur_2;
 			boxCollider.center = crouchState2;
 			boxCollider.size = crouchState1;
 		}
 		else {
+			Sprite.GetComponent<SpriteRenderer>().sprite = arthur_1;
 			GetComponent<MeshRenderer>().material.color = origColor;
 			boxCollider.center = standState2;	
 			boxCollider.size = standState1;
@@ -287,40 +287,47 @@ public class Arthur : MonoBehaviour {
 
 		}
 		if (collidedWith.tag == "Wall") {
-			Debug.Log ("Wallhit");
+			//Debug.Log ("Wallhit");
 			if (collidedWith.transform.position.x  > this.transform.position.x)
 				hitSide = 'r';
 			if (collidedWith.transform.position.x  < this.transform.position.x)
 				hitSide = 'l';
-			Debug.Log (hitSide);
-
+			//Debug.Log (hitSide);
 		}
 		if (collidedWith.tag == "Ladder") {
-			Debug.Log ("near ladder");
+			//Debug.Log ("near ladder");
 			onLadder = true;
 		}
 		if (collidedWith.tag == "Ground" && upLadder) {
-			Debug.Log ("hitFloor");
+			//Debug.Log ("hitFloor");
 			upLadder = false;
 			onLadder = true;
 		}
 		if (collidedWith.tag == "LadderTop") {
-			Debug.Log ("near ladderTop");
+			//Debug.Log ("near ladderTop");
 			onLadderTop = true;
 			ladderVec = collidedWith.transform.position;
+		}
+		if (collidedWith.tag == "Hazard") {
+			health = 0;
+			if (health == 0) {
+				isDying = true;
+				GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 255);
+				Invoke ("die", 3);
+			}
 		}
 	}
 
 	void OnTriggerStay(Collider coll){
 		GameObject collidedWith = coll.gameObject;
 		if (collidedWith.tag == "Ladder" && upLadder && stepUp) {
-			Debug.Log ("LadderOn");
+			//Debug.Log ("LadderOn");
 			stepUp = false;
 			transform.position = new Vector3(collidedWith.transform.position.x,
 			   transform.position.y+0.1f,collidedWith.transform.position.z);
 		}
 		if (collidedWith.tag == "LadderTop" && upLadder && stepUp) {
-			Debug.Log ("LadderOn");
+			//Debug.Log ("LadderOn");
 			stepUp = false;
 			transform.position = new Vector3(collidedWith.transform.position.x,
 			                                 transform.position.y+0.1f,collidedWith.transform.position.z);
@@ -330,7 +337,7 @@ public class Arthur : MonoBehaviour {
 				takeHit();
 		}
 		if (collidedWith.tag == "Platform") {
-			Debug.Log("on platform");
+			//Debug.Log("on platform");
 			platformSpeed = collidedWith.GetComponent<MovingPlatform>().speed; 			
 		}
 	}
@@ -338,22 +345,22 @@ public class Arthur : MonoBehaviour {
 	void OnTriggerExit(Collider coll){
 		GameObject collidedWith = coll.gameObject;
 		if (collidedWith.tag == "Wall") {
-				Debug.Log ("WallOff");
-				hitSide = 'n';
-				if (jumpOverTombLeft) thisPhys.addVelocity(-speed, 0f);
-				if (jumpOverTombRight) thisPhys.addVelocity(speed, 0f);
+			//Debug.Log ("WallOff");
+			hitSide = 'n';
+			if (jumpOverTombLeft) thisPhys.addVelocity(-speed, 0f);
+			if (jumpOverTombRight) thisPhys.addVelocity(speed, 0f);
 		}
 		if (collidedWith.tag == "Ladder") {
-			Debug.Log ("LadderOff");
+			//Debug.Log ("LadderOff");
 			onLadder = false;
 			upLadder = false;
 		}
 		if (collidedWith.tag == "LadderTop") {
-			Debug.Log ("off ladderTop");
+			//Debug.Log ("off ladderTop");
 			onLadderTop = false;
 		}
 		if (collidedWith.tag == "Platform") {
-			Debug.Log("off platform");
+			//Debug.Log("off platform");
 			platformSpeed = 0; 			
 		}
 	}
@@ -402,7 +409,6 @@ public class Arthur : MonoBehaviour {
 		Destroy (this.gameObject);
 		priorWeapon = weapon;
 		Application.LoadLevel ("gameOver");
-
 	}
 }
 
