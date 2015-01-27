@@ -128,15 +128,31 @@ public class RedArremer : MonoBehaviour {
 		}
 	}
 
-	void Charge(Vector3 start, Vector3 enemy, Vector3 dest) {
-		Vector3 temp = start;
-		temp.y = enemy.y - 1f;
-		float u = (Time.time - swoopStart / swoopDuration);
-		Vector3 p01 = (1 - u) * start + u * temp;
-		Vector3 p12 = (1 - u) * temp + u * dest;
-		Vector3 p012 = (1 - u) * p01 + u * p12;
-		transform.position = p012;
-		if (
+	bool Charge(Vector3 start, Vector3 enemy, Vector3 dest) {
+		if (swoopStart == 0f)
+			swoopStart = Time.time;
+		if (swoopStart != 0f) {
+			Debug.Log(start);
+			Debug.Log(enemy);
+			Debug.Log(dest);
+			Debug.Log(swoopStart);
+
+			
+			Vector3 temp = enemy;
+			temp.y = enemy.y - 1f;
+			float u = (Time.time - swoopStart / swoopDuration);
+			Vector3 p01 = (1 - u) * start + u * temp;
+			Vector3 p12 = (1 - u) * temp + u * dest;
+			Vector3 p012 = (1 - u) * p01 + u * p12;
+			Debug.Log(p012);
+
+			transform.position = p012;
+			if (p012.y > dest.y) {
+				swoopStart = 0f;
+				return false;
+			}
+		}
+		return true;
 	}
 
 	void Shoot() {
@@ -156,6 +172,10 @@ public class RedArremer : MonoBehaviour {
 		flightLeft = camPos;
 		Debug.Log (flightRight);
 		Debug.Log (flightLeft);
+	}
+
+	void FixedUpdate() {
+
 	}
 
 	// Update is called once per frame
@@ -180,8 +200,8 @@ public class RedArremer : MonoBehaviour {
 		if (floatingTimer > timeFloating) {
 			Debug.Log("BEGIN");
 			dodge = false;
-			Charge (flightRight, Arthur.arthurPos, flightLeft); //If timer is up and hovering
-			floatingTimer = 0;
+			if (!Charge (flightRight, Arthur.arthurPos, flightLeft)) //If timer is up and hovering
+				floatingTimer = 0;
 		}
 		timer2 += Time.deltaTime;
 		if (timeToShoot < timer2) {
