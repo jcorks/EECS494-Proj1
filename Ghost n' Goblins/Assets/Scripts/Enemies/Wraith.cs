@@ -4,13 +4,16 @@ using System.Collections;
 public class Wraith : MonoBehaviour {
 
 	public GameObject projPrefab;
-	public float speed  = 2f;
-	public float speedDown  = 0.5f;
+	public float speed  = 3f;
+	public float speedDown  = 0.7f;
+
+	private Vector3 turnState = new Vector3(1.1f, 0.7f, 1f);
+	private Vector3 moveState = new Vector3(1.1f, 0.7f, 1f);
 
 	
 	public float leftAndRightEdge = 2.5f;
 
-	public float downLimit = 0.25f;
+	public float downLimit = 0.8f;
 
 	Vector3 startingPos;
 	Vector3 downPos;
@@ -32,17 +35,28 @@ public class Wraith : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		if (Arthur.arthurPos.x - 10f > transform.position.x || 
+			Arthur.arthurPos.x + 10f < transform.position.x) {
+				PhysManager.wraithCount--;
+				Destroy (this.gameObject);
+		}
 		//Basic Movement
 		Vector3 pos = transform.position;
 		pos.x += speed * Time.deltaTime * side;
 		pos.y += speedDown * Time.deltaTime * down;
 		transform.position = pos;
-		Debug.Log (downPos.y-downLimit);
+		//Debug.Log (downPos.y-downLimit);
 		//if on leftEdge while going left
 		if (pos.x < -leftAndRightEdge+startingPos.x && side == -1) {
 			side = 0;
-			down = -1f; //start going down
+			if (pos.y < 1) {
+				down = 1f; //start going down
+			}
+			else {
+				down = -1f;
+			}
 			downPos = transform.position;
+			this.transform.localScale = turnState;
 			if (Random.value < chanceToThrowProjectiles) {
 				GameObject proj = (GameObject)Instantiate (projPrefab);
 				proj.GetComponent<Leek>().side = -1;
@@ -52,7 +66,13 @@ public class Wraith : MonoBehaviour {
 		}
 		if (pos.x > leftAndRightEdge+startingPos.x && side == 1) {
 			side = 0;
-			down = -1f; //start going down
+			if (pos.y < 1) {
+				down = 1f; //start going down
+			}
+			else {
+				down = -1f;
+			}
+			this.transform.localScale = turnState;
 			downPos = transform.position;
 			if (Random.value < chanceToThrowProjectiles) {
 				GameObject proj = (GameObject)Instantiate (projPrefab);
@@ -62,24 +82,56 @@ public class Wraith : MonoBehaviour {
 			}
 		}
 		//If on the leftside and we are at down limit
-		if (pos.x < -leftAndRightEdge+startingPos.x && side == 0 && pos.y < downPos.y-downLimit) {
-			side = 1f;
-			down = 0; //start going down
-			if (Random.value < chanceToThrowProjectiles) {
-				GameObject proj = (GameObject)Instantiate (projPrefab);
-				proj.GetComponent<Leek>().weaponDirection = true;
-				proj.transform.position = transform.position;			
+		if (pos.x < -leftAndRightEdge+startingPos.x && side == 0) {
+			if (down == 1f && pos.y > downPos.y+downLimit) {
+				side = 1f;
+				down = 0; //start going down
+				this.transform.localScale = moveState;
+				if (Random.value < chanceToThrowProjectiles) {
+					GameObject proj = (GameObject)Instantiate (projPrefab);
+					proj.GetComponent<Leek>().weaponDirection = true;
+					proj.transform.position = transform.position;			
+				}
+			}
+			else if (down == -1f && pos.y < downPos.y-downLimit) {
+				side = 1f;
+				down = 0; //start going down
+				this.transform.localScale = moveState;
+				if (Random.value < chanceToThrowProjectiles) {
+					GameObject proj = (GameObject)Instantiate (projPrefab);
+					proj.GetComponent<Leek>().weaponDirection = true;
+					proj.transform.position = transform.position;			
+				}
 			}
 		}
-		if (pos.x > leftAndRightEdge+startingPos.x && side == 0 && pos.y < downPos.y-downLimit) {
-			side = -1f;
-			down = 0; //start going down
-			Debug.Log("yo");
-			if (Random.value < chanceToThrowProjectiles) {
-				GameObject proj = (GameObject)Instantiate (projPrefab);
-				proj.GetComponent<Leek>().weaponDirection = true;
-				proj.transform.position = transform.position;	
+		if (pos.x > leftAndRightEdge+startingPos.x && side == 0) {
+			if (down == 1f && pos.y > downPos.y+downLimit) {
+				side = -1f;
+				down = 0; //start going down
+				this.transform.localScale = moveState;
+				if (Random.value < chanceToThrowProjectiles) {
+					GameObject proj = (GameObject)Instantiate (projPrefab);
+					proj.GetComponent<Leek>().weaponDirection = true;
+					proj.transform.position = transform.position;	
+				}
+			}
+			else if (down == -1f && pos.y < downPos.y-downLimit) {
+				side = -1f;
+				down = 0; //start going down
+				this.transform.localScale = moveState;
+				if (Random.value < chanceToThrowProjectiles) {
+					GameObject proj = (GameObject)Instantiate (projPrefab);
+					proj.GetComponent<Leek>().weaponDirection = true;
+					proj.transform.position = transform.position;	
+				}
 			}
 		}
+	}
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Weapon") {
+			Debug.Log("wraith destroyed");
+			PhysManager.wraithCount--;
+		}
+
 	}
 }
