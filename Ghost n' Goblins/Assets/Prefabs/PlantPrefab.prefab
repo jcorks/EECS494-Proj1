@@ -101,6 +101,8 @@ MonoBehaviour:
   health: 0
   score: 0
   ready: 1
+  ignoreProjectiles: 0
+  ItemPrefab: {fileID: 124988, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!114 &11430912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projPrefab: {fileID: 139800, guid: 17dd762c1b03f624394ad0b156f1a718, type: 2}
+  fireRate: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

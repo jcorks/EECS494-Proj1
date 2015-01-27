@@ -6,7 +6,7 @@ using System.Collections;
 //http://deranged-hermit.blogspot.com/2014/01/2d-platformer-collision-detection-with.html
 
 public class Arthur : MonoBehaviour {
-	public GUIText scoreGT;
+	public static GUIText scoreGT;
 
 	// Use this for initialization
 	public static Vector3 arthurPos = new Vector3 (-100, -100, -100);

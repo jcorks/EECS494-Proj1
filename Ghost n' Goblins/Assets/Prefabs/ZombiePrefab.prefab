@@ -102,7 +102,7 @@ MonoBehaviour:
   speed: {x: 0, y: 0, z: 0}
   spawned: 0
   spawnTime: .600000024
-  spawnPeriod: 1000
+  lifetime: 5
 --- !u!114 &11435268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,6 +122,7 @@ MonoBehaviour:
   isObstacle: 0
   ignoreGravity: 0
   ignoreObstacles: 1
+  ignoreGround: 0
 --- !u!114 &11470058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,6 +137,8 @@ MonoBehaviour:
   health: 1
   score: 0
   ready: 0
+  ignoreProjectiles: 0
+  ItemPrefab: {fileID: 124988, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

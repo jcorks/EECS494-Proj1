@@ -102,6 +102,7 @@ MonoBehaviour:
   score: 100
   ready: 0
   ignoreProjectiles: 0
+  ItemPrefab: {fileID: 124988, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!114 &11467588
 MonoBehaviour:
   m_ObjectHideFlags: 1

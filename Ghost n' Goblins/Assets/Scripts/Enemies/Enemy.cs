@@ -35,6 +35,10 @@ public class Enemy : MonoBehaviour {
 							Item.GetComponent<Items>().item = ItemType.MONEY;
 					}
 				}
+				Debug.Log("score");
+				int scoreNow = int.Parse (Arthur.scoreGT.text);
+				scoreNow = scoreNow + score;
+				Arthur.scoreGT.text = scoreNow.ToString ();
 				Destroy(this.gameObject);
 			}
 		}
