@@ -29,12 +29,15 @@ public class RedArremer : MonoBehaviour {
 	float timeToCharge = 2.0f;
 	float timeToShoot = 5.0f;
 	float timeFloating = 2.5f;
+	Vector3 Lock;
+
 
 	bool awaken; //If it is sitting down stationary
 	bool grounded; //If it start walking along the ground
 	bool hover; //If it starts flying
 	bool dodge; //If it is able to dodge
 	bool swooping; //Starts swopping motion
+	bool side; 
 
 	// Use this for initialization
 	void Start () {
@@ -59,7 +62,7 @@ public class RedArremer : MonoBehaviour {
 		camPos.x -= 6.54f * 2f;
 		flightLeft = camPos;
 		swoopStart = 0f;
-		swoopDuration = 2f;
+		swoopDuration = 1f;
 
 	}
 
@@ -92,18 +95,35 @@ public class RedArremer : MonoBehaviour {
 		if (awaken && hover) {
 			floatingTimer += Time.deltaTime;
 			Vector2 non = new Vector2(0,0);
-			if (transform.position.y < flightRight.y) {// If you are not in max speed
-				//Debug.Log("WORKING!!!");
-			//	Debug.Log(flightRight);
-				//Debug.Log(transform.position);
-				Vector2 dirVec = flightRight - transform.position; 
-				//Debug.Log(dirVec);
-				dirVec.Normalize ();
-				GetComponent<PhysObj> ().setVelocity (dirVec * speedFlight);
+			if (side) {
+				if (transform.position.y < flightRight.y) {// If you are not in max speed
+					//Debug.Log("WORKING!!!");
+				//	Debug.Log(flightRight);
+					//Debug.Log(transform.position);
+					Vector2 dirVec = flightRight - transform.position; 
+					//Debug.Log(dirVec);
+					dirVec.Normalize ();
+					GetComponent<PhysObj> ().setVelocity (dirVec * speedFlight);
+				}
+				else if (transform.position.y >= flightRight.y &&  GetComponent<PhysObj> ().getVelocity() !=non){
+					GetComponent<PhysObj> ().setVelocity (non);
+					dodge = true;
+				}
 			}
-			else if (transform.position.y >= flightRight.y &&  GetComponent<PhysObj> ().getVelocity() !=non){
-				GetComponent<PhysObj> ().setVelocity (non);
-				dodge = true;
+			else {
+				if (transform.position.y < flightLeft.y) {// If you are not in max speed
+					//Debug.Log("WORKING!!!");
+					//	Debug.Log(flightRight);
+					//Debug.Log(transform.position);
+					Vector2 dirVec = flightLeft - transform.position; 
+					//Debug.Log(dirVec);
+					dirVec.Normalize ();
+					GetComponent<PhysObj> ().setVelocity (dirVec * speedFlight);
+				}
+				else if (transform.position.y >= flightLeft.y &&  GetComponent<PhysObj> ().getVelocity() !=non){
+					GetComponent<PhysObj> ().setVelocity (non);
+					dodge = true;
+				}
 			}
 		}
 	}
@@ -128,15 +148,22 @@ public class RedArremer : MonoBehaviour {
 		}
 	}
 
-	void Charge(Vector3 start, Vector3 enemy, Vector3 dest) {
-		Vector3 temp = start;
-		temp.y = enemy.y - 1f;
-		float u = (Time.time - swoopStart / swoopDuration);
-		Vector3 p01 = (1 - u) * start + u * temp;
-		Vector3 p12 = (1 - u) * temp + u * dest;
-		Vector3 p012 = (1 - u) * p01 + u * p12;
-		transform.position = p012;
 
+	bool Charge(Vector3 start, Vector3 enemy, Vector3 dest) {
+			Vector3 temp = enemy;
+			temp.y = enemy.y - 4f;
+			float u = ( (Time.time - swoopStart) / swoopDuration);
+			//u = u % 1f;
+			Vector3 p01 = (1 - u) * start + u * temp;
+			Vector3 p12 = (1 - u) * temp + u * dest;
+			Vector3 p012 = (1 - u) * p01 + u * p12;
+			transform.position = p012;
+			if (u > 1) {
+				Debug.Log("stop!");
+				swoopStart = 0f;
+				return false;
+			}
+		return true;
 	}
 
 	void Shoot() {
@@ -147,6 +174,12 @@ public class RedArremer : MonoBehaviour {
 	}
 
 	void posUpdate() {
+		if (Arthur.arthurPos.x > transform.position.x && !swooping) {
+			side = false;
+		}
+		else if (Arthur.arthurPos.x > transform.position.x && !swooping) {
+			side = true;
+		}
 		Vector3 camPos = Cam.transform.position;
 		camPos.z = 0f;
 		camPos.x += 6.54f;
@@ -180,9 +213,27 @@ public class RedArremer : MonoBehaviour {
 		if (floatingTimer > timeFloating) {
 			Debug.Log("BEGIN");
 			dodge = false;
-			Charge (flightRight, Arthur.arthurPos, flightLeft); //If timer is up and hovering
+			Lock = Arthur.arthurPos;
+			swooping = true;
+			swoopStart = Time.time;
 			floatingTimer = 0;
 		}
+
+		if (swooping) {
+			if (side) {
+				if (!Charge (flightRight, Lock, flightLeft)) {//If timer is up and hovering
+					swooping = false;
+					side = false;
+				}
+			}
+			else {
+				if (!Charge (flightLeft, Lock, flightRight)) {//If timer is up and hovering
+					swooping = false;
+					side = true;
+				}
+			}
+		}
+
 		timer2 += Time.deltaTime;
 		if (timeToShoot < timer2) {
 			Shoot();
