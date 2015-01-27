@@ -57,12 +57,12 @@ public class RedArremer : MonoBehaviour {
 		Vector3 camPos = Cam.transform.position;
 		camPos.z = 0f;
 		camPos.x += 6.54f;
-		camPos.y = 3.22f;
+		camPos.y = 4.22f;
 		flightRight = camPos;
 		camPos.x -= 6.54f * 2f;
 		flightLeft = camPos;
 		swoopStart = 0f;
-		swoopDuration = 1f;
+		swoopDuration = 1.5f;
 
 	}
 
@@ -97,11 +97,7 @@ public class RedArremer : MonoBehaviour {
 			Vector2 non = new Vector2(0,0);
 			if (side) {
 				if (transform.position.y < flightRight.y) {// If you are not in max speed
-					//Debug.Log("WORKING!!!");
-				//	Debug.Log(flightRight);
-					//Debug.Log(transform.position);
 					Vector2 dirVec = flightRight - transform.position; 
-					//Debug.Log(dirVec);
 					dirVec.Normalize ();
 					GetComponent<PhysObj> ().setVelocity (dirVec * speedFlight);
 				}
@@ -151,7 +147,10 @@ public class RedArremer : MonoBehaviour {
 
 	bool Charge(Vector3 start, Vector3 enemy, Vector3 dest) {
 			Vector3 temp = enemy;
-			temp.y = enemy.y - 4f;
+			float height = Random.Range (1f, 4f);
+			float side = Random.Range (-4f, 4f);
+			temp.y = enemy.y - height;
+			temp.x = enemy.x - side;
 			float u = ( (Time.time - swoopStart) / swoopDuration);
 			//u = u % 1f;
 			Vector3 p01 = (1 - u) * start + u * temp;
@@ -177,10 +176,11 @@ public class RedArremer : MonoBehaviour {
 		if (Arthur.arthurPos.x > transform.position.x && !swooping) {
 			side = false;
 		}
-		else if (Arthur.arthurPos.x > transform.position.x && !swooping) {
+		else if (Arthur.arthurPos.x < transform.position.x && !swooping) {
 			side = true;
 		}
 		Vector3 camPos = Cam.transform.position;
+
 		camPos.z = 0f;
 		camPos.x += 6.54f;
 		camPos.y = 3.22f;
