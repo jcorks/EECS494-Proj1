@@ -1,0 +1,586 @@
+fileFormatVersion: 2
+guid: cd78703d5786c8a4da5153f7abfdbdef
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: arthur_0
+    21300002: arthur_1
+    21300004: arthur_2
+    21300006: arthur_3
+    21300008: arthur_4
+    21300010: arthur_5
+    21300012: arthur_6
+    21300014: arthur_7
+    21300016: arthur_8
+    21300018: arthur_9
+    21300020: arthur_10
+    21300022: arthur_11
+    21300024: arthur_12
+    21300026: arthur_13
+    21300028: arthur_14
+    21300030: arthur_15
+    21300032: arthur_16
+    21300034: arthur_17
+    21300036: arthur_18
+    21300038: arthur_19
+    21300040: arthur_20
+    21300042: arthur_21
+    21300044: arthur_22
+    21300046: arthur_23
+    21300048: arthur_24
+    21300050: arthur_25
+    21300052: arthur_26
+    21300054: arthur_27
+    21300056: arthur_28
+    21300058: arthur_29
+    21300060: arthur_30
+    21300062: arthur_31
+    21300064: arthur_32
+    21300066: arthur_33
+    21300068: arthur_34
+    21300070: arthur_35
+    21300072: arthur_36
+    21300074: arthur_37
+    21300076: arthur_38
+    21300078: arthur_39
+    21300080: arthur_40
+    21300082: arthur_41
+    21300084: arthur_42
+    21300086: arthur_43
+    21300088: arthur_44
+    21300090: arthur_45
+    21300092: arthur_46
+    21300094: arthur_47
+    21300096: arthur_48
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: arthur_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 127
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_1
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 127
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_2
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 127
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_3
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 126
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_4
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 127
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_5
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 127
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_6
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 127
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_7
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 127
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_8
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 127
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_9
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 135
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_10
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 127
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_11
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 127
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_12
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 127
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_13
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 127
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_14
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 127
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_15
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 100
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_16
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 100
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_17
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 103
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_18
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 100
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_19
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 104
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_20
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 104
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_21
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 99
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_22
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 99
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_23
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 105
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_24
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 100
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_25
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 100
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_26
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 100
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_27
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 100
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_28
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 101
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_29
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 68
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_30
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 68
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_31
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 68
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_32
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 69
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_33
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 69
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_34
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 44
+        width: 24
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_35
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 43
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_36
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 43
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_37
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 43
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_38
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 43
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_39
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 43
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_40
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 43
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_41
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 44
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_42
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 44
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_43
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 44
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_44
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 44
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_45
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 44
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_46
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 45
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_47
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 47
+        width: 20
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arthur_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 387
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
