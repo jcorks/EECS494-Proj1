@@ -11,15 +11,14 @@ public class Arthur : MonoBehaviour {
 	// Use this for initialization
 	public static Vector3 arthurPos = new Vector3 (-100, -100, -100);
 	public static int lives = 2;
+	public static int weaponCount;
+	public static float sides;
 	static bool gameStarted = false;
 
 	public GameObject WeaponPrefab;
 
 	public int health;
 	public WeaponType weapon;
-	public float sides;
-	public int weaponCount;
-
 	private PhysObj thisPhys;
 	private GameObject arthurObject;
 	private WeaponType priorWeapon;
@@ -147,10 +146,10 @@ public class Arthur : MonoBehaviour {
 			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
 			Weapon weaponComp = weaponObj.GetComponent<Weapon>();
 			weaponComp.thisArthur = this.GetComponent<Arthur>();
-			Debug.Log (weaponComp.thisArthur.weaponCount);
+			//Debug.Log (weaponComp.thisArthur.weaponCount);
 			
-			weaponComp.weapon = this.weapon;
-			weaponComp.sides = this.sides;
+			weaponComp.weapon = weapon;
+			weaponComp.sides = sides;
 			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn); 
 			weaponWaiting = weaponThrownWaitTime;
 			

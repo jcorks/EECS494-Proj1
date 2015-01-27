@@ -48,13 +48,13 @@ public class Weapon : MonoBehaviour {
 			thisArthur.scoreGT.text = score.ToString ();
 			print (count);
 			if (!burning) {
-				thisArthur.weaponCount--;
+				Arthur.weaponCount--;
 				Destroy (this.gameObject);
 				count = 0;
 			}
 		}
 		if (other.tag == "Wall") {
-			thisArthur.weaponCount--;
+			Arthur.weaponCount--;
 			Destroy (this.gameObject);
 		}
 		if (other.tag == "Ground" && weapon == WeaponType.FIREBALL) {
@@ -71,12 +71,12 @@ public class Weapon : MonoBehaviour {
 		//Keeps track if weapon is offscreen;
 		if (transform.position.x > arthurLastPos.x+weaponDistance && sides == 1) {
 			//Debug.Log (arthurLastPos.x + '>' + transform.position.x+weaponDistance);
-			thisArthur.weaponCount--;
+			Arthur.weaponCount--;
 			Destroy (this.gameObject);
 		}
 		if (transform.position.x < arthurLastPos.x-weaponDistance && sides == -1) {
 			//Debug.Log ("weapon gone ");
-			thisArthur.weaponCount--;
+			Arthur.weaponCount--;
 			Destroy (this.gameObject);	
 		}
 	}
@@ -85,7 +85,7 @@ public class Weapon : MonoBehaviour {
 		if (burning == true) {
 			if (burnCount != 0 && burnCount+2f < Time.time) {
 				burnCount = 0;
-				thisArthur.weaponCount--;
+				Arthur.weaponCount--;
 				Destroy (this.gameObject);
 			}
 		}

@@ -20,7 +20,7 @@ public class WraithSpawner : MonoBehaviour {
 		if (timer < 0) {
 			timer = respawnRateSeconds;
 			if (PhysManager.wraithCount < 6 && 
-		    (Arthur.arthurPos.x - 10f < transform.position.x || 
+		    (Arthur.arthurPos.x - 10f < transform.position.x && 
 		    Arthur.arthurPos.x + 10f > transform.position.x)) {
 				PhysManager.wraithCount++;
 				// stagger creation
