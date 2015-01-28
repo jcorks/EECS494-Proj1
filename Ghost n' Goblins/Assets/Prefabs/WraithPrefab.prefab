@@ -102,7 +102,8 @@ MonoBehaviour:
   score: 200
   ready: 1
   ignoreProjectiles: 0
-  ItemPrefab: {fileID: 124988, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
+  dropsItem: 1
+  ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
