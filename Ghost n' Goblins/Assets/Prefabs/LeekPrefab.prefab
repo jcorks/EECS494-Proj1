@@ -123,6 +123,8 @@ MonoBehaviour:
   score: 0
   ready: 1
   ignoreProjectiles: 1
+  dropsItem: 0
+  ItemPrefab: {fileID: 0}
 --- !u!114 &11480154
 MonoBehaviour:
   m_ObjectHideFlags: 1
