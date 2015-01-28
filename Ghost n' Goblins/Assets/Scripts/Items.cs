@@ -42,6 +42,11 @@ public class Items : MonoBehaviour {
 		Sprite = closest;
 		*/
 		sr = GetComponentInChildren<SpriteRenderer> ();
+		Vector3 t = sr.transform.localScale;
+		t.x = 8;
+		t.y = 20;
+		sr.transform.localScale = t;
+		sr.sprite = Xbow;		
 		if (item == ItemType.LANCE) 
 			sr.sprite = Lance;
 		if (item == ItemType.KNIFE) 
@@ -52,8 +57,13 @@ public class Items : MonoBehaviour {
 			sr.sprite = Armor;
 		if (item == ItemType.MONEY) 
 			sr.sprite = Money;
-		if (item == ItemType.XBOW)
-			sr.sprite = Xbow;			
+		if (item == ItemType.XBOW) {
+			Vector3 theScale = sr.transform.localScale;
+			theScale.x = 2;
+			theScale.y = 5;
+			sr.transform.localScale = theScale;
+			sr.sprite = Xbow;		
+		}
 	}
 
 

@@ -70,7 +70,7 @@ public class Weapon : MonoBehaviour {
 		}
 		if (weapon == WeaponType.XBOW) {
 			Sprite.GetComponent<SpriteRenderer> ().sprite = Knife;
-			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides * 3f, 0f));
+			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides * 2f, 0f));
 		}
 		//thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 4f));
 	}
