@@ -30,7 +30,7 @@ public class GameOver : MonoBehaviour {
 	}
 
 	IEnumerator gameOver() {
-		GetComponent<Text> ().text = "Player 1 Ready\n Game Over" + Arthur.lives;
+		GetComponent<Text> ().text = "Player 1 Ready\n Game Over";
 		yield return new WaitForSeconds(4);
 		Application.LoadLevel ("groundScene");
 	}

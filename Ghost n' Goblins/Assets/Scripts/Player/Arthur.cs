@@ -295,7 +295,7 @@ public class Arthur : MonoBehaviour {
 	void FixedUpdate() {
 		if (isHitTimer < 0) {
 			isHit = false;
-			GetComponent<MeshRenderer>().renderer.enabled = true;
+			Sprite.GetComponent<SpriteRenderer>().renderer.enabled = true;
 		} else {
 			
 			isHitTimer -= Time.deltaTime;
@@ -312,9 +312,9 @@ public class Arthur : MonoBehaviour {
 	void drawInvincibleVisual() {
 		if (isDying) return;
 		if (invincibleVisual) {
-			GetComponent<MeshRenderer>().renderer.enabled = false;
+			Sprite.GetComponent<SpriteRenderer>().renderer.enabled = true;
 		} else {
-			GetComponent<MeshRenderer>().renderer.enabled = true;
+			Sprite.GetComponent<SpriteRenderer>().renderer.enabled = false;
 		}
 		invincibleVisual = !invincibleVisual;
 	}
