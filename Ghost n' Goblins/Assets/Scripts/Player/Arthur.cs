@@ -402,7 +402,7 @@ public class Arthur : MonoBehaviour {
 			onLadderTop = true;
 			ladderVec = collidedWith.transform.position;
 		}
-		if (collidedWith.tag == "Hazard") {
+		if (collidedWith.tag == "hazard") {
 			health = 0;
 			if (health == 0) {
 				isDying = true;

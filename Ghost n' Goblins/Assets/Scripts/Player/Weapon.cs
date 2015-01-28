@@ -76,7 +76,8 @@ public class Weapon : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready && other) {
+		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready && other &&
+		    !other.GetComponent<Enemy>().ignoreProjectiles) {
 			print (count);
 			if (!burning && weapon != WeaponType.XBOW) {
 				Arthur.weaponCount--;

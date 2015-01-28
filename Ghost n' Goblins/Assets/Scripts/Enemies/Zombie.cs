@@ -63,7 +63,7 @@ public class Zombie : MonoBehaviour {
 	void despawn() {
 		GetComponent<PhysObj> ().setVelocity (new Vector2 (0, 0));
 		GetComponent<Enemy>().ready = false;
-		GetComponentInChildren<SpriteRenderer>().material.color = new Color(255, 255, 0, 255);
+		GetComponentInChildren<SpriteRenderer>().color = new Color(255, 255, 0, 255);
 		if (lifetick - lifetime > despawnTime) {
 			Destroy (this.gameObject);
 		}
@@ -94,7 +94,7 @@ public class Zombie : MonoBehaviour {
 			spawned = true;
 
 			GetComponent<Enemy>().ready = true;
-			GetComponentInChildren<SpriteRenderer>().material.color = new Color (64, 0, 0, 255);
+			GetComponentInChildren<SpriteRenderer>().color = new Color (64, 0, 0, 255);
 		} else {
 			if (!spawned) {
 				curSpawnTime -= Time.deltaTime;
@@ -104,7 +104,7 @@ public class Zombie : MonoBehaviour {
 	}
 
 	void drawSpawnAnimation() {
-		GetComponentInChildren<SpriteRenderer>().material.color = new Color (255, 255, 255, 255);
+		GetComponentInChildren<SpriteRenderer>().color = new Color (255, 255, 255, 255);
 		/*
 		Vector3 newScale = transform.localScale;
 		newScale.y = originalYscale * (1 - curSpawnTime / spawnTime);
@@ -113,7 +113,7 @@ public class Zombie : MonoBehaviour {
 	}
 
 	void drawDespawnAnimation() {
-		GetComponentInChildren<SpriteRenderer>().material.color = new Color (255, 255, 255, 255);
+		GetComponentInChildren<SpriteRenderer>().color = new Color (255, 255, 255, 255);
 
 	}
 }
