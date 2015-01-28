@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
 	public int score = 0;
 	public bool ready = false;
 	public bool ignoreProjectiles = false;
+	public bool dropsItem = true;
 	public GameObject ItemPrefab;
 
 	void OnTriggerEnter(Collider other) {
@@ -15,7 +16,7 @@ public class Enemy : MonoBehaviour {
 			health--;
 			if (health < 1) {
 				float drop = Random.Range(0f,1f);
-				if (drop < 0.1) {
+				if (drop < 0.1 && dropsItem) {
 					GameObject Item = (GameObject)Instantiate (ItemPrefab);
 					Item.transform.position = transform.position;
 					drop = Random.Range(0f,1f);

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Manager : MonoBehaviour {
-	const float viewWidth = 7f;
+	const float viewWidth = 6.7f;
 	public static Vector3 pos;
 	Vector3 prev;
 
@@ -30,6 +30,16 @@ public class Manager : MonoBehaviour {
 				return;
 			}
 		}
+
+		GameObject l2 = GameObject.FindGameObjectWithTag ("CameraLimit");
+		if (Arthur.arthurPos.x >  l2.transform.position.x - viewWidth) {
+			Vector3 n = new Vector3(l2.transform.position.x - viewWidth,
+			                        transform.position.y,
+			                        transform.position.z);
+			transform.position= n; return;
+		}
+
+
 		transform.position = new Vector3 (
 			Arthur.arthurPos.x,
 			transform.position.y,

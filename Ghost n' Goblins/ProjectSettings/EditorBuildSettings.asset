@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/groundScene.unity
   - enabled: 1
     path: Assets/Scenes/gameOver.unity
+  - enabled: 1
+    path: Assets/Scenes/congrats.unity

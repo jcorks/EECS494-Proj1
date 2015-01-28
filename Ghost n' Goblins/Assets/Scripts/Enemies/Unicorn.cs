@@ -5,15 +5,16 @@ public class Unicorn : MonoBehaviour {
 
 	const float EXPIRED = -9999f;
 	public GameObject FireballPrefab;
+	public GameObject keyP;
 
 	Enemy thisE;
 	PhysObj thisPhys;
 
-	float initWaitTime 		= 2f;
-	float chanceToGoFast 	= .002f;
-	float chanceToChangeDir = .01f;
+	float initWaitTime 		= 3f;
+	float chanceToGoFast 	= .005f;
+	float chanceToChangeDir = .013f;
 	float chanceToJumpOnDmg = .35f;
-	float chanceToFire      = .007f;
+	float chanceToFire      = .01f;
 	float fastDuration 		= 4f; // durtion for fastness in seconds
 	float shotDuration   	= .6f;
 	float shotSpeed         = 4f;
@@ -164,5 +165,12 @@ public class Unicorn : MonoBehaviour {
 				thisPhys.setVelocity (new Vector2(0, jumpVelocity));
 			}
 		}
+	}
+
+	void OnDestroy() {
+		GameObject key = (GameObject)Instantiate (keyP);
+		key.transform.position = new Vector3 (153, 10, 0);
+
+
 	}
 }
