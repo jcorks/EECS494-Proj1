@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Respawner : MonoBehaviour {
 	public GameObject arthur;
-	static float checkpointX = -10f;
+	public static float checkpointX = -10f;
 	float checkpoint1 = -10f;
 	float checkpoint2 = 73f;
 	float checkpoint3 = 9000f;
@@ -18,6 +18,7 @@ public class Respawner : MonoBehaviour {
 
 		if (!GameObject.FindGameObjectWithTag("Player")) { 
 			GameObject inst = (GameObject)Instantiate (arthur);
+			print ("Respawned at " + checkpointX.ToString ());
 			inst.transform.position = new Vector3(checkpointX, 0.78f, 0);
 		}
 

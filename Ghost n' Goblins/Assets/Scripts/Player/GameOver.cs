@@ -15,7 +15,7 @@ public class GameOver : MonoBehaviour {
 		}
 		StartCoroutine(gameOver ());
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	
@@ -30,8 +30,10 @@ public class GameOver : MonoBehaviour {
 	}
 
 	IEnumerator gameOver() {
-		GetComponent<Text> ().text = "Player 1 Ready\n Game Over";
+		Respawner.checkpointX = -10f;
+		GetComponent<Text> ().text = "Player 1\n Game Over";
 		yield return new WaitForSeconds(4);
+
 		Application.LoadLevel ("groundScene");
 	}
 }

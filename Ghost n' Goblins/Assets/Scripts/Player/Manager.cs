@@ -17,6 +17,8 @@ public class Manager : MonoBehaviour {
 	
 	// Update is called once per frames
 	void Update () {
+
+		/* control camera */
 		GameObject[] l = GameObject.FindGameObjectsWithTag ("CameraBound");
 		foreach (GameObject cb in l) {
 			if (!cb.GetComponent<CameraAnchor>().active) continue;
