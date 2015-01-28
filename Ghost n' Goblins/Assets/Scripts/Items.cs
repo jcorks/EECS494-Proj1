@@ -6,7 +6,8 @@ public enum ItemType {
 	KNIFE,
 	FIREBALL,
 	ARMOR,
-	MONEY
+	MONEY,
+	XBOW
 };
 
 public class Items : MonoBehaviour {
@@ -16,6 +17,7 @@ public class Items : MonoBehaviour {
 	public Sprite Fireball;
 	public Sprite Armor;
 	public Sprite Money;
+	public Sprite Xbow;
 
 	public GameObject Sprite; 
 	PhysObj phys;
@@ -46,7 +48,8 @@ public class Items : MonoBehaviour {
 			Sprite.GetComponent<SpriteRenderer> ().sprite = Armor;
 		if (item == ItemType.MONEY) 
 			Sprite.GetComponent<SpriteRenderer> ().sprite = Money;
-					
+		if (item == ItemType.XBOW)
+			Sprite.GetComponent<SpriteRenderer> ().sprite = Xbow;			
 		
 	}
 

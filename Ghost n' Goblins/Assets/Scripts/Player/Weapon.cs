@@ -5,7 +5,7 @@ public enum WeaponType {
 	LANCE,
 	KNIFE,
 	FIREBALL,
-	SPEAR
+	XBOW
 };
 
 public class Weapon : MonoBehaviour {
@@ -47,8 +47,6 @@ public class Weapon : MonoBehaviour {
 	
 		count = 0;
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
-		Debug.Log (weaponSpeed*sides);
-		Debug.Log (weapon);
 		arthurLastPos = thisArthur.transform.position;
 		Debug.Log (arthurLastPos);
 		if ( (sides == -1f && Sprite.transform.localScale.x > 0) || 
@@ -70,9 +68,9 @@ public class Weapon : MonoBehaviour {
 			Sprite.GetComponent<SpriteRenderer> ().sprite = Fireball;
 			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 3f));
 		}
-		if (weapon == WeaponType.SPEAR) {
+		if (weapon == WeaponType.XBOW) {
 			Sprite.GetComponent<SpriteRenderer> ().sprite = Knife;
-			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides * 0.6f, 0f));
+			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides * 3f, 0f));
 		}
 		//thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 4f));
 	}
@@ -80,7 +78,7 @@ public class Weapon : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready && other) {
 			print (count);
-			if (!burning && weapon != WeaponType.SPEAR) {
+			if (!burning && weapon != WeaponType.XBOW) {
 				Arthur.weaponCount--;
 				Destroy (this.gameObject);
 				count = 0;
