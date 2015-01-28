@@ -3,13 +3,8 @@ using System.Collections;
 
 public class ArthurSprite : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public void Change(Sprite what) {
+		this.GetComponent<SpriteRenderer> ().sprite = what;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
