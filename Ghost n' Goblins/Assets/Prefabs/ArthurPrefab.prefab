@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 22448256}
   - 212: {fileID: 21248256}
-  - 114: {fileID: 11448256}
   m_Layer: 0
   m_Name: arthurSprite
   m_TagString: Untagged
@@ -142,17 +141,20 @@ MonoBehaviour:
   weapon: 0
   jumpOverTombLeft: 0
   jumpOverTombRight: 0
---- !u!114 &11448256
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c9bd317c2c88a841aebe190d03d5a13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Stand1: {fileID: 21300030, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Crouch1: {fileID: 21300032, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Jump1: {fileID: 21300040, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Shoot1: {fileID: 21300048, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  ShootC1: {fileID: 21300054, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Climb1: {fileID: 21300042, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Stand2: {fileID: 21300002, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Crouch2: {fileID: 21300004, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Jump2: {fileID: 21300012, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Shoot2: {fileID: 21300020, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  ShootC2: {fileID: 21300024, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Climb2: {fileID: 21300014, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Dead: {fileID: 21300062, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Used: {fileID: 0}
 --- !u!212 &21248256
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -173,7 +175,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: .749019623, g: .749019623, b: .749019623, a: 1}
 --- !u!224 &22448256
 RectTransform:

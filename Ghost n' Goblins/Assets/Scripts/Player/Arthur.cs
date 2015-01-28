@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Arthur : MonoBehaviour {
 	public static GUIText scoreGT;
-	public ArthurSprite Sprite;
+	public GameObject Sprite;
 
 	// Use this for initialization
 	public static Vector3 arthurPos = new Vector3 (-100, -100, -100);
@@ -56,7 +56,22 @@ public class Arthur : MonoBehaviour {
 	public bool jumpOverTombLeft = false;
 	public bool jumpOverTombRight = false;
 
+	public Sprite Stand1;
+	public Sprite Crouch1;
+	public Sprite Jump1;
+	public Sprite Shoot1;
+	public Sprite ShootC1;
+	public Sprite Climb1;
+	public Sprite Stand2;
+	public Sprite Crouch2;
+	public Sprite Jump2;
+	public Sprite Shoot2;
+	public Sprite ShootC2;
+	public Sprite Climb2;
+	public Sprite Dead; 
 
+	public Sprite Used; 
+	
 	void Awake() {
 
 
@@ -64,6 +79,7 @@ public class Arthur : MonoBehaviour {
 	}
 	
 	void Start() {
+		Sprite = GameObject.FindWithTag ("spritePlayer");
 		GameObject scoreGo = GameObject.Find ("ScoreCounter");
 		scoreGT = scoreGo.GetComponent<GUIText> ();
 		scoreGT.text = "0";
@@ -74,6 +90,7 @@ public class Arthur : MonoBehaviour {
 		crouching = false;
 		weapon = priorWeapon;
 		sides = 1f;
+		Debug.Log(Sprite.GetComponent<SpriteRenderer> ().sprite);
 	}
 
 	void changeSide(bool sides) {
@@ -86,10 +103,43 @@ public class Arthur : MonoBehaviour {
 
 	void Update () {
 		if (upLadder) {
+			if (health == 2)
+				Used = Climb2;
+			else 
+				Used = Climb1;
+			Sprite.GetComponent<SpriteRenderer> ().sprite = Used;
 			climbUp ();
 			return;
 		}
 
+		//If standing
+		if (health == 2)
+			Used = Stand2;
+		else 
+			Used = Stand1;
+
+		//If Jumping
+		if (!thisPhys.isGrounded) {
+			if (health == 2)
+				Used = Jump2;
+			else 
+				Used = Jump1;
+		}
+
+		if (crouching) {
+			Vector3 t = Sprite.transform.localPosition;
+			t.y = 0.017f;
+			Sprite.transform.localPosition = t;
+			if (health == 2)
+				Used = Crouch2;
+			else 
+				Used = Crouch1;
+		}
+		else {
+			Vector3 t = Sprite.transform.localPosition;
+			t.y = 0.1133268f;
+			Sprite.transform.localPosition = t;
+		}
 
 		if (jumping && thisPhys.isGrounded) {
 			if (!isHitOnGround) {
@@ -213,12 +263,10 @@ public class Arthur : MonoBehaviour {
 
 		if (crouching) {
 			GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
-			//Sprite.GetComponent<SpriteRenderer>().sprite = arthur_2;
 			boxCollider.center = crouchState2;
 			boxCollider.size = crouchState1;
 		}
 		else {
-			//Sprite.GetComponent<SpriteRenderer>().sprite = arthur_1;
 			GetComponent<MeshRenderer>().material.color = origColor;
 			boxCollider.center = standState2;	
 			boxCollider.size = standState1;
@@ -227,6 +275,15 @@ public class Arthur : MonoBehaviour {
 
 
 
+		if ( (sides == -1f && Sprite.transform.localScale.x > 0) || 
+		    (sides == 1f && Sprite.transform.localScale.x < 0 )){
+			Vector3 t = Sprite.transform.localScale;
+			t.x *= -1f;
+			Sprite.transform.localScale = t;
+		}
+
+
+		Sprite.GetComponent<SpriteRenderer> ().sprite = Used;
 
 
 	}
@@ -265,7 +322,6 @@ public class Arthur : MonoBehaviour {
 	void OnTriggerEnter(Collider coll){
 		//Find out what hit this basket
 		GameObject collidedWith = coll.gameObject;
-
 
 
 		if (collidedWith.tag == "Item") {
