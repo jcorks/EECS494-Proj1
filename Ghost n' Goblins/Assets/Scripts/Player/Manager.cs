@@ -8,15 +8,28 @@ public class Manager : MonoBehaviour {
 	Vector3 prev;
 
 
+	public GameObject keyP;
+
+	public static bool isShuttingDown = false;
+	public static bool beatLevel = false;
+	bool instantiatedKey = false;
+
+
 
 
 	// Use this for initialization
 	void Start () {
-	
+		beatLevel = false;
 	}
 	
 	// Update is called once per frames
 	void Update () {
+
+		if (beatLevel && !instantiatedKey) {
+			GameObject key = (GameObject)Instantiate (keyP);
+			key.transform.position = new Vector3 (153, 10, 0);
+			instantiatedKey = true;
+		}
 
 		/* control camera */
 		GameObject[] l = GameObject.FindGameObjectsWithTag ("CameraBound");
@@ -46,5 +59,9 @@ public class Manager : MonoBehaviour {
 			transform.position.z);
 		prev = transform.position;
 		pos = transform.position;
+	}
+
+	void OnApplicationQuit() {
+		isShuttingDown = true;
 	}
 }

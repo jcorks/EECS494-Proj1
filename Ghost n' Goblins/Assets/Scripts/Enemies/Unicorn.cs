@@ -5,7 +5,6 @@ public class Unicorn : MonoBehaviour {
 
 	const float EXPIRED = -9999f;
 	public GameObject FireballPrefab;
-	public GameObject keyP;
 
 	Enemy thisE;
 	PhysObj thisPhys;
@@ -168,9 +167,8 @@ public class Unicorn : MonoBehaviour {
 	}
 
 	void OnDestroy() {
-		GameObject key = (GameObject)Instantiate (keyP);
-		key.transform.position = new Vector3 (153, 10, 0);
-
-
+		Manager.beatLevel = true;
 	}
+
+
 }
