@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\Player\ArthurSprite.cs" />
      <Compile Include="Assets\Scripts\Player\CameraAnchor.cs" />
      <Compile Include="Assets\Scripts\Player\GameOver.cs" />
+     <Compile Include="Assets\Scripts\Player\ItemUI.cs" />
      <Compile Include="Assets\Scripts\Player\Manager.cs" />
      <Compile Include="Assets\Scripts\Player\Respawner.cs" />
      <Compile Include="Assets\Scripts\Player\Score.cs" />

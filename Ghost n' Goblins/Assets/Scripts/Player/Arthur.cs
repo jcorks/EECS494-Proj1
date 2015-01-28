@@ -47,7 +47,7 @@ public class Arthur : MonoBehaviour {
 	private Vector3 standState1 = new Vector3(1f, 1f, 1f);
 	private Vector3 standState2 = new Vector3(0f, 0f, 0f);
 	private Vector3 ladderVec;
-	private float verticalWeaponSpawn = 0.3f;
+	private float verticalWeaponSpawn = 0.5f;
 	private BoxCollider boxCollider;
 
 	private float weaponWaiting = 0;

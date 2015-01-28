@@ -5,7 +5,7 @@ public enum WeaponType {
 	LANCE,
 	KNIFE,
 	FIREBALL,
-	PROJECTILE
+	SPEAR
 };
 
 public class Weapon : MonoBehaviour {
@@ -20,23 +20,59 @@ public class Weapon : MonoBehaviour {
 	private Vector3 arthurLastPos;
 	public int count;
 
+	public GameObject Sprite;
+	public Sprite Lance;
+	public Sprite Knife;
+	public Sprite Fireball;
+
+	Sprite Used;
+
 	// Use this for initialization
 	void Start () {
+		Sprite = GameObject.FindWithTag ("spriteWeapon");
+		GameObject[] gos;
+		gos = GameObject.FindGameObjectsWithTag("spriteWeapon");
+		GameObject closest = Sprite;
+		float distance = Mathf.Infinity;
+		Vector3 position = transform.position;
+		foreach (GameObject go in gos) {
+			Vector3 diff = go.transform.position - position;
+			float curDistance = diff.sqrMagnitude;
+			if (curDistance < distance) {
+				closest = go;
+				distance = curDistance;
+			}
+		}
+		Sprite = closest;
+	
 		count = 0;
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
 		Debug.Log (weaponSpeed*sides);
 		Debug.Log (weapon);
 		arthurLastPos = thisArthur.transform.position;
 		Debug.Log (arthurLastPos);
+		if ( (sides == -1f && Sprite.transform.localScale.x > 0) || 
+		    (sides == 1f && Sprite.transform.localScale.x < 0 )){
+			Vector3 t = Sprite.transform.localScale;
+			t.x *= -1f;
+			Sprite.transform.localScale = t;
+		}
 		if (weapon == WeaponType.LANCE) {
+			Sprite.GetComponent<SpriteRenderer> ().sprite = Lance;
 			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 0f));
 		}
 		if (weapon == WeaponType.KNIFE) {
+			Sprite.GetComponent<SpriteRenderer> ().sprite = Knife;
 			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides * 1.5f, 0f));
 		}
 		if (weapon == WeaponType.FIREBALL) {
 			thisPhys.ignoreGravity = false;
+			Sprite.GetComponent<SpriteRenderer> ().sprite = Fireball;
 			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 3f));
+		}
+		if (weapon == WeaponType.SPEAR) {
+			Sprite.GetComponent<SpriteRenderer> ().sprite = Knife;
+			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides * 0.6f, 0f));
 		}
 		//thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 4f));
 	}
@@ -44,7 +80,7 @@ public class Weapon : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready && other) {
 			print (count);
-			if (!burning) {
+			if (!burning && weapon != WeaponType.SPEAR) {
 				Arthur.weaponCount--;
 				Destroy (this.gameObject);
 				count = 0;
