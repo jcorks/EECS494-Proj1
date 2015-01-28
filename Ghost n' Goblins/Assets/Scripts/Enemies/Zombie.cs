@@ -32,6 +32,8 @@ public class Zombie : MonoBehaviour {
 	
 	void Awake() {
 		originalYscale = transform.localScale.y;
+		GetComponent<PhysObj> ().ignoreGravity = true;
+		GetComponent<BoxCollider> ().enabled = false;
 	}
 	
 	
@@ -67,6 +69,9 @@ public class Zombie : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (curSpawnTime < 0 && !spawned) {
+			GetComponent<PhysObj> ().ignoreGravity = false;
+			GetComponent<BoxCollider> ().enabled =true;
+
 			Vector3 speedVec = Arthur.arthurPos - transform.position;
 			speedVec.Normalize ();
 			if (speedVec == new Vector3(0, 0, 0)) {

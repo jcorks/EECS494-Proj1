@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour {
 	public PhysObj thisPhys;
 	public float sides;
 	public WeaponType weapon;
-	private float weaponSpeed = 12f;
+	private float weaponSpeed = 10f;
 	private bool burning = false;
 	private float burnCount = 0f;
 	private Vector3 arthurLastPos;
@@ -57,6 +57,7 @@ public class Weapon : MonoBehaviour {
 		if (other.tag == "Ground" && weapon == WeaponType.FIREBALL) {
 			Debug.Log("fireballHit");
 			thisPhys.setVelocity (new Vector2 (0f, 0f));
+			thisPhys.ignoreGravity = true;
 			burning = true;
 			burnCount = Time.time;
 			Debug.Log(burnCount);

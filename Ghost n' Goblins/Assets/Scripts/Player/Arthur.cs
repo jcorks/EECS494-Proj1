@@ -213,12 +213,12 @@ public class Arthur : MonoBehaviour {
 
 		if (crouching) {
 			GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
-			Sprite.GetComponent<SpriteRenderer>().sprite = arthur_2;
+			//Sprite.GetComponent<SpriteRenderer>().sprite = arthur_2;
 			boxCollider.center = crouchState2;
 			boxCollider.size = crouchState1;
 		}
 		else {
-			Sprite.GetComponent<SpriteRenderer>().sprite = arthur_1;
+			//Sprite.GetComponent<SpriteRenderer>().sprite = arthur_1;
 			GetComponent<MeshRenderer>().material.color = origColor;
 			boxCollider.center = standState2;	
 			boxCollider.size = standState1;
