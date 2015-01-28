@@ -6,7 +6,8 @@ public enum ItemType {
 	KNIFE,
 	FIREBALL,
 	ARMOR,
-	MONEY
+	MONEY,
+	XBOW
 };
 
 public class Items : MonoBehaviour {
@@ -16,6 +17,7 @@ public class Items : MonoBehaviour {
 	public Sprite Fireball;
 	public Sprite Armor;
 	public Sprite Money;
+	public Sprite Xbow;
 
 	SpriteRenderer sr;
 
@@ -50,8 +52,8 @@ public class Items : MonoBehaviour {
 			sr.sprite = Armor;
 		if (item == ItemType.MONEY) 
 			sr.sprite = Money;
-					
-		
+		if (item == ItemType.XBOW)
+			sr.sprite = Xbow;			
 	}
 
 
