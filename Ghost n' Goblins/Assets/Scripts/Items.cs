@@ -17,11 +17,13 @@ public class Items : MonoBehaviour {
 	public Sprite Armor;
 	public Sprite Money;
 
-	public GameObject Sprite; 
+	SpriteRenderer sr;
+
+
 	PhysObj phys;
 	public ItemType item;
 	void Start() {
-		Sprite = GameObject.FindWithTag ("spriteItem");
+		/*
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag("spriteWeapon");
 		GameObject closest = Sprite;
@@ -36,16 +38,18 @@ public class Items : MonoBehaviour {
 			}
 		}
 		Sprite = closest;
+		*/
+		sr = GetComponentInChildren<SpriteRenderer> ();
 		if (item == ItemType.LANCE) 
-			Sprite.GetComponent<SpriteRenderer> ().sprite = Lance;
+			sr.sprite = Lance;
 		if (item == ItemType.KNIFE) 
-			Sprite.GetComponent<SpriteRenderer> ().sprite = Knife;
+			sr.sprite = Knife;
 		if (item == ItemType.FIREBALL)
-			Sprite.GetComponent<SpriteRenderer> ().sprite = Fireball;
+			sr.sprite = Fireball;
 		if (item == ItemType.ARMOR) 
-			Sprite.GetComponent<SpriteRenderer> ().sprite = Armor;
+			sr.sprite = Armor;
 		if (item == ItemType.MONEY) 
-			Sprite.GetComponent<SpriteRenderer> ().sprite = Money;
+			sr.sprite = Money;
 					
 		
 	}
