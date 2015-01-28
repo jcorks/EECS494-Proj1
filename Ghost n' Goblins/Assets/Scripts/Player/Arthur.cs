@@ -16,7 +16,7 @@ public class Arthur : MonoBehaviour {
 	public GameObject WeaponPrefab;
 
 	public int health;
-	public WeaponType weapon;
+	public static WeaponType weapon;
 	private PhysObj thisPhys;
 	private GameObject arthurObject;
 	private WeaponType priorWeapon;
@@ -226,9 +226,13 @@ public class Arthur : MonoBehaviour {
 
 
 
+
+
+
+	}
+
+	void LateUpdate() {
 		arthurPos = transform.position;
-
-
 	}
 
 	void FixedUpdate() {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Manager : MonoBehaviour {
 	const float viewWidth = 7f;
+	public static Vector3 pos;
 	Vector3 prev;
 
 
@@ -32,5 +33,6 @@ public class Manager : MonoBehaviour {
 			transform.position.y,
 			transform.position.z);
 		prev = transform.position;
+		pos = transform.position;
 	}
 }
