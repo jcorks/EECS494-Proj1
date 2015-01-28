@@ -31,6 +31,7 @@ public class Arthur : MonoBehaviour {
 	private float weaponThrownWaitTime = .2f; // how long to wait after thrown weapon before able to move again
 	private int weaponLimit = 2; //amount of weapon permitted on screen
 	private Color origColor;
+	private float delay = 1f;
 
 	private float isHitTimer = 0;
 	private float platformSpeed = 0;
@@ -51,6 +52,7 @@ public class Arthur : MonoBehaviour {
 	private BoxCollider boxCollider;
 
 	private float weaponWaiting = 0;
+
 
 	private bool isDying = false;
 	public bool jumpOverTombLeft = false;
@@ -156,6 +158,7 @@ public class Arthur : MonoBehaviour {
 		}
 
 		weaponWaiting -= Time.deltaTime;
+		delay -= Time.deltaTime;
 
 
 		if (!jumping)
@@ -191,7 +194,7 @@ public class Arthur : MonoBehaviour {
 			transform.position = temp;
 		}
 		
-		if (Input.GetKeyDown (KeyCode.X) && weaponCount < weaponLimit) 
+		if (Input.GetKeyDown (KeyCode.X) && weapon != WeaponType.XBOW && weaponCount < weaponLimit) 
 		{
 			
 			//arthurObject.scale
@@ -208,7 +211,25 @@ public class Arthur : MonoBehaviour {
 			weaponWaiting = weaponThrownWaitTime;
 			
 		}
-
+		if (Input.GetKeyDown (KeyCode.X) && weapon == WeaponType.XBOW && delay < 0) 
+		{
+			
+			//arthurObject.scale
+			//weaponCount++;
+			//Debug.Log ("weapon on " + weaponCount);
+			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
+			Weapon weaponComp = weaponObj.GetComponent<Weapon>();
+			weaponComp.thisArthur = this.GetComponent<Arthur>();
+			Debug.Log (weapon);
+			
+			weaponComp.weapon = weapon;
+			weaponComp.sides = sides;
+			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn); 
+			weaponWaiting = weaponThrownWaitTime;
+			delay = 2;
+			
+		}
+		
 		if (weaponWaiting > 0 && !crouching) {
 			Vector3 t = Sprite.transform.localPosition;
 			t.y = 0f;
@@ -368,11 +389,14 @@ public class Arthur : MonoBehaviour {
 				weapon = WeaponType.KNIFE;
 			if (received == ItemType.FIREBALL)
 				weapon = WeaponType.FIREBALL;
+			if (received == ItemType.XBOW)
+				weapon = WeaponType.XBOW;
 			if (received == ItemType.MONEY) {
 				int score = int.Parse (scoreGT.text);
 				score += 100;
 				scoreGT.text = score.ToString ();
 			}
+			Debug.Log(weapon);
 			if (received == ItemType.ARMOR) {
 				int score = int.Parse (scoreGT.text);
 				score += 200;
