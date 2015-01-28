@@ -137,7 +137,7 @@ public class Arthur : MonoBehaviour {
 		}
 		else {
 			Vector3 t = Sprite.transform.localPosition;
-			t.y = 0.1133268f;
+			t.y = 0;
 			Sprite.transform.localPosition = t;
 		}
 

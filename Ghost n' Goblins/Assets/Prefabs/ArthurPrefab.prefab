@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21248256}
   m_Layer: 0
   m_Name: arthurSprite
-  m_TagString: Untagged
+  m_TagString: spritePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fca48ed456e9b418b43a39d7baf116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 181390, guid: 62599de7509c00f4a988b01e77793c09, type: 2}
   WeaponPrefab: {fileID: 169690, guid: 70c9b2b5fbfd3bd478ede1d6f80a8b4f, type: 2}
   health: 0
   weapon: 0
@@ -185,7 +185,7 @@ RectTransform:
   m_GameObject: {fileID: 148256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 9, y: 5, z: 1}
+  m_LocalScale: {x: 9, y: 4.5, z: 1}
   m_Children: []
   m_Father: {fileID: 471948}
   m_RootOrder: 0
