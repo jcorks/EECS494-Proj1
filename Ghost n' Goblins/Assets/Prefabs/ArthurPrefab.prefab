@@ -152,6 +152,7 @@ MonoBehaviour:
   Shoot2: {fileID: 21300020, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   ShootC2: {fileID: 21300024, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Climb2: {fileID: 21300014, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Hit: {fileID: 21300058, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Dead: {fileID: 21300062, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Used: {fileID: 0}
 --- !u!212 &21248256
@@ -184,7 +185,7 @@ RectTransform:
   m_GameObject: {fileID: 148256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 9, y: 4.5, z: 1}
+  m_LocalScale: {x: 8.80000019, y: 4.5, z: 1}
   m_Children: []
   m_Father: {fileID: 471948}
   m_RootOrder: 0

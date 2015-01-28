@@ -47,7 +47,7 @@ public class Arthur : MonoBehaviour {
 	private Vector3 standState1 = new Vector3(1f, 1f, 1f);
 	private Vector3 standState2 = new Vector3(0f, 0f, 0f);
 	private Vector3 ladderVec;
-	private float verticalWeaponSpawn = 0.5f;
+	private float verticalWeaponSpawn = 0.3f;
 	private BoxCollider boxCollider;
 
 	private float weaponWaiting = 0;
@@ -57,17 +57,20 @@ public class Arthur : MonoBehaviour {
 	public bool jumpOverTombRight = false;
 
 	public Sprite Stand1;
+	public Sprite Move1;
 	public Sprite Crouch1;
 	public Sprite Jump1;
 	public Sprite Shoot1;
 	public Sprite ShootC1;
 	public Sprite Climb1;
 	public Sprite Stand2;
+	public Sprite Move2;
 	public Sprite Crouch2;
 	public Sprite Jump2;
 	public Sprite Shoot2;
 	public Sprite ShootC2;
 	public Sprite Climb2;
+	public Sprite Hit;
 	public Sprite Dead; 
 
 	public Sprite Used; 
@@ -128,7 +131,7 @@ public class Arthur : MonoBehaviour {
 
 		if (crouching) {
 			Vector3 t = Sprite.transform.localPosition;
-			t.y = 0.017f;
+			t.y = -0.11f;
 			Sprite.transform.localPosition = t;
 			if (health == 2)
 				Used = Crouch2;
@@ -158,9 +161,12 @@ public class Arthur : MonoBehaviour {
 		if (!jumping)
 			thisPhys.setVelocity (new Vector2(0f, thisPhys.getVelocity().y));
 		
-		if (isDying) return;
-
-
+		if (isDying) {
+			Vector3 t = Sprite.transform.localPosition;
+			t.y = -0.2f;
+			Sprite.transform.localPosition = t;
+			return;
+		}
 
 		//If I am pressing up while on the latter
 		if (Input.GetKey(KeyCode.UpArrow) && !crouching && thisPhys.isGrounded && !jumping && onLadder) 
@@ -202,9 +208,33 @@ public class Arthur : MonoBehaviour {
 			weaponWaiting = weaponThrownWaitTime;
 			
 		}
-		
+
+		if (weaponWaiting > 0 && !crouching) {
+			Vector3 t = Sprite.transform.localPosition;
+			t.y = 0f;
+			Sprite.transform.localPosition = t;
+			if (health == 2)
+				Used = Shoot2;
+			else 
+				Used = Shoot1;
+		}
+
+		if (weaponWaiting > 0 && crouching) {
+			Vector3 t = Sprite.transform.localPosition;
+			t.y = -0.11f;
+			Sprite.transform.localPosition = t;
+			if (health == 2)
+				Used = ShootC2;
+			else 
+				Used = ShootC1;
+		}
+
 		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'l' && weaponWaiting < 0) 
 		{
+			if (health == 2)
+				Used = Move2;
+			else 
+				Used = Move1;
 			sides = -1f;
 			thisPhys.addVelocity(-speed, 0f);
 		}
@@ -215,6 +245,10 @@ public class Arthur : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.RightArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'r' && weaponWaiting < 0)
 		{
+			if (health == 2)
+				Used = Move2;
+			else 
+				Used = Move1;
 			sides = 1f;
 			thisPhys.addVelocity(speed, 0f);
 		}	
@@ -372,7 +406,6 @@ public class Arthur : MonoBehaviour {
 			health = 0;
 			if (health == 0) {
 				isDying = true;
-				GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 255);
 				Invoke ("die", 3);
 			}
 		}
@@ -461,6 +494,7 @@ public class Arthur : MonoBehaviour {
 		if (health == 0) {
 			isDying = true;
 			GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 255);
+			Sprite.GetComponent<SpriteRenderer> ().sprite = Dead;
 			Invoke ("die", 3);
 		}
 	}
