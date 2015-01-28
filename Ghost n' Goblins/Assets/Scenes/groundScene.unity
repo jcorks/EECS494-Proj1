@@ -2642,6 +2642,7 @@ MonoBehaviour:
   knife: {fileID: 21300070, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   lance: {fileID: 21300068, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   fireball: {fileID: 21300072, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  xbow: {fileID: 0}
 --- !u!4 &470637219
 Transform:
   m_ObjectHideFlags: 0
