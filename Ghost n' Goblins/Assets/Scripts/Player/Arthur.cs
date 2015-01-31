@@ -60,6 +60,7 @@ public class Arthur : MonoBehaviour {
 
 	public Sprite Stand1;
 	public Sprite Move1;
+	public Animator Move12;
 	public Sprite Crouch1;
 	public Sprite Jump1;
 	public Sprite Shoot1;
@@ -67,6 +68,7 @@ public class Arthur : MonoBehaviour {
 	public Sprite Climb1;
 	public Sprite Stand2;
 	public Sprite Move2;
+	public Sprite Move22;
 	public Sprite Crouch2;
 	public Sprite Jump2;
 	public Sprite Shoot2;

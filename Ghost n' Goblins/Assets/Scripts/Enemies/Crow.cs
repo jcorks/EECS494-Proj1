@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Crow : MonoBehaviour {
 
+	public Sprite stationary;
+	public Sprite crying;
+	public Sprite flying;
+
 	Vector3 m_centerPosition;
 	public float m_degrees;
 	public float m_speed = -2.5f;
@@ -18,12 +22,19 @@ public class Crow : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (renderer.isVisible) {
-			GetComponent<Enemy>().ready = true;
+			GetComponent<Enemy>().ready = GetComponentInChildren<SpriteRenderer>().isVisible;
 		}
 		if (GetComponent<Enemy>().ready == true && timer > 0) {
+			if (timer > 20 && timer < 40) {
+				GetComponentInChildren<SpriteRenderer>().sprite = crying;
+			}
+			else {
+				GetComponentInChildren<SpriteRenderer>().sprite = stationary;
+			}
 			timer--;
 		}
 		if (GetComponent<Enemy>().ready == true && timer == 0) {
+			GetComponentInChildren<SpriteRenderer>().sprite = flying;
 			movement ();
 		}
 	}

@@ -15,10 +15,9 @@ public class Plant : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<Enemy> ().ready = renderer.isVisible;
+		GetComponent<Enemy> ().ready = GetComponentInChildren<SpriteRenderer>().isVisible;
 		if (!GetComponent<Enemy> ().ready)
 						return;
-
 
 		fireCount += Time.deltaTime;
 		if (fireCount > fireRate) {

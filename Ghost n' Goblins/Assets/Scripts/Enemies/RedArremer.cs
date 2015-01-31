@@ -106,7 +106,7 @@ public class RedArremer : MonoBehaviour {
 					top = false;
 					Vector2 dirVec = flightRight - transform.position; 
 					dirVec.Normalize ();
-					GetComponent<PhysObj> ().setVelocity (dirVec * speedFlight);
+					GetComponent<PhysObj> ().setVelocity (dirVec * 8.0f);
 				}
 				else if (transform.position.y >= flightRight.y &&  GetComponent<PhysObj> ().getVelocity() !=non){
 					GetComponent<PhysObj> ().setVelocity (non);
@@ -118,7 +118,7 @@ public class RedArremer : MonoBehaviour {
 					top = false;
 					Vector2 dirVec = flightLeft - transform.position; 
 					dirVec.Normalize ();
-					GetComponent<PhysObj> ().setVelocity (dirVec * speedFlight);
+					GetComponent<PhysObj> ().setVelocity (dirVec * 8.0f);
 				}
 				else if (transform.position.y >= flightLeft.y &&  GetComponent<PhysObj> ().getVelocity() !=non){
 					GetComponent<PhysObj> ().setVelocity (non);
