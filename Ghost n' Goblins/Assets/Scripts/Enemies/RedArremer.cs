@@ -193,9 +193,15 @@ public class RedArremer : MonoBehaviour {
 
 	void posUpdate() {
 		if (Arthur.arthurPos.x > transform.position.x && !swooping) {
+			Vector3 temp = GetComponentInChildren<RectTransform>().localScale;
+			temp.x = -5;
+			GetComponentInChildren<RectTransform>().localScale = temp;
 			side = false;
 		}
 		else if (Arthur.arthurPos.x < transform.position.x && !swooping) {
+			Vector3 temp = GetComponentInChildren<RectTransform>().localScale;
+			temp.x = 5;
+			GetComponentInChildren<RectTransform>().localScale = temp;
 			side = true;
 		}
 
@@ -247,7 +253,6 @@ public class RedArremer : MonoBehaviour {
 			GetComponentInChildren<SpriteRenderer>().sprite = walking; 
 		if (hover)
 			GetComponentInChildren<SpriteRenderer>().sprite = flying; 
-
 		
 		ground = Arthur.arthurPos.y; //Red Arremer "lands" where arthur is on the y plane
 		Move (); //If grounded
@@ -258,14 +263,13 @@ public class RedArremer : MonoBehaviour {
 		//Set Charge motion
 		if (floatingTimer > timeFloating) {
 			float whatNow = Random.Range (0f, 1f);
-			if (whatNow < 0.5f) {
-				Debug.Log("BEGIN");
+			if (whatNow < 0.65f) {
 				dodge = false;
 				Lock = Arthur.arthurPos;
 				swooping = true;
 				swoopStart = Time.time;
 				floatingTimer = 0;
-				float height = Random.Range (4f, 5f);
+				float height = Random.Range (4.5f, 5f);
 				float side = Random.Range (-5f, 5f);
 				temp.y = Lock.y - height;
 				temp.x = Lock.x - side;

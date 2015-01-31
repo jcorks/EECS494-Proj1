@@ -37,7 +37,7 @@ public class Wraith : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if (side != GetComponentInChildren<RectTransform>().localScale.x/4 && down == 0f) {
+		if (side*-1 != GetComponentInChildren<RectTransform>().localScale.x/4 && down == 0f) {
 			Vector3 temp = GetComponentInChildren<RectTransform>().localScale;
 			temp.x *= -1;
 			GetComponentInChildren<RectTransform>().localScale = temp;

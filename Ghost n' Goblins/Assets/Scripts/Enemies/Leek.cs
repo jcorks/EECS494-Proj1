@@ -23,7 +23,7 @@ public class Leek : MonoBehaviour {
 		}
 		else {
 			Vector3 temp = GetComponentInChildren<RectTransform>().localScale;
-			temp.x = side;
+			temp.x *= side;
 			GetComponentInChildren<RectTransform>().localScale = temp;
 			Vector2 dirVec = new Vector2(speed*side, 0f); 
 			GetComponent<PhysObj> ().addVelocity (dirVec);
