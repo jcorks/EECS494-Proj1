@@ -430,6 +430,7 @@ public class Arthur : MonoBehaviour {
 		}
 		if (collidedWith.tag == "hazard") {
 			health = 0;
+			thisPhys.active=false;
 			if (health == 0) {
 				isDying = true;
 				Invoke ("die", 3);

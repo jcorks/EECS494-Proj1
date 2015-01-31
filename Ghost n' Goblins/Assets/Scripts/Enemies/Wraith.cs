@@ -10,6 +10,8 @@ public class Wraith : MonoBehaviour {
 	private Vector3 turnState = new Vector3(1.1f, 0.7f, 1f);
 	private Vector3 moveState = new Vector3(1.1f, 0.7f, 1f);
 
+	public Sprite body;
+	public Sprite leek;
 	
 	public float leftAndRightEdge = 2.5f;
 

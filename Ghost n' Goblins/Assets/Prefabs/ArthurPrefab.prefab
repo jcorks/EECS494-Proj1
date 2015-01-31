@@ -142,6 +142,7 @@ MonoBehaviour:
   jumpOverTombRight: 0
   Stand1: {fileID: 21300030, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Move1: {fileID: 21300034, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Move12: {fileID: 0}
   Crouch1: {fileID: 21300032, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Jump1: {fileID: 21300040, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Shoot1: {fileID: 21300048, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
@@ -149,6 +150,7 @@ MonoBehaviour:
   Climb1: {fileID: 21300042, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Stand2: {fileID: 21300002, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Move2: {fileID: 21300006, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Move22: {fileID: 0}
   Crouch2: {fileID: 21300004, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Jump2: {fileID: 21300012, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Shoot2: {fileID: 21300020, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}

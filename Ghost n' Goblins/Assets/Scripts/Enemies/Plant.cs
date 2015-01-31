@@ -2,11 +2,14 @@
 using System.Collections;
 
 public class Plant : MonoBehaviour {
-
+	
 	public GameObject projPrefab;
 	public float fireRate = 2.0f;
 	float fireCount = 0;
 	bool mouthOpen = false;
+
+	public Sprite open;
+	public Sprite close;
 
 	// Use this for initialization
 	void Start () {
@@ -20,9 +23,13 @@ public class Plant : MonoBehaviour {
 						return;
 
 		fireCount += Time.deltaTime;
+		if (fireCount > 1.0f) {
+			 GetComponentInChildren<SpriteRenderer>().sprite = open;
+			}
 		if (fireCount > fireRate) {
 			launchProjectile();
 			fireCount = 0f;
+			GetComponentInChildren<SpriteRenderer>().sprite = close;
 		}
 
 		mouthOpen = fireCount > fireRate / 2f;

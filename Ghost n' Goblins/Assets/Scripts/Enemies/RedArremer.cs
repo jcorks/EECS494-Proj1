@@ -43,6 +43,10 @@ public class RedArremer : MonoBehaviour {
 	bool top; //If it hovering at the top
 	bool down; //If it is desending
 
+	public Sprite sit;
+	public Sprite flying;
+	public Sprite walking;
+
 	// Use this for initialization
 	void Start () {
 		awaken = false;
