@@ -235,14 +235,20 @@ public class RedArremer : MonoBehaviour {
 		timer2+=Time.deltaTime;
 
 		//Awaken if too close
-		if (!awaken && Arthur.arthurPos.x > transform.position.x - 1.5f 
-		    && Arthur.arthurPos.x  < transform.position.x + 1.5f) {
+		if (!awaken && Arthur.arthurPos.x > transform.position.x - 2f 
+		    && Arthur.arthurPos.x  < transform.position.x + 2f) {
 			awaken = true;
 			grounded = true;
 			dodge = true;
 			print ("Too close");
 		}
 
+		if (grounded) 
+			GetComponentInChildren<SpriteRenderer>().sprite = walking; 
+		if (hover)
+			GetComponentInChildren<SpriteRenderer>().sprite = flying; 
+
+		
 		ground = Arthur.arthurPos.y; //Red Arremer "lands" where arthur is on the y plane
 		Move (); //If grounded
 		Ascend (); //If hovering

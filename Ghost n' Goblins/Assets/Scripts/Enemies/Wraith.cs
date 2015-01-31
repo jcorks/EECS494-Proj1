@@ -7,8 +7,8 @@ public class Wraith : MonoBehaviour {
 	public float speed  = 3f;
 	public float speedDown  = 0.7f;
 
-	private Vector3 turnState = new Vector3(1.1f, 0.7f, 1f);
-	private Vector3 moveState = new Vector3(1.1f, 0.7f, 1f);
+	private Vector3 turnState = new Vector3(1.1f, 0.5f, 1f);
+	private Vector3 moveState = new Vector3(1.1f, 0.5f, 1f);
 
 	public Sprite body;
 	public Sprite leek;
@@ -37,6 +37,11 @@ public class Wraith : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		if (side != GetComponentInChildren<RectTransform>().localScale.x/4 && down == 0f) {
+			Vector3 temp = GetComponentInChildren<RectTransform>().localScale;
+			temp.x *= -1;
+			GetComponentInChildren<RectTransform>().localScale = temp;
+		}
 		if (Arthur.arthurPos.x - 10f > transform.position.x || 
 			Arthur.arthurPos.x + 10f < transform.position.x) {
 				PhysManager.wraithCount--;

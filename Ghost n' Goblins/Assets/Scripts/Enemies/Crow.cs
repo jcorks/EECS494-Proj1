@@ -21,9 +21,7 @@ public class Crow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (renderer.isVisible) {
-			GetComponent<Enemy>().ready = GetComponentInChildren<SpriteRenderer>().isVisible;
-		}
+		GetComponent<Enemy>().ready = GetComponentInChildren<SpriteRenderer>().isVisible;
 		if (GetComponent<Enemy>().ready == true && timer > 0) {
 			if (timer > 20 && timer < 40) {
 				GetComponentInChildren<SpriteRenderer>().sprite = crying;

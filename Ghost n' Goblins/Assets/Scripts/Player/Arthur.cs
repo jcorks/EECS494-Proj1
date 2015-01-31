@@ -80,8 +80,6 @@ public class Arthur : MonoBehaviour {
 	public Sprite Used; 
 	
 	void Awake() {
-
-
 		origColor = GetComponent<MeshRenderer> ().material.color;
 	}
 	
@@ -95,7 +93,7 @@ public class Arthur : MonoBehaviour {
 		arthurObject = this.gameObject;
 		health = 2;
 		crouching = false;
-		weapon = priorWeapon;
+		//priorWeapon = weapon;
 		sides = 1f;
 		Debug.Log(Sprite.GetComponent<SpriteRenderer> ().sprite);
 	}
@@ -429,12 +427,9 @@ public class Arthur : MonoBehaviour {
 			ladderVec = collidedWith.transform.position;
 		}
 		if (collidedWith.tag == "hazard") {
-			health = 0;
 			thisPhys.active=false;
-			if (health == 0) {
-				isDying = true;
-				Invoke ("die", 3);
-			}
+			isDying = true;
+			Invoke ("die", 3);
 		}
 	}
 
@@ -528,7 +523,7 @@ public class Arthur : MonoBehaviour {
 
 	void die() {
 		Destroy (this.gameObject);
-		priorWeapon = weapon;
+		weapon = priorWeapon;
 		Application.LoadLevel ("gameOver");
 	}
 }

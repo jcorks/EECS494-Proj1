@@ -85,7 +85,7 @@ public class Weapon : MonoBehaviour {
 				count = 0;
 			}
 		}
-		if (other.tag == "Wall") {
+		if (other.tag == "Wall" && other.GetComponent<PhysObj>().isObstacle) {
 			Arthur.weaponCount--;
 			Destroy (this.gameObject);
 		}
