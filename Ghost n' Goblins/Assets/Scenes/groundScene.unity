@@ -467,7 +467,7 @@ Transform:
   m_GameObject: {fileID: 12237729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 803598567}
   m_RootOrder: 0
@@ -723,6 +723,7 @@ MonoBehaviour:
   ready: 0
   ignoreProjectiles: 0
   dropsItem: 1
+  dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!114 &77647649
 MonoBehaviour:
@@ -982,7 +983,7 @@ Transform:
   m_GameObject: {fileID: 120832071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 714078537}
   m_RootOrder: 0
@@ -1093,7 +1094,7 @@ Transform:
   m_GameObject: {fileID: 154301237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 366952800}
   m_RootOrder: 0
@@ -1486,7 +1487,7 @@ Transform:
   m_GameObject: {fileID: 228526053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 164681775}
   m_RootOrder: 0
@@ -1641,7 +1642,7 @@ Transform:
   m_GameObject: {fileID: 254242827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1952864250}
   m_RootOrder: 0
@@ -1796,7 +1797,7 @@ Transform:
   m_GameObject: {fileID: 256251337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1347360608}
   m_RootOrder: 0
@@ -1920,7 +1921,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473940, guid: f46fb623fa251044bbb0cade23f5ce00, type: 2}
       propertyPath: m_LocalScale.x
-      value: .75
+      value: .649999976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f46fb623fa251044bbb0cade23f5ce00, type: 2}
@@ -3791,7 +3792,7 @@ Transform:
   m_GameObject: {fileID: 663781482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 81744050}
   m_RootOrder: 0
@@ -6223,7 +6224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473940, guid: f46fb623fa251044bbb0cade23f5ce00, type: 2}
       propertyPath: m_LocalScale.x
-      value: .75
+      value: .649999976
       objectReference: {fileID: 0}
     - target: {fileID: 473940, guid: f46fb623fa251044bbb0cade23f5ce00, type: 2}
       propertyPath: m_LocalPosition.x
@@ -6886,7 +6887,7 @@ Transform:
   m_GameObject: {fileID: 1232130614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1634681347}
   m_RootOrder: 0
@@ -7502,6 +7503,7 @@ MonoBehaviour:
   ready: 1
   ignoreProjectiles: 0
   dropsItem: 1
+  dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!54 &1296592051
 Rigidbody:
@@ -7636,6 +7638,7 @@ MonoBehaviour:
   ready: 0
   ignoreProjectiles: 0
   dropsItem: 1
+  dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!114 &1332050025
 MonoBehaviour:
@@ -7739,7 +7742,7 @@ Transform:
   m_GameObject: {fileID: 1386425424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1541508725}
   m_RootOrder: 0
@@ -7871,6 +7874,7 @@ MonoBehaviour:
   ready: 0
   ignoreProjectiles: 0
   dropsItem: 1
+  dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!65 &1402265098
 BoxCollider:
@@ -8067,6 +8071,7 @@ MonoBehaviour:
   ready: 0
   ignoreProjectiles: 0
   dropsItem: 0
+  dead: 0
   ItemPrefab: {fileID: 0}
 --- !u!114 &1485745835
 MonoBehaviour:
@@ -9437,6 +9442,7 @@ MonoBehaviour:
   ready: 0
   ignoreProjectiles: 0
   dropsItem: 1
+  dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!114 &1701319698
 MonoBehaviour:
@@ -9870,6 +9876,7 @@ MonoBehaviour:
   ready: 0
   ignoreProjectiles: 0
   dropsItem: 1
+  dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!114 &1778963972
 MonoBehaviour:
@@ -10168,7 +10175,7 @@ Transform:
   m_GameObject: {fileID: 1843637051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 641088966}
   m_RootOrder: 0
@@ -10431,7 +10438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 109232, guid: b272eb765a2114d4dbc80f1b732ca28b, type: 2}
-  respawnRateSeconds: 5
+  respawnRateSeconds: 50000
   respawnXbegin: -18
   respawnXEnd: 45.7000008
   considerUpper: 1
@@ -10546,7 +10553,7 @@ Transform:
   m_GameObject: {fileID: 1969907738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 599794414}
   m_RootOrder: 0
@@ -10678,6 +10685,7 @@ MonoBehaviour:
   ready: 0
   ignoreProjectiles: 0
   dropsItem: 1
+  dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!114 &1972362389
 MonoBehaviour:
@@ -10881,6 +10889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyP: {fileID: 116068, guid: 77610fc848b61cc4a892d764fb8e2c9e, type: 2}
+  followArthurVert: 0
 --- !u!114 &1991181167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11008,6 +11017,7 @@ MonoBehaviour:
   ready: 0
   ignoreProjectiles: 0
   dropsItem: 1
+  dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!65 &2035833700
 BoxCollider:
@@ -11351,7 +11361,7 @@ Transform:
   m_GameObject: {fileID: 2100087950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .150000006, y: .170000002, z: 0}
-  m_LocalScale: {x: .75, y: 0, z: 1}
+  m_LocalScale: {x: .649999976, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 2021983267}
   m_RootOrder: 0
