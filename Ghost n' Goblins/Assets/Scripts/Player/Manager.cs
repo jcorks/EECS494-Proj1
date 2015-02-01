@@ -12,7 +12,11 @@ public class Manager : MonoBehaviour {
 
 	public static bool isShuttingDown = false;
 	public static bool beatLevel = false;
+	public bool followArthurVert = false;
 	bool instantiatedKey = false;
+	bool following = false;
+	float vertFollowTime = .6f;
+	float currentVertTime = 0;
 
 
 
@@ -42,7 +46,10 @@ public class Manager : MonoBehaviour {
 				transform.position= n;
 				return;
 			}
+
+
 		}
+
 
 		GameObject l2 = GameObject.FindGameObjectWithTag ("CameraLimit");
 		if (Arthur.arthurPos.x >  l2.transform.position.x - viewWidth) {
@@ -61,7 +68,37 @@ public class Manager : MonoBehaviour {
 		pos = transform.position;
 	}
 
+	void FixedUpdate() {
+		followVert ();
+
+	}
+
+	// follow arthur vertically
+	void followVert() {
+		if (!following && followArthurVert && !onSameSubdiv(Arthur.arthurPos.y, transform.position.y, .1f) 
+		    && Arthur.arthurPhys && Arthur.arthurPhys.isGrounded) {
+			following = true;
+			currentVertTime = 0f;
+		} else if (following) {
+
+			currentVertTime += Time.deltaTime;
+			Vector3 tr = transform.position;
+			tr.y = ease(tr.y, Arthur.arthurPos.y, (currentVertTime / vertFollowTime));
+			transform.position = tr;
+				
+			if (currentVertTime >= vertFollowTime) following = false;
+		}
+	}
+
 	void OnApplicationQuit() {
 		isShuttingDown = true;
+	}
+
+	bool onSameSubdiv(float p1, float p2, float div) {
+		return ((int)(p1 / div)) == ((int)(p2 / div));
+	}
+
+	float ease(float p0, float p1, float t) {
+		return (p1 - p0) * (t/(t+1)) + p0;
 	}
 }

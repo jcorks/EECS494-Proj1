@@ -10,6 +10,7 @@ public class Arthur : MonoBehaviour {
 	public static int lives = 2;
 	public static int weaponCount;
 	public static float sides;
+	public static PhysObj arthurPhys;
 	
 	static bool gameStarted = false;
 
@@ -81,6 +82,7 @@ public class Arthur : MonoBehaviour {
 	
 	void Awake() {
 		origColor = GetComponent<MeshRenderer> ().material.color;
+		arthurPhys = GetComponent<PhysObj> ();
 	}
 	
 	void Start() {
@@ -96,6 +98,7 @@ public class Arthur : MonoBehaviour {
 		//priorWeapon = weapon;
 		sides = 1f;
 		Debug.Log(Sprite.GetComponent<SpriteRenderer> ().sprite);
+
 	}
 
 	void changeSide(bool sides) {
@@ -404,7 +407,7 @@ public class Arthur : MonoBehaviour {
 			}
 
 		}
-		if (collidedWith.tag == "Wall") {
+		if (collidedWith.tag == "Wall" && collidedWith.GetComponent<PhysObj>().isObstacle) {
 			//Debug.Log ("Wallhit");
 			if (collidedWith.transform.position.x  > this.transform.position.x)
 				hitSide = 'r';
