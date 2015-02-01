@@ -9,10 +9,15 @@ public class Enemy : MonoBehaviour {
 	public bool ready = false;
 	public bool ignoreProjectiles = false;
 	public bool dropsItem = true;
+	public bool dead;
 	public GameObject ItemPrefab;
 
-	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Weapon" && ready && !ignoreProjectiles) {
+	void Start() {
+		dead = false;
+	}
+
+	void Update() {
+		if (dead) {
 			health--;
 			if (health < 1) {
 				float drop = Random.Range(0f,1f);
@@ -42,6 +47,14 @@ public class Enemy : MonoBehaviour {
 				Arthur.scoreGT.text = scoreNow.ToString ();
 				Destroy(this.gameObject);
 			}
+			dead = false;
+		}
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Weapon" && ready && !ignoreProjectiles) {
+			other.GetComponent<Weapon>().HitQueue.Enqueue(this.GetComponent<Collider>());
+			Debug.Log (other.GetComponent<Weapon>().HitQueue.Count);
 		}
 		
 		if (other.gameObject.GetComponent<Arthur> ()) {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public enum WeaponType {
 	LANCE,
@@ -25,10 +26,12 @@ public class Weapon : MonoBehaviour {
 	public Sprite Knife;
 	public Sprite Fireball;
 
+	public Queue<Collider> HitQueue;
 	Sprite Used;
 
 	// Use this for initialization
 	void Start () {
+		HitQueue = new Queue<Collider> ();
 		Sprite = GameObject.FindWithTag ("spriteWeapon");
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag("spriteWeapon");
@@ -76,16 +79,29 @@ public class Weapon : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready && other &&
+		/*if (other.tag == "Hostile" && other.GetComponent<Enemy>().ready && other &&
 		    !other.GetComponent<Enemy>().ignoreProjectiles) {
+			//Debug.Log (HitQueue.Count);
+			/*if (HitQueue.Count != 0) {
+				Debug.Log(HitQueue.Count);
+				Collider hit = HitQueue.Dequeue();
+				hit.GetComponent<Enemy>().dead = true;
+				HitQueue.Clear ();
+				if (!burning && weapon != WeaponType.XBOW) {
+					Arthur.weaponCount--;
+					Destroy (this.gameObject);
+					count = 0;
+				}
+			}
 			print (count);
 			if (!burning && weapon != WeaponType.XBOW) {
 				Arthur.weaponCount--;
 				Destroy (this.gameObject);
 				count = 0;
 			}
-		}
-		if (other.tag == "Wall" && other.GetComponent<PhysObj>().isObstacle) {
+
+		}*/
+		if (other.tag == "Wall" && other.GetComponent<PhysObj>().isObstacle && weapon != WeaponType.XBOW) {
 			Arthur.weaponCount--;
 			Destroy (this.gameObject);
 		}
@@ -112,8 +128,19 @@ public class Weapon : MonoBehaviour {
 			Arthur.weaponCount--;
 			Destroy (this.gameObject);	
 		}
+		if (HitQueue.Count != 0) {
+			Debug.Log(HitQueue.Count);
+			Collider hit = HitQueue.Dequeue();
+			hit.GetComponent<Enemy>().dead = true;
+			HitQueue.Clear ();
+			if (!burning && weapon != WeaponType.XBOW) {
+				Arthur.weaponCount--;
+				Destroy (this.gameObject);
+				count = 0;
+			}
+		}
 	}
-
+	
 	void FixedUpdate() {
 		if (burning == true) {
 			if (burnCount != 0 && burnCount+2f < Time.time) {
@@ -122,6 +149,9 @@ public class Weapon : MonoBehaviour {
 				Destroy (this.gameObject);
 			}
 		}
+	}
+
+	void LateUpdate() {
 	}
 }
 

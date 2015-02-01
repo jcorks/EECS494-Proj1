@@ -26,7 +26,8 @@ public class FlyingKnight : MonoBehaviour {
 	void Update () {
 	
 		// Only hitable if arthur is behind
-		GetComponent<Enemy> ().ignoreProjectiles = (Arthur.arthurPos.x < transform.position.x);
+		if (Arthur.weapon != WeaponType.XBOW)
+			GetComponent<Enemy> ().ignoreProjectiles = (Arthur.arthurPos.x < transform.position.x);
 
 
 		if (transform.position.x < -40)
