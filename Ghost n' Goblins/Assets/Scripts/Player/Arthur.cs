@@ -430,7 +430,6 @@ public class Arthur : MonoBehaviour {
 			ladderVec = collidedWith.transform.position;
 		}
 		if (collidedWith.tag == "hazard") {
-			thisPhys.active=false;
 			isDying = true;
 			Invoke ("die", 3);
 		}

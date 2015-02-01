@@ -23,6 +23,8 @@ public class FlyingKnightSpawner : MonoBehaviour {
 	public float spawnXBegin = 71.0f;
 	public float spawnXEnd = 93.0f;
 
+	public Sprite knight;
+
 	enum Positions {
 		LOW,
 		MED,

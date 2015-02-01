@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &132470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22432470}
+  - 212: {fileID: 21232470}
+  m_Layer: 0
+  m_Name: WraithSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &137784
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,8 +44,9 @@ Transform:
   m_GameObject: {fileID: 137784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 113, y: 2.55999994, z: -1}
-  m_LocalScale: {x: 1.10000002, y: .699999988, z: 1}
-  m_Children: []
+  m_LocalScale: {x: 1.10000002, y: .5, z: 1}
+  m_Children:
+  - {fileID: 22432470}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2337784
@@ -85,6 +102,8 @@ MonoBehaviour:
   projPrefab: {fileID: 109504, guid: 8477bc1fc7dcf8a439a90e32993e491e, type: 2}
   speed: 1.5
   speedDown: .5
+  body: {fileID: 21300118, guid: 506316d46d868214885c8790afb1f77f, type: 3}
+  leek: {fileID: 21300122, guid: 506316d46d868214885c8790afb1f77f, type: 3}
   leftAndRightEdge: 2
   downLimit: .5
 --- !u!114 &11437786
@@ -104,6 +123,45 @@ MonoBehaviour:
   ignoreProjectiles: 0
   dropsItem: 1
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
+--- !u!212 &21232470
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132470}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300118, guid: 506316d46d868214885c8790afb1f77f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!224 &22432470
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 4, y: 7, z: 1}
+  m_Children: []
+  m_Father: {fileID: 437784}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
