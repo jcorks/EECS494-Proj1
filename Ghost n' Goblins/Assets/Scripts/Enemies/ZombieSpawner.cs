@@ -18,6 +18,7 @@ public class ZombieSpawner : MonoBehaviour {
 	public float yUpperThreshold = .3f;
 	public float xUpperMin = 14.16f;
 	public float xUpperMax = 37.16f;
+	public float spawnHeight = 1.0f;
 
 
 	bool firstWave = false;
@@ -51,7 +52,7 @@ public class ZombieSpawner : MonoBehaviour {
 		float randPos = Random.Range (0, 5) + 3;
 		randPos *= (Random.value > .5 ? -1 : 1);
 		z.transform.position += new Vector3 (
-			randPos	 + Arthur.arthurPos.x, 1.0f, 0);
+			randPos	 + Arthur.arthurPos.x, spawnHeight, 0);
 
 		// Account for if on higher ground!
 		if (multiLevel && Arthur.arthurPos.y > yUpper - yUpperThreshold) {
