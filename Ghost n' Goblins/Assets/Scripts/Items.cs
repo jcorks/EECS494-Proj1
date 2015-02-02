@@ -45,7 +45,7 @@ public class Items : MonoBehaviour {
 		Vector3 t = sr.transform.localScale;
 		t.x = 8;
 		t.y = 20;
-		sr.transform.localScale = t;
+		//sr.transform.localScale = t;
 		sr.sprite = Xbow;		
 		if (item == ItemType.LANCE) 
 			sr.sprite = Lance;

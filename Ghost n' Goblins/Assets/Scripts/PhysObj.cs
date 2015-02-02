@@ -140,7 +140,8 @@ public class PhysObj : MonoBehaviour {
 				//transform.position = getLastPos ();
 				transform.position = new Vector3(
 					transform.position.x, 
-					other.transform.position.y + GetComponent<BoxCollider>().collider.bounds.extents.y,
+					other.transform.position.y + other.GetComponent<BoxCollider>().collider.bounds.extents.y + 
+												 GetComponent<BoxCollider>().collider.bounds.extents.y,
 					transform.position.z);
 
 				// nullify y component

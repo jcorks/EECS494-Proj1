@@ -253,6 +253,7 @@ public class Arthur : MonoBehaviour {
 				Used = ShootC1;
 		}
 
+
 		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'l' && weaponWaiting < 0) 
 		{
 			if (health == 2)

@@ -140,6 +140,7 @@ MonoBehaviour:
   ready: 0
   ignoreProjectiles: 0
   dropsItem: 1
+  dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
 --- !u!212 &21205348
 SpriteRenderer:
