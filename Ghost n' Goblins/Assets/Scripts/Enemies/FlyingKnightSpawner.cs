@@ -11,9 +11,12 @@ public class FlyingKnightSpawner : MonoBehaviour {
 	 * At least one of the knights will be low
 	 */
 	public float spawnInterval = 7f;
+	bool started = false;
+	public float spawnIntervalOffset = 0f;
 	float spawnTime = 0f;
-
+	float baseY;
 	public int numPerWave = 3;
+
 
 	float[] yPosSource = {3.7f, 4.9f, 6f}; // low, med, hi positions
 	float xPos = 9;
@@ -40,16 +43,26 @@ public class FlyingKnightSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		spawnTime = spawnInterval+1;
+		spawnTime = 0;
+		baseY = transform.position.y;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+	
 
 
 
 
 		spawnTime += Time.deltaTime;
+		if (!started) {
+			if (spawnTime > spawnIntervalOffset) {
+				print(spawnIntervalOffset);
+				started = true;
+				spawnTime = spawnInterval+1;
+			}
+			return;
+		}
 		if (spawnTime > spawnInterval &&
 		    Arthur.arthurPos.x >= spawnXBegin &&
 		    Arthur.arthurPos.x <= spawnXEnd) {
@@ -94,7 +107,7 @@ public class FlyingKnightSpawner : MonoBehaviour {
 
 
 			knight.GetComponent <FlyingKnight>().degOffset = degInterval*i* Random.value;
-			knight.transform.position = (new Vector3(Arthur.arthurPos.x + xPos, yPositions[i], 0)) 	
+			knight.transform.position = (new Vector3(Arthur.arthurPos.x + xPos, yPositions[i] + baseY, 0)) 	
 								      + (new Vector3(minXSpace + (Random.value*.3f+.6f), 0, 0)) * i;
 		}
 	}
