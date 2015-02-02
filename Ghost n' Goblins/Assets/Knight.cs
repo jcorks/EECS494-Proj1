@@ -7,7 +7,7 @@ public class Knight : MonoBehaviour {
 	public GameObject axePrefab;
 
 	public float side;
-	public float fireRate = 3.5f;
+	public float fireRate = 4f;
 	float variation;
 	float fireCount = 0;
 	float speed; 
@@ -21,7 +21,7 @@ public class Knight : MonoBehaviour {
 		up = 1f;
 		origin = transform.position;
 		speed = 0.008f;
-		variation = Random.Range(0f,1.5f);
+		variation = Random.Range(0f,2f);
 	}
 
 	void FixedUpdate() {
@@ -61,7 +61,7 @@ public class Knight : MonoBehaviour {
 		if (up == 1f)
 			pos.y -= 0.4f;
 		else
-			pos.y += 0.1f;
+			pos.y += 0.5f;
 		axe.transform.position = pos;
 		axe.GetComponent<Axe> ().side = side;
 		up *= -1f;

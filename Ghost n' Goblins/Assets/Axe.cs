@@ -19,7 +19,7 @@ public class Axe : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.x - start > 30 || transform.position.x - start < -30)
+		if (transform.position.x - start > 30 || transform.position.x + start < -30)
 			Destroy (this.gameObject);
 	}
 }
