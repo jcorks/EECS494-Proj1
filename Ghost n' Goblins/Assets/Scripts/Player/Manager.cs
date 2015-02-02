@@ -88,6 +88,12 @@ public class Manager : MonoBehaviour {
 				
 			if (currentVertTime >= vertFollowTime) following = false;
 		}
+		prev = transform.position;
+		transform.position = new Vector3 (
+			transform.position.x,
+			transform.position.y,
+			transform.position.z);
+		pos = transform.position;
 	}
 
 	void OnApplicationQuit() {

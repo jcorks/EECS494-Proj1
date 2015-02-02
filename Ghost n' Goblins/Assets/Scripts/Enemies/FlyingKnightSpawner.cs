@@ -13,7 +13,7 @@ public class FlyingKnightSpawner : MonoBehaviour {
 	public float spawnInterval = 7f;
 	float spawnTime = 0f;
 
-	int numPerWave = 3;
+	public int numPerWave = 3;
 
 	float[] yPosSource = {3.7f, 4.9f, 6f}; // low, med, hi positions
 	float xPos = 9;
