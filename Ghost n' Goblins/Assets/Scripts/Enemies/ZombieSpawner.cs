@@ -8,8 +8,9 @@ public class ZombieSpawner : MonoBehaviour {
 	public float respawnRateSeconds = 3;
 	public float respawnXbegin = 0;
 	public float respawnXEnd = 50;
+	public float yOffset = 0f;
+	public bool multiLevel = true; // whether or not to consider the upper area for spawning
 	float timer;
-	public bool considerUpper = true;
 	float yUpper = 5f;
 	float yUpperThreshold = .3f;
 	float xUpperMin = 14.16f;
@@ -49,7 +50,7 @@ public class ZombieSpawner : MonoBehaviour {
 			randPos	 + Arthur.arthurPos.x, 1.0f, 0);
 
 		// Account for if on higher ground!
-		if (Arthur.arthurPos.y > yUpper - yUpperThreshold) {
+		if (multiLevel && Arthur.arthurPos.y > yUpper - yUpperThreshold) {
 			float xPos = z.transform.position.x;
 			if (xPos < xUpperMin) xPos = xUpperMin + Random.value*2f;
 			if (xPos > xUpperMax) xPos = xUpperMax - Random.value*2f;
@@ -57,7 +58,7 @@ public class ZombieSpawner : MonoBehaviour {
 			                                   			   yUpper,
 			                                   			   z.transform.position.z);
 		}
-		
+		z.transform.position += new Vector3 (0, yOffset, 0);
 		z.GetComponent<Zombie>().init (Arthur.arthurPos);
 		
 	}

@@ -6163,6 +6163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval: 7
+  spawnIntervalOffset: 0
+  ignoreArthurX: 0
   numPerWave: 3
   spawnXBegin: 71
   spawnXEnd: 93
@@ -10439,7 +10441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 109232, guid: b272eb765a2114d4dbc80f1b732ca28b, type: 2}
-  respawnRateSeconds: 50000
+  respawnRateSeconds: 5
   respawnXbegin: -18
   respawnXEnd: 45.7000008
   considerUpper: 1

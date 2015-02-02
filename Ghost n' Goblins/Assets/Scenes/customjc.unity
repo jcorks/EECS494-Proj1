@@ -1238,7 +1238,7 @@ Transform:
   m_Children:
   - {fileID: 965918200}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!132 &314324869
 GUIText:
   m_ObjectHideFlags: 0
@@ -8546,7 +8546,7 @@ Transform:
   - {fileID: 822820136}
   - {fileID: 1212326719}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!1 &1825874281
 GameObject:
   m_ObjectHideFlags: 0
@@ -9342,7 +9342,7 @@ Transform:
   m_Children:
   - {fileID: 1966065688}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1984281201
 MonoBehaviour:
   m_ObjectHideFlags: 0
