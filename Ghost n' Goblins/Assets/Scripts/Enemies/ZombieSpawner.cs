@@ -10,10 +10,10 @@ public class ZombieSpawner : MonoBehaviour {
 	public float respawnXEnd = 50;
 	float timer;
 	public bool considerUpper = true;
-	float yUpper = 5f;
-	float yUpperThreshold = .3f;
-	float xUpperMin = 14.16f;
-	float xUpperMax = 37.16f;
+	public float yUpper = 5f;
+	public float yUpperThreshold = .3f;
+	public float xUpperMin = 14.16f;
+	public float xUpperMax = 37.16f;
 
 	bool firstWave = false;
 	
