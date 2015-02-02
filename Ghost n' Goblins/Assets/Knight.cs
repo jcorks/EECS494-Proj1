@@ -46,12 +46,10 @@ public class Knight : MonoBehaviour {
 			variation = Random.Range(0f,1.5f);
 		}
 		// Only hitable if arthur is behind
-		if (Arthur.weapon != WeaponType.XBOW) {
-			if (side == -1f)
-				GetComponent<Enemy> ().ignoreProjectiles = (Arthur.arthurPos.x < transform.position.x);
-			else if (side == 1f)
-				GetComponent<Enemy> ().ignoreProjectiles = (Arthur.arthurPos.x > transform.position.x);
-		}
+		/*if (side == -1f)
+			GetComponent<Enemy> ().ignoreProjectiles = (Arthur.arthurPos.x < transform.position.x);
+		else if (side == 1f)
+			GetComponent<Enemy> ().ignoreProjectiles = (Arthur.arthurPos.x > transform.position.x);*/
 	}
 
 	void launchProjectile() {

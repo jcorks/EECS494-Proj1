@@ -32,8 +32,6 @@ public class Arthur : MonoBehaviour {
 	private float weaponThrownWaitTime = .2f; // how long to wait after thrown weapon before able to move again
 	private int weaponLimit = 2; //amount of weapon permitted on screen
 	private Color origColor;
-	private float delay = 1f;
-
 	private float isHitTimer = 0;
 	private float platformSpeed = 0;
 	private bool isHitOnGround = false; // When hit, it does a special jump that does not show the invincibility amount
@@ -161,8 +159,6 @@ public class Arthur : MonoBehaviour {
 		}
 
 		weaponWaiting -= Time.deltaTime;
-		delay -= Time.deltaTime;
-
 
 		if (!jumping)
 			thisPhys.setVelocity (new Vector2(0f, thisPhys.getVelocity().y));
@@ -197,39 +193,35 @@ public class Arthur : MonoBehaviour {
 			transform.position = temp;
 		}
 		
-		if (Input.GetKeyDown (KeyCode.X) && weapon != WeaponType.XBOW && weaponCount < weaponLimit) 
+		if (Input.GetKeyDown (KeyCode.X) && weaponCount < weaponLimit) 
 		{
 			
 			//arthurObject.scale
 			weaponCount++;
 			Debug.Log ("weapon on " + weaponCount);
 			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
+			if (weapon == WeaponType.XBOW) {
+				weaponCount++;
+				GameObject weaponObj2 = Instantiate (WeaponPrefab) as GameObject;
+				Weapon weaponComp2 = weaponObj2.GetComponent<Weapon>();
+				weaponComp2.thisArthur = this.GetComponent<Arthur>();
+				weaponComp2.angle = 10f;
+				//Debug.Log (weaponComp.thisArthur.weaponCount);
+				weaponComp2.weapon = weapon;
+				weaponComp2.sides = sides;
+				weaponObj2.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn + 0.5f); 
+				Vector3 angles = weaponObj2.transform.eulerAngles;
+				angles.z = 45f*sides;
+				weaponObj2.transform.eulerAngles = angles;
+			}
 			Weapon weaponComp = weaponObj.GetComponent<Weapon>();
 			weaponComp.thisArthur = this.GetComponent<Arthur>();
 			//Debug.Log (weaponComp.thisArthur.weaponCount);
-			
+			weaponComp.angle = 0f;
 			weaponComp.weapon = weapon;
 			weaponComp.sides = sides;
 			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn); 
 			weaponWaiting = weaponThrownWaitTime;
-			
-		}
-		if (Input.GetKeyDown (KeyCode.X) && weapon == WeaponType.XBOW && delay < 0) 
-		{
-			
-			//arthurObject.scale
-			//weaponCount++;
-			//Debug.Log ("weapon on " + weaponCount);
-			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
-			Weapon weaponComp = weaponObj.GetComponent<Weapon>();
-			weaponComp.thisArthur = this.GetComponent<Arthur>();
-			Debug.Log (weapon);
-			
-			weaponComp.weapon = weapon;
-			weaponComp.sides = sides;
-			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn); 
-			weaponWaiting = weaponThrownWaitTime;
-			delay = 2;
 			
 		}
 		

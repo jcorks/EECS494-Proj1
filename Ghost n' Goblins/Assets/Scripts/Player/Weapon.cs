@@ -26,6 +26,7 @@ public class Weapon : MonoBehaviour {
 	public Sprite Knife;
 	public Sprite Fireball;
 
+	public float angle;
 	public Queue<Collider> HitQueue;
 	Sprite Used;
 
@@ -73,7 +74,7 @@ public class Weapon : MonoBehaviour {
 		}
 		if (weapon == WeaponType.XBOW) {
 			Sprite.GetComponent<SpriteRenderer> ().sprite = Knife;
-			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides * 2f, 0f));
+			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, angle));
 		}
 		//thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 4f));
 	}
@@ -101,7 +102,7 @@ public class Weapon : MonoBehaviour {
 			}
 
 		}*/
-		if (other.tag == "Wall" && other.GetComponent<PhysObj>().isObstacle && weapon != WeaponType.XBOW) {
+		if (other.tag == "Wall" && other.GetComponent<PhysObj>().isObstacle) {
 			Arthur.weaponCount--;
 			Destroy (this.gameObject);
 		}
@@ -133,7 +134,7 @@ public class Weapon : MonoBehaviour {
 			Collider hit = HitQueue.Dequeue();
 			hit.GetComponent<Enemy>().dead = true;
 			HitQueue.Clear ();
-			if (!burning && weapon != WeaponType.XBOW) {
+			if (!burning) {
 				Arthur.weaponCount--;
 				Destroy (this.gameObject);
 				count = 0;
