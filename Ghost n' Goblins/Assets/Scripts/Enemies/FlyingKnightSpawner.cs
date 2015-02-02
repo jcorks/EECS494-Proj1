@@ -13,6 +13,7 @@ public class FlyingKnightSpawner : MonoBehaviour {
 	public float spawnInterval = 7f;
 	bool started = false;
 	public float spawnIntervalOffset = 0f;
+	public bool ignoreArthurX = false;
 	float spawnTime = 0f;
 	float baseY;
 	public int numPerWave = 3;
@@ -107,7 +108,7 @@ public class FlyingKnightSpawner : MonoBehaviour {
 
 
 			knight.GetComponent <FlyingKnight>().degOffset = degInterval*i* Random.value;
-			knight.transform.position = (new Vector3(Arthur.arthurPos.x + xPos, yPositions[i] + baseY, 0)) 	
+			knight.transform.position = (new Vector3((ignoreArthurX?transform.position.x:Arthur.arthurPos.x) + xPos, yPositions[i] + baseY, 0)) 	
 								      + (new Vector3(minXSpace + (Random.value*.3f+.6f), 0, 0)) * i;
 		}
 	}
