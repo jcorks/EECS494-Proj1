@@ -5,7 +5,7 @@ public class StartScreen : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Arthur.lives = 2;
+		Arthur.lives = 3;
 	}
 	
 	// Update is called once per frame
