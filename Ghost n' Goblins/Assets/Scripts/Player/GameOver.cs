@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour {
 
-
+	public static string theStage;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +25,7 @@ public class GameOver : MonoBehaviour {
 		GetComponent<Text> ().text = "Player 1 Ready\n Lives: " + Arthur.lives;
 
 		yield return new WaitForSeconds(4);
-		Application.LoadLevel ("groundScene");
+		Application.LoadLevel (theStage);
 
 	}
 
@@ -34,6 +34,6 @@ public class GameOver : MonoBehaviour {
 		GetComponent<Text> ().text = "Player 1\n Game Over";
 		yield return new WaitForSeconds(4);
 
-		Application.LoadLevel ("groundScene");
+		Application.LoadLevel (theStage);
 	}
 }

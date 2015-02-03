@@ -183,7 +183,7 @@ public class Arthur : MonoBehaviour {
 			transform.position = temp;
 		}
 		
-		if (Input.GetKeyDown (KeyCode.X) && weaponCount < weaponLimit) 
+		if (Input.GetKeyDown (KeyCode.X) && weaponCount < weaponLimit && weaponWaiting < 0) 
 		{
 			
 			//arthurObject.scale

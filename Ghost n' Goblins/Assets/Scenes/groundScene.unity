@@ -89,7 +89,7 @@ GameObject:
   - 54: {fileID: 274146}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &274147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 304581725}
   m_GameObject: {fileID: 274144}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2673,7 +2673,7 @@ MonoBehaviour:
   knife: {fileID: 21300070, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   lance: {fileID: 21300068, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   fireball: {fileID: 21300072, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
-  xbow: {fileID: 0}
+  xbow: {fileID: 21300000, guid: 474fdb70c524cfd44ab892f80b44069a, type: 3}
 --- !u!4 &470637219
 Transform:
   m_ObjectHideFlags: 0
@@ -4155,7 +4155,7 @@ GameObject:
   - 54: {fileID: 731715192}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4187,7 +4187,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &731715193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4238,7 +4238,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 590303396}
   m_GameObject: {fileID: 731715190}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4437,7 +4437,7 @@ GameObject:
   - 54: {fileID: 798160614}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4469,7 +4469,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &798160615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4520,7 +4520,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 1826054961}
   m_GameObject: {fileID: 798160612}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -6591,7 +6591,7 @@ GameObject:
   - 54: {fileID: 1165083385}
   m_Layer: 0
   m_Name: upperGround
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6623,7 +6623,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1165083386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6674,7 +6674,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 1722315294}
   m_GameObject: {fileID: 1165083383}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -7056,7 +7056,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1287252087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7107,7 +7107,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 958202439}
   m_GameObject: {fileID: 1287252085}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -8863,7 +8863,7 @@ GameObject:
   - 54: {fileID: 1626681529}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8883,7 +8883,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1626681530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8934,7 +8934,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 1695886327}
   m_GameObject: {fileID: 1626681528}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -9574,7 +9574,7 @@ GameObject:
   - 54: {fileID: 1729876979}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9606,7 +9606,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1729876980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9657,7 +9657,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 2132741841}
   m_GameObject: {fileID: 1729876977}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -9975,8 +9975,8 @@ MonoBehaviour:
   Knife: {fileID: 21300070, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Fireball: {fileID: 21300072, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Armor: {fileID: 21300000, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
-  Money: {fileID: 21300064, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
-  Xbow: {fileID: 0}
+  Money: {fileID: 21300040, guid: bbdc863fe92c205438ce0fd4c5dc6af4, type: 3}
+  Xbow: {fileID: 21300000, guid: 474fdb70c524cfd44ab892f80b44069a, type: 3}
   item: 2
 --- !u!65 &1793185955
 BoxCollider:
@@ -10459,6 +10459,7 @@ MonoBehaviour:
   yUpperThreshold: .300000012
   xUpperMin: 14.1599998
   xUpperMax: 37.1599998
+  spawnHeight: 1
 --- !u!1001 &1942965631
 Prefab:
   m_ObjectHideFlags: 0
