@@ -142,8 +142,7 @@ public class PhysObj : MonoBehaviour {
 			//transform.position = getLastPos ();
 			transform.position = new Vector3(
 				transform.position.x, 
-				other.transform.position.y + other.GetComponent<BoxCollider>().collider.bounds.extents.y + 
-											 GetComponent<BoxCollider>().collider.bounds.extents.y,
+				getIdealContactFloorYPos(other),// added offset to account for rounding errors
 				transform.position.z);
 
 			// nullify y component
@@ -154,6 +153,20 @@ public class PhysObj : MonoBehaviour {
 			lastFloor = other.gameObject;
 		}
 
+		// prevent clipping through floor
+
+		if (!ignoreGround && other.isGround && isGrounded && 
+		    //Vector3.Distance(other.transform.position - other.GetComponent<BoxCollider> ().collider.bounds.extents, transform.position) < .2f &&
+		    transform.position.y <
+		    getIdealContactFloorYPos(other)) {
+				transform.position = new Vector3(
+					transform.position.x, 
+					getIdealContactFloorYPos(other), 
+					transform.position.z);
+		} 
+
+
+
 		if (other.isObstacle && !ignoreObstacles &&  enter) {
 			//Debug.Log(other.gameObject);
 			lastWall = other.gameObject;
@@ -163,6 +176,10 @@ public class PhysObj : MonoBehaviour {
 	}
 
 
+	float getIdealContactFloorYPos(PhysObj other) {
+		return other.transform.position.y + other.GetComponent<BoxCollider> ().collider.bounds.extents.y + 
+						                          GetComponent<BoxCollider> ().collider.bounds.extents.y - .001f;
+	}
 
 
 

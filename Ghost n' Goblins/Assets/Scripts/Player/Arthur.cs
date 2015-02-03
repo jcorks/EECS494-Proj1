@@ -300,6 +300,7 @@ public class Arthur : MonoBehaviour {
 		{
 			crouching = false;
 			verticalWeaponSpawn = 0.5f;
+
 			//Debug.Log (crouching);
 		}
 
@@ -319,6 +320,7 @@ public class Arthur : MonoBehaviour {
 			GetComponent<MeshRenderer>().material.color = origColor;
 			boxCollider.center = standState2;	
 			boxCollider.size = standState1;
+
 			Vector3 t = Sprite.transform.localPosition;
 			t.y = 0;
 			Sprite.transform.localPosition = t;

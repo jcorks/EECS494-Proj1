@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Manager : MonoBehaviour {
 	const float viewWidth = 6.7f;
 	public static Vector3 pos;
+
 	Vector3 prev;
 
 
@@ -12,6 +13,7 @@ public class Manager : MonoBehaviour {
 
 	public static bool isShuttingDown = false;
 	public static bool beatLevel = false;
+	public float followCameraOffset = 0f;
 	public bool followArthurVert = false;
 	bool instantiatedKey = false;
 	bool following = false;
@@ -75,7 +77,7 @@ public class Manager : MonoBehaviour {
 
 	// follow arthur vertically
 	void followVert() {
-		if (!following && followArthurVert && !onSameSubdiv(Arthur.arthurPos.y, transform.position.y, .1f) 
+		if (!following && followArthurVert && !onSameSubdiv(Arthur.arthurPos.y+followCameraOffset, transform.position.y, .1f) 
 		    && Arthur.arthurPhys && Arthur.arthurPhys.isGrounded) {
 			following = true;
 			currentVertTime = 0f;
@@ -83,7 +85,7 @@ public class Manager : MonoBehaviour {
 
 			currentVertTime += Time.deltaTime;
 			Vector3 tr = transform.position;
-			tr.y = ease(tr.y, Arthur.arthurPos.y, (currentVertTime / vertFollowTime));
+			tr.y = ease(tr.y, Arthur.arthurPos.y + followCameraOffset, (currentVertTime / vertFollowTime));
 			transform.position = tr;
 				
 			if (currentVertTime >= vertFollowTime) following = false;
