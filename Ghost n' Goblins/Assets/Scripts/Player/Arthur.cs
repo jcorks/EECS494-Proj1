@@ -77,6 +77,9 @@ public class Arthur : MonoBehaviour {
 	public Sprite Dead; 
 
 	public Sprite Used; 
+
+
+
 	
 	void Awake() {
 		origColor = GetComponent<MeshRenderer> ().material.color;
@@ -161,7 +164,7 @@ public class Arthur : MonoBehaviour {
 		}
 
 		//If I am pressing up while on the latter
-		if (Input.GetKey(KeyCode.UpArrow) && !crouching && thisPhys.isGrounded && !jumping && onLadder) 
+		if (commandUp() && !crouching && thisPhys.isGrounded && !jumping && onLadder) 
 		{
 			Debug.Log("going up");
 			thisPhys.isGrounded = false;
@@ -170,7 +173,7 @@ public class Arthur : MonoBehaviour {
 		}
 
 		//If I press down while on top of the ladder
-		if (Input.GetKey(KeyCode.DownArrow) && onLadderTop) 
+		if (commandDown () && onLadderTop) 
 		{
 			onLadder = true;
 			Debug.Log("going up");
@@ -183,7 +186,7 @@ public class Arthur : MonoBehaviour {
 			transform.position = temp;
 		}
 		
-		if (Input.GetKeyDown (KeyCode.X) && weaponCount < weaponLimit) 
+		if (commandB () && weaponCount < weaponLimit && weaponWaiting < 0) 
 		{
 			
 			//arthurObject.scale
@@ -235,7 +238,7 @@ public class Arthur : MonoBehaviour {
 		}
 
 
-		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'l' && weaponWaiting < 0) 
+		if (commandLeft () && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'l' && weaponWaiting < 0) 
 		{
 			if (health == 2)
 				Used = Move2;
@@ -244,12 +247,12 @@ public class Arthur : MonoBehaviour {
 			sides = -1f;
 			thisPhys.addVelocity(-speed, 0f);
 		}
-		if (Input.GetKey(KeyCode.LeftArrow) && !crouching && jumping & !upLadder) 
+		if (commandLeft () && !crouching && jumping & !upLadder) 
 		{
 			sides = -1f;
 		}
 
-		if (Input.GetKey(KeyCode.RightArrow) && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'r' && weaponWaiting < 0)
+		if (commandRight () && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'r' && weaponWaiting < 0)
 		{
 			if (health == 2)
 				Used = Move2;
@@ -258,12 +261,12 @@ public class Arthur : MonoBehaviour {
 			sides = 1f;
 			thisPhys.addVelocity(speed, 0f);
 		}	
-		if (Input.GetKey(KeyCode.RightArrow) && !crouching && jumping && !upLadder) 
+		if (commandRight() && !crouching && jumping && !upLadder) 
 		{
 			sides = 1f;
 		}
 
-		if (!jumping && Input.GetKeyDown(KeyCode.Z) && !crouching && !isDying && thisPhys.isGrounded)
+		if (!jumping && commandA () && !crouching && !isDying && thisPhys.isGrounded)
 		{
 			jumping = true;
 			print ("XVel: " + thisPhys.getVelocity ().x);			
@@ -271,11 +274,11 @@ public class Arthur : MonoBehaviour {
 			crouching = false;
 
 
-			if (Input.GetKey (KeyCode.LeftArrow)) {
+			if (commandLeft ()) {
 				print ("jumping over the tombstone");
 				jumpOverTombLeft = true;
 			}
-			if (Input.GetKey (KeyCode.RightArrow)) {
+			if (commandRight ()) {
 				print ("jumping over the tombstone");
 				jumpOverTombRight = true;
 			} 
@@ -287,13 +290,13 @@ public class Arthur : MonoBehaviour {
 
 		}
 
-		if (Input.GetKey(KeyCode.DownArrow) && !jumping && thisPhys.isGrounded)
+		if (commandDown () && !jumping && thisPhys.isGrounded)
 		{
 			crouching = true;
 			verticalWeaponSpawn = 0.2f;
 			//Debug.Log (crouching);
 		}
-		if (Input.GetKeyUp(KeyCode.DownArrow) && !jumping)
+		if (commandDownRelease() && !jumping)
 		{
 			crouching = false;
 			verticalWeaponSpawn = 0.5f;
@@ -475,11 +478,11 @@ public class Arthur : MonoBehaviour {
 
 	void climbUp() {
 		thisPhys.setVelocity (new Vector2(0f, 0.5f));
-		if (Input.GetKey (KeyCode.UpArrow)) {
+		if (commandUp ()) {
 			Debug.Log ("up");
 			thisPhys.addVelocity (speed, 90f);
 		}
-		if (Input.GetKey (KeyCode.DownArrow)) {
+		if (commandDown ()) {
 			Debug.Log (thisPhys.isGrounded);
 			if (thisPhys.isGrounded) {
 				Debug.Log ("grounded");
@@ -519,5 +522,46 @@ public class Arthur : MonoBehaviour {
 		weapon = priorWeapon;
 		Application.LoadLevel ("gameOver");
 	}
+
+
+
+
+
+	/* input commands */
+	bool commandA() {
+		return Input.GetKeyDown (KeyCode.Z)||
+		       Input.GetKeyDown (KeyCode.Comma);
+	}
+
+	bool commandUp() {
+		return Input.GetKey (KeyCode.UpArrow) ||
+			   Input.GetKey (KeyCode.W);
+	}
+
+	bool commandDown() {
+		return Input.GetKey (KeyCode.DownArrow) ||
+			   Input.GetKey (KeyCode.S);
+	}
+
+	bool commandDownRelease() {
+		return Input.GetKeyUp (KeyCode.DownArrow) ||
+			   Input.GetKeyUp (KeyCode.S);
+	}
+
+	bool commandLeft() {
+		return Input.GetKey (KeyCode.LeftArrow) ||
+			   Input.GetKey (KeyCode.A);
+	}
+
+	bool commandRight() {
+		return Input.GetKey (KeyCode.RightArrow) ||
+			   Input.GetKey (KeyCode.D);
+	}
+
+	bool commandB() {
+		return Input.GetKeyDown (KeyCode.X) ||
+			   Input.GetKeyDown (KeyCode.Period);
+	}
+
 }
 

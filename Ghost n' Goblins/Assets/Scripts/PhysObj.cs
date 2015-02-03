@@ -133,21 +133,23 @@ public class PhysObj : MonoBehaviour {
 		if (Mathf.Abs (vel.x) < .001 && Mathf.Abs (vel.y) < .001) {
 			preWallVel = 0;
 		}
+		
+		if (vel.y < 0 &&
+			!ignoreGround && other.isGround && 
+		     transform.position.y >= other.transform.position.y + other.GetComponent<BoxCollider>().bounds.extents.y/2) {
 
-		if (!ignoreGround && other.isGround && transform.position.y >= other.transform.position.y) {
+			//if (vel.y < 0) {
+			//transform.position = getLastPos ();
+			transform.position = new Vector3(
+				transform.position.x, 
+				other.transform.position.y + other.GetComponent<BoxCollider>().collider.bounds.extents.y + 
+											 GetComponent<BoxCollider>().collider.bounds.extents.y,
+				transform.position.z);
 
-			if (vel.y < 0) {
-				//transform.position = getLastPos ();
-				transform.position = new Vector3(
-					transform.position.x, 
-					other.transform.position.y + other.GetComponent<BoxCollider>().collider.bounds.extents.y + 
-												 GetComponent<BoxCollider>().collider.bounds.extents.y,
-					transform.position.z);
-
-				// nullify y component
-				setVelocity (new Vector2 (vel.x, 0.0f));
-				//print ("landing");
-			}
+			// nullify y component
+			setVelocity (new Vector2 (vel.x, 0.0f));
+			print ("landing");
+			//}
 			isGrounded = true;
 			lastFloor = other.gameObject;
 		}

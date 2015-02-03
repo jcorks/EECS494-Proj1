@@ -263,7 +263,7 @@ public class RedArremer : MonoBehaviour {
 		ground = Arthur.arthurPos.y; //Red Arremer "lands" where arthur is on the y plane
 		Move (); //If grounded
 		Ascend (); //If hovering
-		if (dodge && Input.GetKeyDown (KeyCode.X) && Arthur.weaponCount < 2) { 
+		if (dodge && (Input.GetKeyDown (KeyCode.X) || Input.GetKeyDown (KeyCode.Period)) && Arthur.weaponCount < 2) { 
 			Dodge ();
 		}
 		//Set Charge motion
