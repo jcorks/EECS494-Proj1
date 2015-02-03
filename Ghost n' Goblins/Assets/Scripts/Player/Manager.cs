@@ -78,7 +78,7 @@ public class Manager : MonoBehaviour {
 	// follow arthur vertically
 	void followVert() {
 		if (!following && followArthurVert && !onSameSubdiv(Arthur.arthurPos.y+followCameraOffset, transform.position.y, .1f) 
-		    && Arthur.arthurPhys && Arthur.arthurPhys.isGrounded) {
+			    && Arthur.arthurPhys && (!Arthur.jumping || Arthur.arthurPos.y+followCameraOffset < transform.position.y)) {
 			following = true;
 			currentVertTime = 0f;
 		} else if (following) {
