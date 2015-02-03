@@ -144,6 +144,8 @@ MonoBehaviour:
   Lance: {fileID: 21300068, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Knife: {fileID: 21300070, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Fireball: {fileID: 21300072, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  Xbow: {fileID: 21300000, guid: 741b084d10ee0c34db2989525a5645ca, type: 3}
+  angle: 0
 --- !u!212 &21288744
 SpriteRenderer:
   m_ObjectHideFlags: 1

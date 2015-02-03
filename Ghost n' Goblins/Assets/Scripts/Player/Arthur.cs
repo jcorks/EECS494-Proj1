@@ -131,16 +131,6 @@ public class Arthur : MonoBehaviour {
 			else 
 				Used = Jump1;
 		}
-
-		if (crouching) {
-			Vector3 t = Sprite.transform.localPosition;
-			t.y = -0.11f;
-			Sprite.transform.localPosition = t;
-			if (health == 2)
-				Used = Crouch2;
-			else 
-				Used = Crouch1;
-		}
 		else {
 			Vector3 t = Sprite.transform.localPosition;
 			t.y = 0;
@@ -210,9 +200,6 @@ public class Arthur : MonoBehaviour {
 				weaponComp2.weapon = weapon;
 				weaponComp2.sides = sides;
 				weaponObj2.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn + 0.5f); 
-				Vector3 angles = weaponObj2.transform.eulerAngles;
-				angles.z = 45f*sides;
-				weaponObj2.transform.eulerAngles = angles;
 			}
 			Weapon weaponComp = weaponObj.GetComponent<Weapon>();
 			weaponComp.thisArthur = this.GetComponent<Arthur>();
@@ -306,7 +293,6 @@ public class Arthur : MonoBehaviour {
 		}
 		if (Input.GetKeyUp(KeyCode.DownArrow) && !jumping)
 		{
-
 			crouching = false;
 			verticalWeaponSpawn = 0.5f;
 			Debug.Log (crouching);
@@ -316,11 +302,21 @@ public class Arthur : MonoBehaviour {
 			GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
 			boxCollider.center = crouchState2;
 			boxCollider.size = crouchState1;
+			Vector3 t = Sprite.transform.localPosition;
+			t.y = -0.11f;
+			Sprite.transform.localPosition = t;
+			if (health == 2)
+				Used = Crouch2;
+			else 
+				Used = Crouch1;
 		}
 		else {
 			GetComponent<MeshRenderer>().material.color = origColor;
 			boxCollider.center = standState2;	
 			boxCollider.size = standState1;
+			Vector3 t = Sprite.transform.localPosition;
+			t.y = 0;
+			Sprite.transform.localPosition = t;
 		}
 
 

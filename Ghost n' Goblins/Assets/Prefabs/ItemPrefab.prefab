@@ -102,8 +102,8 @@ MonoBehaviour:
   Knife: {fileID: 21300070, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Fireball: {fileID: 21300072, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Armor: {fileID: 21300000, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
-  Money: {fileID: 21300064, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
-  Xbow: {fileID: 0}
+  Money: {fileID: 21300040, guid: bbdc863fe92c205438ce0fd4c5dc6af4, type: 3}
+  Xbow: {fileID: 21300000, guid: 474fdb70c524cfd44ab892f80b44069a, type: 3}
   item: 1
 --- !u!114 &11485940
 MonoBehaviour:

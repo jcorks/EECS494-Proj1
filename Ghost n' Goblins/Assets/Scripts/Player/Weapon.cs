@@ -25,6 +25,8 @@ public class Weapon : MonoBehaviour {
 	public Sprite Lance;
 	public Sprite Knife;
 	public Sprite Fireball;
+	public Sprite Xbow;
+
 
 	public float angle;
 	public Queue<Collider> HitQueue;
@@ -53,6 +55,10 @@ public class Weapon : MonoBehaviour {
 		thisPhys = this.gameObject.GetComponent<PhysObj>(); 
 		arthurLastPos = thisArthur.transform.position;
 		Debug.Log (arthurLastPos);
+		Vector3 angles = Sprite.transform.eulerAngles;
+		angles.z = 0f;
+		Sprite.transform.eulerAngles = angles;
+		Sprite.transform.localScale = new Vector3(5f, 25f);
 		if ( (sides == -1f && Sprite.transform.localScale.x > 0) || 
 		    (sides == 1f && Sprite.transform.localScale.x < 0 )){
 			Vector3 t = Sprite.transform.localScale;
@@ -73,7 +79,13 @@ public class Weapon : MonoBehaviour {
 			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 3f));
 		}
 		if (weapon == WeaponType.XBOW) {
-			Sprite.GetComponent<SpriteRenderer> ().sprite = Knife;
+			Sprite.GetComponent<SpriteRenderer> ().sprite = Xbow;
+			Sprite.transform.localScale = new Vector3(3.3f, 15f);
+			if (angle != 0f) {
+				Vector3 angle2 = transform.eulerAngles;
+				angle2.z = 45f*sides;
+				transform.eulerAngles = angle2;
+			}
 			thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, angle));
 		}
 		//thisPhys.setVelocity (new Vector2 (weaponSpeed * sides, 4f));

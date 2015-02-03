@@ -12,7 +12,7 @@ public class MovingPlatform : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		origin = this.transform.position; 
-		print (origin.y);
+		//print (origin.y);
 	}
 	
 	// Update is called once per frame
