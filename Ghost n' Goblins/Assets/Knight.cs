@@ -13,7 +13,7 @@ public class Knight : MonoBehaviour {
 	float speed; 
 	Vector3 origin;
 	float chanceToChangeDirection = 0.005f;
-	float range = 2f;
+	public float range = 2f;
 	float up;
 
 	// Use this for initialization
@@ -40,7 +40,6 @@ public class Knight : MonoBehaviour {
 			speed *= -1f;
 		}
 		if (fireCount > fireRate + variation) {
-			Debug.Log("AXING");
 			launchProjectile();
 			fireCount = 0f;
 			variation = Random.Range(0f,1.5f);

@@ -65,7 +65,7 @@ public class RedArremer : MonoBehaviour {
 		Vector3 camPos = Cam.transform.position;
 		camPos.z = 0f;
 		camPos.x += 5.54f;
-		camPos.y = 6.22f;
+		camPos.y = 4.22f;
 		flightRight = camPos;
 		camPos.x -= 5.54f * 2f;
 		flightLeft = camPos;
@@ -207,12 +207,16 @@ public class RedArremer : MonoBehaviour {
 
 		//Shift flight coordinates
 		Vector3 camPos = Cam.transform.position;
+
 		camPos.z = 0f;
 		camPos.x += 6.54f;
-		camPos.y = 6.22f;
+		camPos.y += 4.22f;
 		flightRight = camPos;
 		camPos.x -= 6.54f * 2f;
 		flightLeft = camPos;
+
+
+
 
 
 		if (hover && !swooping && top && !down) {
@@ -242,7 +246,9 @@ public class RedArremer : MonoBehaviour {
 
 		//Awaken if too close
 		if (!awaken && Arthur.arthurPos.x > transform.position.x - 2f 
-		    && Arthur.arthurPos.x  < transform.position.x + 2f) {
+		    && Arthur.arthurPos.x  < transform.position.x + 2f && Arthur.arthurPos.y >
+		    transform.position.y - 2f && Arthur.arthurPos.y <
+		    transform.position.y + 2f) {
 			awaken = true;
 			grounded = true;
 			dodge = true;

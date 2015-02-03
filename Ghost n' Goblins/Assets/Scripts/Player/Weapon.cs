@@ -118,6 +118,10 @@ public class Weapon : MonoBehaviour {
 			Arthur.weaponCount--;
 			Destroy (this.gameObject);
 		}
+		if (other.tag == "Ground") {
+			Arthur.weaponCount--;
+			Destroy (this.gameObject);
+		}
 		if (other.tag == "Ground" && weapon == WeaponType.FIREBALL) {
 			Debug.Log("fireballHit");
 			thisPhys.setVelocity (new Vector2 (0f, 0f));
@@ -131,15 +135,12 @@ public class Weapon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Keeps track if weapon is offscreen;
-		if (transform.position.x > arthurLastPos.x+weaponDistance && sides == 1) {
+		if (transform.position.x > arthurLastPos.x+weaponDistance && sides == 1 ||
+		    transform.position.x < arthurLastPos.x-weaponDistance && sides == -1 ||
+		    transform.position.y > arthurLastPos.y+weaponDistance/2) {
 			//Debug.Log (arthurLastPos.x + '>' + transform.position.x+weaponDistance);
 			Arthur.weaponCount--;
 			Destroy (this.gameObject);
-		}
-		if (transform.position.x < arthurLastPos.x-weaponDistance && sides == -1) {
-			//Debug.Log ("weapon gone ");
-			Arthur.weaponCount--;
-			Destroy (this.gameObject);	
 		}
 		if (HitQueue.Count != 0) {
 			Debug.Log(HitQueue.Count);

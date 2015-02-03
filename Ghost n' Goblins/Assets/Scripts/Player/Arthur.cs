@@ -189,6 +189,8 @@ public class Arthur : MonoBehaviour {
 			//arthurObject.scale
 			weaponCount++;
 			Debug.Log ("weapon on " + weaponCount);
+			if (weaponCount < 0)
+				weaponCount = 0;
 			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
 			if (weapon == WeaponType.XBOW) {
 				weaponCount++;
@@ -289,13 +291,13 @@ public class Arthur : MonoBehaviour {
 		{
 			crouching = true;
 			verticalWeaponSpawn = 0.2f;
-			Debug.Log (crouching);
+			//Debug.Log (crouching);
 		}
 		if (Input.GetKeyUp(KeyCode.DownArrow) && !jumping)
 		{
 			crouching = false;
 			verticalWeaponSpawn = 0.5f;
-			Debug.Log (crouching);
+			//Debug.Log (crouching);
 		}
 
 		if (crouching) {
@@ -442,7 +444,7 @@ public class Arthur : MonoBehaviour {
 			if (collidedWith.GetComponent<Enemy>().ready)
 				takeHit();
 		}
-		if (collidedWith.tag == "Platform") {
+		if (collidedWith.tag == "Platform" && !jumping) {
 			//Debug.Log("on platform");
 			platformSpeed = collidedWith.GetComponent<MovingPlatform>().speed; 			
 		}
