@@ -154,9 +154,9 @@ public class PhysObj : MonoBehaviour {
 		}
 
 		// prevent clipping through floor
-
 		if (!ignoreGround && other.isGround && isGrounded && 
-		    //Vector3.Distance(other.transform.position - other.GetComponent<BoxCollider> ().collider.bounds.extents, transform.position) < .2f &&
+		    Mathf.Abs (Mathf.Abs(transform.position.y -       GetComponent<BoxCollider> ().collider.bounds.extents.y) -  
+		         Mathf.Abs (other.transform.position.y + other.GetComponent<BoxCollider>().collider.bounds.extents.y)) < .2f &&
 		    transform.position.y <
 		    getIdealContactFloorYPos(other)) {
 				transform.position = new Vector3(
