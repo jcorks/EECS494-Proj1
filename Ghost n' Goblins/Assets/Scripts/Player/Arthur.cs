@@ -23,7 +23,7 @@ public class Arthur : MonoBehaviour {
 	private WeaponType priorWeapon;
 
 	private bool crouching = false;
-	private bool jumping = false;
+	public static bool jumping = false;
 	private bool isHit = false;
 	private bool wall = false;
 	private bool gibsonMode = false;
