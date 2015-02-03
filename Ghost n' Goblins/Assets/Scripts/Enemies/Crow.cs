@@ -12,6 +12,7 @@ public class Crow : MonoBehaviour {
 	public float m_speed = -2.5f;
 	public float m_amplitude = 0.5f;
 	public float m_period = 1f;
+	public float sides = 1f;
 	int timer = 100;
 	// Use this for initialization
 	void Start () {
@@ -41,7 +42,7 @@ public class Crow : MonoBehaviour {
 		float deltaTime = Time.deltaTime;
 		
 		// Move center along x axis
-		m_centerPosition.x += deltaTime * m_speed;
+		m_centerPosition.x += deltaTime * m_speed *sides;
 		
 		// Update degrees
 		float degreesPerSecond = 360.0f / m_period;

@@ -15,6 +15,8 @@ public class RedArremer : MonoBehaviour {
 	public float ground;
 	public float swoopStart;
 	public float swoopDuration;
+	public float FixedY =4.22f;
+	public float FixedX = 6.54f;
 
 	public Vector3 flightRight;
 	public Vector3 flightLeft;
@@ -64,8 +66,8 @@ public class RedArremer : MonoBehaviour {
 		Cam = Cam1[0];
 		Vector3 camPos = Cam.transform.position;
 		camPos.z = 0f;
-		camPos.x += 5.54f;
-		camPos.y = 4.22f;
+		camPos.x += FixedX;
+		camPos.y = FixedY;
 		flightRight = camPos;
 		camPos.x -= 5.54f * 2f;
 		flightLeft = camPos;
@@ -209,8 +211,8 @@ public class RedArremer : MonoBehaviour {
 		Vector3 camPos = Cam.transform.position;
 
 		camPos.z = 0f;
-		camPos.x += 6.54f;
-		camPos.y += 4.22f;
+		camPos.x += FixedX;//6.54
+		camPos.y += FixedY;//4.22
 		flightRight = camPos;
 		camPos.x -= 6.54f * 2f;
 		flightLeft = camPos;

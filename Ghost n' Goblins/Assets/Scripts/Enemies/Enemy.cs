@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour {
 							Item.GetComponent<Items>().item = ItemType.FIREBALL;
 					}
 					else { //scoreDrop
-						if (drop < 0.33) 
+						if (drop < 0.05) 
 							Item.GetComponent<Items>().item = ItemType.ARMOR;
 						else
 							Item.GetComponent<Items>().item = ItemType.MONEY;

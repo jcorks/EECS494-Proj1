@@ -397,9 +397,14 @@ public class Arthur : MonoBehaviour {
 			}
 			Debug.Log(weapon);
 			if (received == ItemType.ARMOR) {
-				int score = int.Parse (scoreGT.text);
-				score += 200;
-				scoreGT.text = score.ToString ();
+				if (health == 1) {
+					health++;
+				}
+				else {
+					int score = int.Parse (scoreGT.text);
+					score += 200;
+					scoreGT.text = score.ToString ();
+				}
 			}
 
 		}
@@ -415,11 +420,15 @@ public class Arthur : MonoBehaviour {
 			//Debug.Log ("near ladder");
 			onLadder = true;
 		}
-		if (collidedWith.tag == "Ground" && upLadder) {
+		if ((collidedWith.tag == "Ground" || collidedWith.tag == "Platform") && upLadder && !commandUp () && !onLadderTop) {
 			//Debug.Log ("hitFloor");
 			upLadder = false;
 			onLadder = true;
 		}
+			if (collidedWith.tag == "Wall" && upLadder) {
+				upLadder = false;
+				onLadder = true;
+			}
 		if (collidedWith.tag == "LadderTop") {
 			//Debug.Log ("near ladderTop");
 			onLadderTop = true;

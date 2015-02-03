@@ -6604,7 +6604,7 @@ Transform:
   m_GameObject: {fileID: 1165083383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25.1599998, y: 4.30000019, z: 0}
-  m_LocalScale: {x: 26, y: .100000001, z: 0}
+  m_LocalScale: {x: 26, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 403089748}
   m_RootOrder: 13
@@ -7488,6 +7488,8 @@ MonoBehaviour:
   ground: 0
   swoopStart: 0
   swoopDuration: 0
+  FixedY: 4.21999979
+  FixedX: 6.53999996
   flightRight: {x: 0, y: 0, z: 0}
   flightLeft: {x: 0, y: 0, z: 0}
   sit: {fileID: 21300016, guid: 506316d46d868214885c8790afb1f77f, type: 3}
@@ -9552,7 +9554,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 458044, guid: b6d17097e8fe4e045bc976ab92586072, type: 2}
       propertyPath: m_LocalScale.y
-      value: .100000001
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6d17097e8fe4e045bc976ab92586072, type: 2}
