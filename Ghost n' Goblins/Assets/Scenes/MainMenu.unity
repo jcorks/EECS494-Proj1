@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Color: {r: .75686276, g: .75686276, b: .75686276, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_FontSize: 6
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -535,7 +535,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Credits:
 
-    Sprites: http://www.spriters-resource.com/'
+    Sprites: http://www.spriters-resource.com/
+
+    http://www.terrariaonline.com/threads/kalciphers-sprite-bank-for-learning-modders.101968/'
 --- !u!222 &1578277592
 CanvasRenderer:
   m_ObjectHideFlags: 0
