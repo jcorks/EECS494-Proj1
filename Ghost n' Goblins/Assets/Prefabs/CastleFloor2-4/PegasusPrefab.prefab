@@ -132,6 +132,8 @@ MonoBehaviour:
   rockPrefab: {fileID: 190378, guid: 32c21916eecd5654fbb4cbce597c3a93, type: 2}
   ArenaXMin: 0
   ArenaXMax: 0
+  platform: {fileID: 150230, guid: 4915bf4295a0385498022092c6a3a145, type: 2}
+  movingPlatform: {fileID: 0}
 --- !u!114 &11439084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,6 +172,7 @@ MonoBehaviour:
   dropsItem: 0
   dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
+  HitPrefab: {fileID: 100308, guid: 6727071b9b1ed734794ffd5dc6a60e22, type: 2}
 --- !u!212 &21239082
 SpriteRenderer:
   m_ObjectHideFlags: 1

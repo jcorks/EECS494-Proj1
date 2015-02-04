@@ -1,1 +1,100 @@
-k
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{6D79DDB9-A780-671E-F61E-074321B479FF}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Axe.cs" />
+     <Compile Include="Assets\FinalBossManager.cs" />
+     <Compile Include="Assets\Hit.cs" />
+     <Compile Include="Assets\Knight.cs" />
+     <Compile Include="Assets\Scripts\BUGS_TO_FIX.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Crow.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyProjectile.cs" />
+     <Compile Include="Assets\Scripts\Enemies\FlyingKnight.cs" />
+     <Compile Include="Assets\Scripts\Enemies\FlyingKnightSpawner.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Leek.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Pegasus.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Plant.cs" />
+     <Compile Include="Assets\Scripts\Enemies\RedArremer.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Rock.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Unicorn.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Wraith.cs" />
+     <Compile Include="Assets\Scripts\Enemies\WraithSpawner.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Zombie.cs" />
+     <Compile Include="Assets\Scripts\Enemies\ZombieSpawner.cs" />
+     <Compile Include="Assets\Scripts\Enemies\curve.cs" />
+     <Compile Include="Assets\Scripts\Items.cs" />
+     <Compile Include="Assets\Scripts\LadderTop.cs" />
+     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
+     <Compile Include="Assets\Scripts\PhysManager.cs" />
+     <Compile Include="Assets\Scripts\PhysObj.cs" />
+     <Compile Include="Assets\Scripts\Player\Arthur.cs" />
+     <Compile Include="Assets\Scripts\Player\ArthurSprite.cs" />
+     <Compile Include="Assets\Scripts\Player\CameraAnchor.cs" />
+     <Compile Include="Assets\Scripts\Player\GameOver.cs" />
+     <Compile Include="Assets\Scripts\Player\GameOverGood.cs" />
+     <Compile Include="Assets\Scripts\Player\ItemUI.cs" />
+     <Compile Include="Assets\Scripts\Player\Key.cs" />
+     <Compile Include="Assets\Scripts\Player\Manager.cs" />
+     <Compile Include="Assets\Scripts\Player\Respawner.cs" />
+     <Compile Include="Assets\Scripts\Player\Score.cs" />
+     <Compile Include="Assets\Scripts\Player\Weapon.cs" />
+     <Compile Include="Assets\Scripts\StartScreen.cs" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
