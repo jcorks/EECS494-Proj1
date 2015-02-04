@@ -14,9 +14,9 @@ public class GameOverGood : MonoBehaviour {
 	}
 
 	IEnumerator restart() {
-		Respawner.checkpointX = -10f;
+		Respawner.checkpoint = new Vector3(0, -10f, 0);
 		yield return new WaitForSeconds(5);
 		
-		Application.LoadLevel ("groundScene");
+		Application.LoadLevel ("MainMenu");
 	}
 }

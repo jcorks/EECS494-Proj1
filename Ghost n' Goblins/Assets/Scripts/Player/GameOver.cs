@@ -30,7 +30,6 @@ public class GameOver : MonoBehaviour {
 	}
 
 	IEnumerator gameOver() {
-		Respawner.checkpointX = -10f;
 		GetComponent<Text> ().text = "Player 1\n Game Over";
 		yield return new WaitForSeconds(4);
 

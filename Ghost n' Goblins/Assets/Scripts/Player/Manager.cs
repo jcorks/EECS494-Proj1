@@ -40,7 +40,7 @@ public class Manager : MonoBehaviour {
 		/* control camera */
 		GameObject[] l = GameObject.FindGameObjectsWithTag ("CameraBound");
 		foreach (GameObject cb in l) {
-			if (!cb.GetComponent<CameraAnchor>().active) continue;
+			if (!cb.GetComponent<CameraAnchor>().active || cb.GetComponent<CameraAnchor>().isVertical) continue;
 			if (Arthur.arthurPos.x  - cb.transform.position.x < viewWidth) {
 				Vector3 n = new Vector3(cb.transform.position.x + viewWidth,
 				                        transform.position.y,

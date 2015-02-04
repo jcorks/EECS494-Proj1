@@ -744,6 +744,7 @@ MonoBehaviour:
   m_speed: -2.5
   m_amplitude: .5
   m_period: 1
+  sides: 1
 --- !u!54 &77647650
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2880,6 +2881,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
+  isVertical: 0
+  checkpointNum: 1
 --- !u!23 &523197381
 Renderer:
   m_ObjectHideFlags: 0
@@ -2929,7 +2932,7 @@ Transform:
   m_PrefabInternal: {fileID: 1744107901}
   m_GameObject: {fileID: 523197379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.89565277, y: .560000002, z: 0}
+  m_LocalPosition: {x: -9.85999966, y: -.140000001, z: 0}
   m_LocalScale: {x: .00100000005, y: .00100000005, z: 1}
   m_Children:
   - {fileID: 698511418}
@@ -5971,6 +5974,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
+  isVertical: 0
+  checkpointNum: 0
 --- !u!1 &1025631350
 GameObject:
   m_ObjectHideFlags: 0
@@ -7668,6 +7673,7 @@ MonoBehaviour:
   m_speed: -2.5
   m_amplitude: .5
   m_period: 1
+  sides: 1
 --- !u!54 &1332050026
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9472,6 +9478,7 @@ MonoBehaviour:
   m_speed: -2.5
   m_amplitude: .5
   m_period: 1
+  sides: 1
 --- !u!54 &1701319699
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9792,11 +9799,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493336, guid: 882b512435b022e498ca2de9d55d2646, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.89565277
+      value: -9.85999966
       objectReference: {fileID: 0}
     - target: {fileID: 493336, guid: 882b512435b022e498ca2de9d55d2646, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .560000002
+      value: -.140000001
       objectReference: {fileID: 0}
     - target: {fileID: 493336, guid: 882b512435b022e498ca2de9d55d2646, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9821,6 +9828,10 @@ Prefab:
     - target: {fileID: 493336, guid: 882b512435b022e498ca2de9d55d2646, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493336, guid: 882b512435b022e498ca2de9d55d2646, type: 2}
+      propertyPath: checkpointNum
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 882b512435b022e498ca2de9d55d2646, type: 2}
@@ -9910,6 +9921,7 @@ MonoBehaviour:
   m_speed: -2.5
   m_amplitude: .5
   m_period: 1
+  sides: 1
 --- !u!54 &1778963973
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10726,6 +10738,7 @@ MonoBehaviour:
   m_speed: -2.5
   m_amplitude: .5
   m_period: 1
+  sides: 1
 --- !u!54 &1972362390
 Rigidbody:
   m_ObjectHideFlags: 0
