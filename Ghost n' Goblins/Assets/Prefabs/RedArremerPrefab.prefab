@@ -124,6 +124,7 @@ MonoBehaviour:
   dropsItem: 1
   dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
+  HitPrefab: {fileID: 100308, guid: 6727071b9b1ed734794ffd5dc6a60e22, type: 2}
 --- !u!114 &11424412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,6 +167,8 @@ MonoBehaviour:
   ground: 0
   swoopStart: 0
   swoopDuration: 0
+  FixedY: 4.21999979
+  FixedX: 6.53999996
   flightRight: {x: 0, y: 0, z: 0}
   flightLeft: {x: 0, y: 0, z: 0}
   sit: {fileID: 21300016, guid: 506316d46d868214885c8790afb1f77f, type: 3}
