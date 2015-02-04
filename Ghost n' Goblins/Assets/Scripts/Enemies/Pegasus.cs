@@ -54,6 +54,10 @@ public class Pegasus : MonoBehaviour {
 	
 
 	// Use this for initialization
+
+	void Awake() {
+		FinalBossManager.defeated = false;
+	}
 	void Start () {
 		spr =  GetComponentInChildren<SpriteRenderer>();
 		thisE = GetComponent<Enemy> ();
