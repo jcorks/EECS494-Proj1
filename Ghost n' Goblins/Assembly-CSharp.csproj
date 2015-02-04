@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Axe.cs" />
+     <Compile Include="Assets\Hit.cs" />
      <Compile Include="Assets\Knight.cs" />
      <Compile Include="Assets\Scripts\BUGS_TO_FIX.cs" />
      <Compile Include="Assets\Scripts\Enemies\Crow.cs" />

@@ -188,7 +188,6 @@ public class Arthur : MonoBehaviour {
 		
 		if (commandB () && weaponCount < weaponLimit && weaponWaiting < 0) 
 		{
-			
 			//arthurObject.scale
 			weaponCount++;
 			Debug.Log ("weapon on " + weaponCount);
@@ -214,7 +213,9 @@ public class Arthur : MonoBehaviour {
 			weaponComp.sides = sides;
 			weaponObj.transform.position = new Vector2 (transform.position.x+sides, transform.position.y + verticalWeaponSpawn); 
 			weaponWaiting = weaponThrownWaitTime;
-			
+			if (weapon == WeaponType.FIREBALL)  {
+				weaponObj.transform.localScale = new Vector3 (0.3f,0.3f,1f);
+			}
 		}
 		
 		if (weaponWaiting > 0 && !crouching) {
@@ -238,18 +239,21 @@ public class Arthur : MonoBehaviour {
 		}
 
 
+		if (commandLeft () && !upLadder) 
+		{
+			sides = -1f;
+		}
+		if (commandRight() && !upLadder) 
+		{
+			sides = 1f;
+		}
 		if (commandLeft () && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'l' && weaponWaiting < 0) 
 		{
 			if (health == 2)
 				Used = Move2;
 			else 
 				Used = Move1;
-			sides = -1f;
 			thisPhys.addVelocity(-speed, 0f);
-		}
-		if (commandLeft () && !crouching && jumping & !upLadder) 
-		{
-			sides = -1f;
 		}
 
 		if (commandRight () && !crouching && thisPhys.isGrounded && !jumping && hitSide != 'r' && weaponWaiting < 0)
@@ -258,13 +262,8 @@ public class Arthur : MonoBehaviour {
 				Used = Move2;
 			else 
 				Used = Move1;
-			sides = 1f;
 			thisPhys.addVelocity(speed, 0f);
 		}	
-		if (commandRight() && !crouching && jumping && !upLadder) 
-		{
-			sides = 1f;
-		}
 
 		if (!jumping && commandA () && !crouching && !isDying && thisPhys.isGrounded)
 		{

@@ -142,6 +142,7 @@ MonoBehaviour:
   dropsItem: 1
   dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
+  HitPrefab: {fileID: 100308, guid: 6727071b9b1ed734794ffd5dc6a60e22, type: 2}
 --- !u!212 &21205348
 SpriteRenderer:
   m_ObjectHideFlags: 1

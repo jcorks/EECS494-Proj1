@@ -214,7 +214,7 @@ public class RedArremer : MonoBehaviour {
 		camPos.x += FixedX;//6.54
 		camPos.y += FixedY;//4.22
 		flightRight = camPos;
-		camPos.x -= 6.54f * 2f;
+		camPos.x -= FixedX * 2f;
 		flightLeft = camPos;
 
 

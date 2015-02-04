@@ -104,7 +104,9 @@ MonoBehaviour:
   ready: 0
   ignoreProjectiles: 0
   dropsItem: 1
+  dead: 0
   ItemPrefab: {fileID: 0}
+  HitPrefab: {fileID: 100308, guid: 6727071b9b1ed734794ffd5dc6a60e22, type: 2}
 --- !u!114 &11422872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,7 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireballPrefab: {fileID: 116068, guid: 77610fc848b61cc4a892d764fb8e2c9e, type: 2}
-  keyP: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

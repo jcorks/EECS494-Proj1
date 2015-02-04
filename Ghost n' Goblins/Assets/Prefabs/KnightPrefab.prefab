@@ -62,8 +62,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.5, y: 9.25, z: 0}
-  m_LocalScale: {x: 1.10000002, y: 1.10000002, z: 1}
+  m_LocalPosition: {x: 15.8699999, y: 11.8400002, z: .300000012}
+  m_LocalScale: {x: -1.10000002, y: 1.10000002, z: 1}
   m_Children:
   - {fileID: 22486426}
   - {fileID: 486426}
@@ -174,8 +174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axePrefab: {fileID: 191434, guid: ecde71cd78aedae4b8b9c348fc7d5aa6, type: 2}
-  side: 1
+  side: -1
   fireRate: 4
+  range: .899999976
 --- !u!114 &11486424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,6 +215,7 @@ MonoBehaviour:
   dropsItem: 1
   dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
+  HitPrefab: {fileID: 100308, guid: 6727071b9b1ed734794ffd5dc6a60e22, type: 2}
 --- !u!212 &21286426
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -251,7 +253,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: .5, y: .5}
+  m_SizeDelta: {x: .100000001, y: .100000001}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

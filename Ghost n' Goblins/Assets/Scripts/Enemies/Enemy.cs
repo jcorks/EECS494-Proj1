@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour {
 	public bool dropsItem = true;
 	public bool dead;
 	public GameObject ItemPrefab;
+	public GameObject HitPrefab;
 
 	void Start() {
 		dead = false;
@@ -20,6 +21,9 @@ public class Enemy : MonoBehaviour {
 		if (dead) {
 			health--;
 			if (health < 1) {
+				GameObject Hit = (GameObject)Instantiate (HitPrefab);
+				Hit.transform.position = transform.position;
+
 				float drop = Random.Range(0f,1f);
 				if (drop < 0.1 && dropsItem) {
 					GameObject Item = (GameObject)Instantiate (ItemPrefab);
