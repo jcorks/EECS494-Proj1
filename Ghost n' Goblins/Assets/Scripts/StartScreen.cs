@@ -12,7 +12,8 @@ public class StartScreen : MonoBehaviour {
 		Arthur.lives = 3;
 		if (Respawner.checkpointNum != -1 && !canContinue) {
 			GameObject k = GameObject.FindGameObjectWithTag("KeyText");
-			k.GetComponent<Text>().text += "Press 3 to CONTINUE!";
+			k.GetComponent<Text>().text += "\nPress 3 to CONTINUE!";
+			canContinue=true;
 		}
 		Respawner.checkpointNum = -1;
 	}
