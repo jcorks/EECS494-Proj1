@@ -4415,7 +4415,7 @@ GameObject:
   - 54: {fileID: 228334311}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18258,11 +18258,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 447424, guid: df7345fce5ee8cf41903a22637094f85, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 8.69999886
+      value: 7.5999999
       objectReference: {fileID: 0}
     - target: {fileID: 447424, guid: df7345fce5ee8cf41903a22637094f85, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.21000063
+      value: 1.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 447424, guid: df7345fce5ee8cf41903a22637094f85, type: 2}
       propertyPath: m_LocalPosition.z
@@ -18287,6 +18287,14 @@ Prefab:
     - target: {fileID: 447424, guid: df7345fce5ee8cf41903a22637094f85, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 147424, guid: df7345fce5ee8cf41903a22637094f85, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 147418, guid: df7345fce5ee8cf41903a22637094f85, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df7345fce5ee8cf41903a22637094f85, type: 2}
@@ -40107,7 +40115,7 @@ GameObject:
   - 23: {fileID: 2119288106}
   m_Layer: 0
   m_Name: Platform1
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40119,7 +40127,7 @@ Transform:
   m_PrefabInternal: {fileID: 881210744}
   m_GameObject: {fileID: 2119288104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.69999886, y: 1.21000063, z: 0}
+  m_LocalPosition: {x: 7.5999999, y: 1.20000005, z: 0}
   m_LocalScale: {x: 2, y: .5, z: 1}
   m_Children:
   - {fileID: 228334310}
