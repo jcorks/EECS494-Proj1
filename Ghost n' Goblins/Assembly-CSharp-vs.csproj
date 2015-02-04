@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Axe.cs" />
+     <Compile Include="Assets\FinalBossManager.cs" />
      <Compile Include="Assets\Knight.cs" />
      <Compile Include="Assets\Scripts\BUGS_TO_FIX.cs" />
      <Compile Include="Assets\Scripts\Enemies\Crow.cs" />
@@ -55,8 +56,10 @@
      <Compile Include="Assets\Scripts\Enemies\FlyingKnight.cs" />
      <Compile Include="Assets\Scripts\Enemies\FlyingKnightSpawner.cs" />
      <Compile Include="Assets\Scripts\Enemies\Leek.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Pegasus.cs" />
      <Compile Include="Assets\Scripts\Enemies\Plant.cs" />
      <Compile Include="Assets\Scripts\Enemies\RedArremer.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Rock.cs" />
      <Compile Include="Assets\Scripts\Enemies\Unicorn.cs" />
      <Compile Include="Assets\Scripts\Enemies\Wraith.cs" />
      <Compile Include="Assets\Scripts\Enemies\WraithSpawner.cs" />

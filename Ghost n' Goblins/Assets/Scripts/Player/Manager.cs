@@ -19,6 +19,7 @@ public class Manager : MonoBehaviour {
 	bool following = false;
 	float vertFollowTime = .6f;
 	float currentVertTime = 0;
+	static float shakeTime = 0;
 
 
 
@@ -66,6 +67,11 @@ public class Manager : MonoBehaviour {
 			Arthur.arthurPos.x,
 			transform.position.y,
 			transform.position.z);
+		if (shakeTime > 0) {
+			shakeTime-= Time.deltaTime;
+			transform.position = transform.position + new Vector3(
+				Random.Range (-.2f, .2f), Random.Range (-.2f, .2f), 0);
+		}
 		prev = transform.position;
 		pos = transform.position;
 	}
@@ -95,6 +101,11 @@ public class Manager : MonoBehaviour {
 			transform.position.x,
 			transform.position.y,
 			transform.position.z);
+		if (shakeTime > 0) {
+			shakeTime-= Time.deltaTime;
+			transform.position = transform.position + new Vector3(
+				Random.Range (-.3f, .3f), Random.Range (-.3f, .3f), 0);
+		}
 		pos = transform.position;
 	}
 
@@ -108,5 +119,9 @@ public class Manager : MonoBehaviour {
 
 	float ease(float p0, float p1, float t) {
 		return (p1 - p0) * (t/(t+1)) + p0;
+	}
+
+	static public void shakeCamera(float dur) {
+		shakeTime = dur;
 	}
 }

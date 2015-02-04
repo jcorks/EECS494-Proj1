@@ -6,6 +6,7 @@ public class StartScreen : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Arthur.lives = 3;
+		Respawner.checkpointNum = -1;
 	}
 	
 	// Update is called once per frame

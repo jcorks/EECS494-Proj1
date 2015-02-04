@@ -4730,7 +4730,7 @@ BoxCollider:
   m_GameObject: {fileID: 241115047}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -12230,6 +12230,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11433618, guid: 5d0c01483f9031641914886a4f7df8e4, type: 2}
+      propertyPath: isObstacle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d0c01483f9031641914886a4f7df8e4, type: 2}
   m_RootGameObject: {fileID: 889271353}
@@ -17111,6 +17115,10 @@ Prefab:
       propertyPath: checkpointNum
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6593336, guid: 882b512435b022e498ca2de9d55d2646, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 882b512435b022e498ca2de9d55d2646, type: 2}
   m_RootGameObject: {fileID: 241115047}
@@ -18541,7 +18549,7 @@ MonoBehaviour:
   isGround: 0
   maxVelocity: 1000
   isGrounded: 0
-  isObstacle: 1
+  isObstacle: 0
   ignoreGravity: 0
   ignoreObstacles: 0
   ignoreGround: 0

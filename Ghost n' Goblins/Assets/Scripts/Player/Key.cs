@@ -5,7 +5,9 @@ public class Key : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
-			Application.LoadLevel ("congrats");
+			Respawner.checkpointNum = -1;
+			Respawner.checkpoint = Respawner.customStart;
+			Application.LoadLevel ("gameOver");
 		}
 	}
 
