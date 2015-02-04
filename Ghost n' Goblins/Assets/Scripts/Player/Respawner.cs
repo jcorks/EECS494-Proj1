@@ -5,7 +5,7 @@ public class Respawner : MonoBehaviour {
 	public GameObject arthur;
 	public static Vector3 checkpoint = new Vector3(-10f, 0, 0);
 	public static readonly Vector3 originalStart = new Vector3 (-10f, 0, 0);
-	public static readonly Vector3 customStart = new Vector3 (-18f, 4f, 0);
+	public static readonly Vector3 customStart = new Vector3 (-18f, 8f, 0);
 	public static int checkpointNum = -1;
 	// Use this for initialization
 	void Start () {

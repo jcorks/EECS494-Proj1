@@ -51,7 +51,11 @@ public class FlyingKnightSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-
+		if (
+		    Arthur.arthurPos.x < spawnXBegin ||
+		    Arthur.arthurPos.x > spawnXEnd) {
+			return;
+		}
 
 
 
@@ -64,9 +68,7 @@ public class FlyingKnightSpawner : MonoBehaviour {
 			}
 			return;
 		}
-		if (spawnTime > spawnInterval &&
-		    Arthur.arthurPos.x >= spawnXBegin &&
-		    Arthur.arthurPos.x <= spawnXEnd) {
+		if (spawnTime > spawnInterval) {
 			spawnKnights();
 			spawnTime = 0;
 		}

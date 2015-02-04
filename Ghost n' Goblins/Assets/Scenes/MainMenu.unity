@@ -405,6 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bdf8839be830a44bb2d83bb0546bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canContinue: 0
 --- !u!1 &1480821848
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +607,7 @@ GameObject:
   - 114: {fileID: 2112799511}
   m_Layer: 5
   m_Name: Key
-  m_TagString: Untagged
+  m_TagString: KeyText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -659,6 +660,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 60, y: -40}
-  m_SizeDelta: {x: 300, y: 60}
+  m_AnchoredPosition: {x: 60, y: -50}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: .5, y: .5}

@@ -23,7 +23,7 @@ public class CameraAnchor : MonoBehaviour {
 			print ("Now set to checkpoint " + checkpointNum.ToString () + "@" + transform.position.ToString ());
 
 			GameOver.theStage = Application.loadedLevelName;
-			Vector3 offset = new Vector3((isVertical?0:4f), (isVertical?1f:0f), 0);
+			Vector3 offset = new Vector3((isVertical?0:4f), (isVertical?0f:0f), 0);
 			Respawner.checkpoint = transform.position + offset;
 			Respawner.checkpointNum = checkpointNum;
 		}

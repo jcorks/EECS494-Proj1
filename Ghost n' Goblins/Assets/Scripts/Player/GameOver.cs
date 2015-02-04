@@ -33,6 +33,6 @@ public class GameOver : MonoBehaviour {
 		GetComponent<Text> ().text = "Player 1\n Game Over";
 		yield return new WaitForSeconds(4);
 
-		Application.LoadLevel (theStage);
+		Application.LoadLevel ("MainMenu");
 	}
 }
