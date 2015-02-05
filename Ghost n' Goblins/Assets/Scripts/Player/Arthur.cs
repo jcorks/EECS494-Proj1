@@ -359,6 +359,16 @@ public class Arthur : MonoBehaviour {
 		Vector3 pos = transform.position;
 		pos.x += platformSpeed * Time.deltaTime;
 		transform.position = pos;
+		GameObject TimeGo = GameObject.Find ("TimeCounter");
+		if (gibsonMode)
+			TimeGo.GetComponent<Score> ().gibson = true;
+		else {
+			TimeGo.GetComponent<Score> ().gibson = false;
+		}
+		if (TimeGo.GetComponent<GUIText> ().text == "0:0") {
+			isDying = true;
+			Invoke ("die",3);
+		}
 	}
 
 
