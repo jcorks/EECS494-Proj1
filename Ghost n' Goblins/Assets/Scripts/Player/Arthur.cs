@@ -217,27 +217,6 @@ public class Arthur : MonoBehaviour {
 				weaponObj.transform.localScale = new Vector3 (0.3f,0.3f,1f);
 			}
 		}
-		
-		if (weaponWaiting > 0 && !crouching) {
-			Vector3 t = Sprite.transform.localPosition;
-			t.y = 0f;
-			Sprite.transform.localPosition = t;
-			if (health == 2)
-				Used = Shoot2;
-			else 
-				Used = Shoot1;
-		}
-
-		if (weaponWaiting > 0 && crouching) {
-			Vector3 t = Sprite.transform.localPosition;
-			t.y = -0.11f;
-			Sprite.transform.localPosition = t;
-			if (health == 2)
-				Used = ShootC2;
-			else 
-				Used = ShootC1;
-		}
-
 
 		if (commandLeft () && !upLadder) 
 		{
@@ -324,7 +303,27 @@ public class Arthur : MonoBehaviour {
 			t.y = 0;
 			Sprite.transform.localPosition = t;
 		}
-
+		
+		if (weaponWaiting > 0 && !crouching) {
+			Vector3 t = Sprite.transform.localPosition;
+			t.y = 0f;
+			Sprite.transform.localPosition = t;
+			if (health == 2)
+				Used = Shoot2;
+			else 
+				Used = Shoot1;
+		}
+		
+		if (weaponWaiting > 0 && crouching) {
+			Vector3 t = Sprite.transform.localPosition;
+			t.y = -0.11f;
+			Debug.Log("CROUCHSHOT");
+			Sprite.transform.localPosition = t;
+			if (health == 2)
+				Used = ShootC2;
+			else 
+				Used = ShootC1;
+		}
 
 
 

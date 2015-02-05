@@ -146,7 +146,7 @@ MonoBehaviour:
   Crouch1: {fileID: 21300032, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Jump1: {fileID: 21300040, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Shoot1: {fileID: 21300048, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
-  ShootC1: {fileID: 21300054, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
+  ShootC1: {fileID: 21300052, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Climb1: {fileID: 21300042, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Stand2: {fileID: 21300002, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
   Move2: {fileID: 21300006, guid: cd78703d5786c8a4da5153f7abfdbdef, type: 3}
