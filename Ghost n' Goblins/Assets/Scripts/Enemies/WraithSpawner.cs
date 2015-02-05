@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WraithSpawner : MonoBehaviour {
 	public GameObject wraithPrefab;
-	public float respawnRateSeconds = 3f;
+	public float respawnRateSeconds = 6f;
 	float initTime;
 	float timer;
 

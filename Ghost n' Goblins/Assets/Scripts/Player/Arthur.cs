@@ -42,6 +42,8 @@ public class Arthur : MonoBehaviour {
 	private bool upLadder = false;
 	private bool stepUp = false;
 
+	private bool timeGibson = false;
+
 	private Vector3 crouchState1 = new Vector3(1f, 0.75f, 1f);
 	private Vector3 crouchState2 = new Vector3(0f, -0.125f, 0f);
 	private Vector3 standState1 = new Vector3(1f, 1f, 1f);
@@ -282,8 +284,7 @@ public class Arthur : MonoBehaviour {
 			//Debug.Log (crouching);
 		}
 
-		if (crouching) {
-			GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
+		if (crouching && !isHit) {
 			boxCollider.center = crouchState2;
 			boxCollider.size = crouchState1;
 			Vector3 t = Sprite.transform.localPosition;
@@ -295,7 +296,6 @@ public class Arthur : MonoBehaviour {
 				Used = Crouch1;
 		}
 		else {
-			GetComponent<MeshRenderer>().material.color = origColor;
 			boxCollider.center = standState2;	
 			boxCollider.size = standState1;
 
@@ -359,10 +359,13 @@ public class Arthur : MonoBehaviour {
 		pos.x += platformSpeed * Time.deltaTime;
 		transform.position = pos;
 		GameObject TimeGo = GameObject.Find ("TimeCounter");
-		if (gibsonMode)
+		if (gibsonMode && !timeGibson) {
 			TimeGo.GetComponent<Score> ().gibson = true;
-		else {
+			timeGibson = true;
+		}
+		else if (!gibsonMode && timeGibson){
 			TimeGo.GetComponent<Score> ().gibson = false;
+			timeGibson = false;
 		}
 		if (TimeGo.GetComponent<GUIText> ().text == "0:0") {
 			isDying = true;
