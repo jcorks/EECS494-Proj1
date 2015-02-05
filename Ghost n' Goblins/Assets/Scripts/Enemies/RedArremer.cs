@@ -28,7 +28,7 @@ public class RedArremer : MonoBehaviour {
 	float groundedTimer = 0;
 	float floatingTimer = 0;
 	float timeOnFloor = 3.0f;
-	float timeToCharge = 1.5f;
+	float timeToCharge = 2.5f;
 	float timeToShoot = 7.5f;
 	float timeFloating = 2.5f;
 
@@ -72,7 +72,7 @@ public class RedArremer : MonoBehaviour {
 		camPos.x -= 5.54f * 2f;
 		flightLeft = camPos;
 		swoopStart = 0f;
-		swoopDuration = 2.25f;
+		swoopDuration = 1.75f;
 		pastPos = transform.position;
 		down = false;
 
