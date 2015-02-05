@@ -28,7 +28,7 @@ public class RedArremer : MonoBehaviour {
 	float groundedTimer = 0;
 	float floatingTimer = 0;
 	float timeOnFloor = 3.0f;
-	float timeToCharge = 2.0f;
+	float timeToCharge = 1.5f;
 	float timeToShoot = 7.5f;
 	float timeFloating = 2.5f;
 

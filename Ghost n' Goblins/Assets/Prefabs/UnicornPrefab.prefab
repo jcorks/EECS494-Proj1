@@ -10,8 +10,6 @@ GameObject:
   - 4: {fileID: 422870}
   - 114: {fileID: 11422874}
   - 65: {fileID: 6522870}
-  - 23: {fileID: 2322870}
-  - 33: {fileID: 3322870}
   - 54: {fileID: 5422870}
   - 114: {fileID: 11422872}
   - 114: {fileID: 11422870}
@@ -34,33 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2322870
-Renderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122870}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &3322870
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122870}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &5422870
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -139,6 +110,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireballPrefab: {fileID: 116068, guid: 77610fc848b61cc4a892d764fb8e2c9e, type: 2}
+  Stand: {fileID: 0}
+  MoveL: {fileID: 0}
+  MoveR: {fileID: 0}
+  Shoot: {fileID: 0}
+  Jump: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

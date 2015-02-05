@@ -39,7 +39,7 @@ public class Knight : MonoBehaviour {
 		if (transform.position.x > range+origin.x || transform.position.x < -range+origin.x) {
 			speed *= -1f;
 		}
-		if (fireCount > fireRate + variation) {
+		if (fireCount > fireRate - variation) {
 			launchProjectile();
 			fireCount = 0f;
 			variation = Random.Range(0f,1.5f);

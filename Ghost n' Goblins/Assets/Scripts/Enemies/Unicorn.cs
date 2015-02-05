@@ -6,6 +6,13 @@ public class Unicorn : MonoBehaviour {
 	const float EXPIRED = -9999f;
 	public GameObject FireballPrefab;
 
+	public Sprite Stand;
+	public Sprite MoveL;
+	public Sprite MoveR;
+	public Sprite Shoot;
+	public Sprite Jump;
+
+
 	Enemy thisE;
 	PhysObj thisPhys;
 
@@ -41,7 +48,7 @@ public class Unicorn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		thisE.ready = GetComponent<MeshRenderer> ().isVisible;
+		thisE.ready = GetComponentInChildren<SpriteRenderer>().isVisible;
 		initWait ();
 
 		timeSinceStarted += Time.deltaTime;
@@ -76,6 +83,7 @@ public class Unicorn : MonoBehaviour {
 
 		if (thisPhys.isGrounded && Random.value <= chanceToFire && timeFastLeft < 0) {
 			print ("FIRE!!!!");
+			GetComponentInChildren<SpriteRenderer>().sprite = Shoot;
 			fireProjectile();
 		}
 
