@@ -10,6 +10,7 @@ public class FlyingKnightSpawner : MonoBehaviour {
 	 * high -> Will not hit the player. Meant to distract
 	 * At least one of the knights will be low
 	 */
+	public bool isMedusa = false;
 	public float spawnInterval = 7f;
 	bool started = false;
 	public float spawnIntervalOffset = 0f;
@@ -110,6 +111,7 @@ public class FlyingKnightSpawner : MonoBehaviour {
 
 
 			knight.GetComponent <FlyingKnight>().degOffset = degInterval*i* Random.value;
+			knight.GetComponent <FlyingKnight>().isMedusa = isMedusa;
 			knight.transform.position = (new Vector3((ignoreArthurX?transform.position.x:Arthur.arthurPos.x) + xPos, yPositions[i] + baseY, 0)) 	
 								      + (new Vector3(minXSpace + (Random.value*.3f+.6f), 0, 0)) * i;
 		}

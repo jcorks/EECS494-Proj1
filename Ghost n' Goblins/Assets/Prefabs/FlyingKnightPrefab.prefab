@@ -234,6 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   degOffset: 0
+  isMedusa: 0
+  med: {fileID: 21300022, guid: 72507e725f51bb44596155c326f5bc76, type: 3}
 --- !u!212 &21218692
 SpriteRenderer:
   m_ObjectHideFlags: 1

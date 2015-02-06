@@ -2954,6 +2954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb1dbd2fb6f1542b0dd168e43d728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMedusa: 1
   spawnInterval: 6
   spawnIntervalOffset: 3
   ignoreArthurX: 1
@@ -5450,6 +5451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb1dbd2fb6f1542b0dd168e43d728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMedusa: 1
   spawnInterval: 4.5999999
   spawnIntervalOffset: 0
   ignoreArthurX: 1
@@ -11081,6 +11083,10 @@ Prefab:
       propertyPath: ignoreArthurX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11441578, guid: 2b9c098df4df51843b8616f10dbd6bc5, type: 2}
+      propertyPath: isMedusa
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b9c098df4df51843b8616f10dbd6bc5, type: 2}
   m_RootGameObject: {fileID: 319800550}
@@ -14702,6 +14708,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11441578, guid: 2b9c098df4df51843b8616f10dbd6bc5, type: 2}
       propertyPath: ignoreArthurX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441578, guid: 2b9c098df4df51843b8616f10dbd6bc5, type: 2}
+      propertyPath: isMedusa
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -24582,6 +24592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb1dbd2fb6f1542b0dd168e43d728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMedusa: 1
   spawnInterval: 6
   spawnIntervalOffset: 0
   ignoreArthurX: 1
@@ -28499,6 +28510,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11441578, guid: 2b9c098df4df51843b8616f10dbd6bc5, type: 2}
       propertyPath: ignoreArthurX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441578, guid: 2b9c098df4df51843b8616f10dbd6bc5, type: 2}
+      propertyPath: isMedusa
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -33747,6 +33762,10 @@ Prefab:
       propertyPath: ignoreArthurX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11441578, guid: 2b9c098df4df51843b8616f10dbd6bc5, type: 2}
+      propertyPath: isMedusa
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b9c098df4df51843b8616f10dbd6bc5, type: 2}
   m_RootGameObject: {fileID: 1320600925}
@@ -38946,6 +38965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb1dbd2fb6f1542b0dd168e43d728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMedusa: 1
   spawnInterval: 4.5999999
   spawnIntervalOffset: 2.29999995
   ignoreArthurX: 1

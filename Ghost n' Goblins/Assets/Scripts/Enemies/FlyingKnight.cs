@@ -9,11 +9,17 @@ public class FlyingKnight : MonoBehaviour {
 	float sinInterval = 0;
 	float yOffset = 0f;
 	public float degOffset;
+	public bool isMedusa;
+	public Sprite med;
 
 
 
 	// Use this for initialization
 	void Start () {
+		if (isMedusa) {
+			GetComponentInChildren<SpriteRenderer>().sprite = med;;
+			GetComponent<BoxCollider>().size = new Vector3(1, .7f, 0);
+		}
 		yOffset = transform.position.y;
 		sinInterval = degOffset;
 	}
@@ -26,7 +32,7 @@ public class FlyingKnight : MonoBehaviour {
 	void Update () {
 	
 		// Only hitable if arthur is behind
-		if (Arthur.weapon != WeaponType.XBOW)
+		if (Arthur.weapon != WeaponType.XBOW && !isMedusa)
 			GetComponent<Enemy> ().ignoreProjectiles = (Arthur.arthurPos.x < transform.position.x);
 
 

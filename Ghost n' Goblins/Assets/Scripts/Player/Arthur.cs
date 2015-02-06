@@ -556,8 +556,8 @@ public class Arthur : MonoBehaviour {
 
 	/* input commands */
 	bool commandA() {
-		return Input.GetKeyDown (KeyCode.Z)||
-		       Input.GetKeyDown (KeyCode.Comma);
+		return Input.GetKeyDown (KeyCode.X) ||
+			   Input.GetKeyDown (KeyCode.Period);
 	}
 
 	bool commandUp() {
@@ -586,8 +586,8 @@ public class Arthur : MonoBehaviour {
 	}
 
 	bool commandB() {
-		return Input.GetKeyDown (KeyCode.X) ||
-			   Input.GetKeyDown (KeyCode.Period);
+		return Input.GetKeyDown (KeyCode.Z)||
+			   Input.GetKeyDown (KeyCode.Comma);
 	}
 
 }
