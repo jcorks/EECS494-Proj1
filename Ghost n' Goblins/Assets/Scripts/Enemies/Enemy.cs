@@ -31,9 +31,9 @@ public class Enemy : MonoBehaviour {
 					drop = Random.Range(0f,1f);
 					if (drop < 0.2) { //weapon drop
 						drop = Random.Range(0f,1f);
-						if (drop < 0.33) 
+						if (drop <= 0.33f) 
 							Item.GetComponent<Items>().item = ItemType.KNIFE;
-						if (drop > 0.33 & drop < 0.66)
+						if (drop > 0.33f & drop < 0.66f)
 							Item.GetComponent<Items>().item = ItemType.LANCE;
 						else 
 							Item.GetComponent<Items>().item = ItemType.FIREBALL;
