@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wraithPrefab: {fileID: 137784, guid: 575a6228378eb104ba347aaa72f57ae0, type: 2}
-  respawnRateSeconds: 5
+  respawnRateSeconds: 7
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

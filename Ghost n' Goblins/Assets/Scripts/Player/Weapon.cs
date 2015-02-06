@@ -82,7 +82,7 @@ public class Weapon : MonoBehaviour {
 			Sprite.GetComponent<RectTransform> ().transform.localScale = new Vector3 (13f,13f,0f);
 			thisPhys.ignoreGravity = false;
 			Sprite.GetComponent<SpriteRenderer> ().sprite = Fireball;
-			thisPhys.setVelocity (new Vector2 (8f * sides, 4f));
+			thisPhys.setVelocity (new Vector2 (7f * sides, 3.2f));
 		}
 		if (weapon == WeaponType.XBOW) {
 			Sprite.GetComponent<SpriteRenderer> ().sprite = Xbow;

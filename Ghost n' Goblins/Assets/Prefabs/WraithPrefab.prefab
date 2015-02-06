@@ -71,9 +71,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projPrefab: {fileID: 109504, guid: 8477bc1fc7dcf8a439a90e32993e491e, type: 2}
-  speed: 1.5
+  speed: 2.4000001
   speedDown: .5
   body: {fileID: 21300118, guid: 506316d46d868214885c8790afb1f77f, type: 3}
+  spawning: {fileID: 21300114, guid: 506316d46d868214885c8790afb1f77f, type: 3}
   leek: {fileID: 21300122, guid: 506316d46d868214885c8790afb1f77f, type: 3}
   leftAndRightEdge: 2
   downLimit: .5
