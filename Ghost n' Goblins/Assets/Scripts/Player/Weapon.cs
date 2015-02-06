@@ -10,7 +10,7 @@ public enum WeaponType {
 };
 
 public class Weapon : MonoBehaviour {
-	public static float weaponDistance = 10f;
+	public static float weaponDistance = 6.5f;
 	public Arthur thisArthur;
 	public PhysObj thisPhys;
 	public float sides;
