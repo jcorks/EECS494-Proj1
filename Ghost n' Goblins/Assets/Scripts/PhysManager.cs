@@ -7,6 +7,7 @@ public class PhysManager : MonoBehaviour {
 	public static int wraithCount = 0;
 	private static List<PhysObj> objs;
 	private static Vector2 accConstant = new Vector2(0.0f, -.5f);
+	static public bool isPaused = false;
 
 
 	/* Public interface */
@@ -27,6 +28,8 @@ public class PhysManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void LateUpdate () {
+		if (isPaused)
+						return;
 		foreach (PhysObj co in objs) {
 			if (!co.isActive ()) continue;
 

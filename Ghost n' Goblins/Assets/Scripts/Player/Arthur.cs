@@ -114,6 +114,12 @@ public class Arthur : MonoBehaviour {
 	}
 
 	void Update () {
+
+		if (Input.GetKeyDown (KeyCode.Return)) {
+			Time.timeScale = (Time.timeScale>0?0:1);
+			PhysManager.isPaused = !PhysManager.isPaused;
+		}
+
 		if (upLadder) {
 			if (health == 2)
 				Used = Climb2;
@@ -566,39 +572,56 @@ public class Arthur : MonoBehaviour {
 
 	/* input commands */
 	bool commandA() {
+		if (PhysManager.isPaused)
+						return false;
 		return Input.GetKeyDown (KeyCode.X) ||
 			   Input.GetKeyDown (KeyCode.Period);
 	}
 
 	bool commandUp() {
+		if (PhysManager.isPaused)
+			return false;
 		return Input.GetKey (KeyCode.UpArrow) ||
 			   Input.GetKey (KeyCode.W);
 	}
 
 	bool commandDown() {
+		if (PhysManager.isPaused)
+			return false;
 		return Input.GetKey (KeyCode.DownArrow) ||
 			   Input.GetKey (KeyCode.S);
 	}
 
 	bool commandDownRelease() {
+		if (PhysManager.isPaused)
+			return false;
 		return Input.GetKeyUp (KeyCode.DownArrow) ||
 			   Input.GetKeyUp (KeyCode.S);
 	}
 
 	bool commandLeft() {
+		if (PhysManager.isPaused)
+			return false;
 		return Input.GetKey (KeyCode.LeftArrow) ||
 			   Input.GetKey (KeyCode.A);
 	}
 
 	bool commandRight() {
+		if (PhysManager.isPaused)
+			return false;
 		return Input.GetKey (KeyCode.RightArrow) ||
 			   Input.GetKey (KeyCode.D);
 	}
 
 	bool commandB() {
+		if (PhysManager.isPaused)
+			return false;
 		return Input.GetKeyDown (KeyCode.Z)||
 			   Input.GetKeyDown (KeyCode.Comma);
 	}
+
+
+
 
 }
 
