@@ -19,7 +19,7 @@ public class Zombie : MonoBehaviour {
 	float originalYscale;
 	float originalYposDelta;
 	float originalYposMin;
-	float despawnTime = 1.8f; // tiem it takes to despawn
+	float despawnTime = 1.8f; // time it takes to despawn
 
 
 

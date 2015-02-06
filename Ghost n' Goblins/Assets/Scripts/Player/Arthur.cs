@@ -41,6 +41,7 @@ public class Arthur : MonoBehaviour {
 	private bool onLadderTop = false;
 	private bool upLadder = false;
 	private bool stepUp = false;
+	private bool stop = false;
 
 	private bool timeGibson = false;
 
@@ -284,16 +285,24 @@ public class Arthur : MonoBehaviour {
 			//Debug.Log (crouching);
 		}
 
-		if (crouching && !isHit) {
-			boxCollider.center = crouchState2;
-			boxCollider.size = crouchState1;
-			Vector3 t = Sprite.transform.localPosition;
-			t.y = -0.11f;
-			Sprite.transform.localPosition = t;
-			if (health == 2)
-				Used = Crouch2;
-			else 
-				Used = Crouch1;
+		if (crouching) {
+			if (!stop) {
+				boxCollider.center = crouchState2;
+				boxCollider.size = crouchState1;
+				Vector3 t = Sprite.transform.localPosition;
+				t.y = -0.11f;
+				Sprite.transform.localPosition = t;
+				if (health == 2)
+					Used = Crouch2;
+				else 
+					Used = Crouch1;
+			}
+			else {
+				crouching = false;
+				if (thisPhys.isGrounded) {
+					stop = false;
+				}
+			}
 		}
 		else {
 			boxCollider.center = standState2;	
@@ -348,6 +357,7 @@ public class Arthur : MonoBehaviour {
 		if (isHitTimer < 0) {
 			isHit = false;
 			Sprite.GetComponent<SpriteRenderer>().renderer.enabled = true;
+			stop = false;
 		} else {
 			
 			isHitTimer -= Time.deltaTime;
@@ -530,7 +540,7 @@ public class Arthur : MonoBehaviour {
 		isHitTimer = 3.0f;
 		isHitOnGround = false;
 		upLadder = false;
-
+		stop = true;
 		Vector3 hitVel = new Vector3 (-sides*speed, jumpVel, 0);
 		jumping = true;
 
