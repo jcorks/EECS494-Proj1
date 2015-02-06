@@ -86,10 +86,16 @@ public class Arthur : MonoBehaviour {
 
 	
 	void Awake() {
-		arthurPos = new Vector3 (0, 0, 0);
+		arthurPos = new Vector3 (-111, -111, -111);
 		origColor = GetComponent<MeshRenderer> ().material.color;
 		arthurPhys = GetComponent<PhysObj> ();
 	}
+
+	void OnDestroy() {
+		arthurPos = new Vector3 (-111, -111, -111);
+	}
+
+
 	
 	void Start() {
 		Sprite = GameObject.FindWithTag ("spritePlayer");
