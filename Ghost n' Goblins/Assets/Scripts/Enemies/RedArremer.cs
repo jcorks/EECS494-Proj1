@@ -72,7 +72,7 @@ public class RedArremer : MonoBehaviour {
 		camPos.x -= 5.54f * 2f;
 		flightLeft = camPos;
 		swoopStart = 0f;
-		swoopDuration = 1.65f;
+		swoopDuration = 1.7f;
 		pastPos = transform.position;
 		down = false;
 
