@@ -55,7 +55,7 @@ public class RedArremer : MonoBehaviour {
 		grounded = false;
 		hover = false;
 		dodge = false;
-		GetComponent<Enemy>().score = 500;
+		GetComponent<Enemy>().score = 1500;
 		speed = 0.025f;
 		speedFlight = 10f;
 		leftAndRightEdge =13f;
@@ -72,7 +72,7 @@ public class RedArremer : MonoBehaviour {
 		camPos.x -= 5.54f * 2f;
 		flightLeft = camPos;
 		swoopStart = 0f;
-		swoopDuration = 1.75f;
+		swoopDuration = 1.65f;
 		pastPos = transform.position;
 		down = false;
 

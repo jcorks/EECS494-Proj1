@@ -15,8 +15,11 @@ public class Score : MonoBehaviour {
 	// Use this for initialization
 	void Start () {	
 		currentTime = totalTime;
+		Seconds = currentTime % 60 ;
+		Minutes = (currentTime - Seconds) / 60;
 		thisGUI = this.GetComponent<GUIText> ();
-	}
+		thisGUI.text = string.Concat(Minutes.ToString(),colon,Seconds.ToString());
+		seconds = 0f;	}
 	
 	// Update is called once per frame
 	void Update () {

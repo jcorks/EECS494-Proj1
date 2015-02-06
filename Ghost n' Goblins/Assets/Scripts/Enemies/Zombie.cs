@@ -51,7 +51,7 @@ public class Zombie : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		GetComponent<Enemy>().score = 100;
+		GetComponent<Enemy>().score = 200;
 		if (transform.position.x > Arthur.arthurPos.x) {
 			direction = -1;
 		}

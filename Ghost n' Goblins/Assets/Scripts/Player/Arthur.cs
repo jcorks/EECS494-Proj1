@@ -419,7 +419,7 @@ public class Arthur : MonoBehaviour {
 				weapon = WeaponType.XBOW;
 			if (received == ItemType.MONEY) {
 				int score = int.Parse (scoreGT.text);
-				score += 100;
+				score += 500;
 				scoreGT.text = score.ToString ();
 			}
 			Debug.Log(weapon);
