@@ -80,10 +80,21 @@ public class Unicorn : MonoBehaviour {
 			thisPhys.setVelocity (new Vector2 (oldSpeed, 0));
 		}
 
+		if (thisPhys.getVelocity ().x > 0) {
+			GetComponentInChildren<SpriteRenderer> ().sprite = MoveR;
+		}
+		else if (thisPhys.getVelocity ().x < 0) {
+			GetComponentInChildren<SpriteRenderer> ().sprite = MoveL;
+		}
+		else {
+			GetComponentInChildren<SpriteRenderer> ().sprite = Stand;
+		}
+		if (!thisPhys.isGrounded) {
+			GetComponentInChildren<SpriteRenderer> ().sprite = Jump;
+		}
 
 		if (thisPhys.isGrounded && Random.value <= chanceToFire && timeFastLeft < 0) {
 			print ("FIRE!!!!");
-			GetComponentInChildren<SpriteRenderer>().sprite = Shoot;
 			fireProjectile();
 		}
 
@@ -103,7 +114,7 @@ public class Unicorn : MonoBehaviour {
 		oldSpeed = thisPhys.getVelocity ().x;
 		thisPhys.setVelocity (new Vector2(0, 0));
 		timeShotLeft = shotDuration;
-
+		GetComponentInChildren<SpriteRenderer> ().sprite = Shoot;
 		// instantiate fireball
 		GameObject fb = (GameObject)Instantiate (FireballPrefab);
 
