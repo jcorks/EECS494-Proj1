@@ -25,6 +25,8 @@ public class GameOver : MonoBehaviour {
 		GetComponent<Text> ().text = "Player 1 Ready\n Lives: " + Arthur.lives;
 
 		yield return new WaitForSeconds(4);
+
+		print (theStage);
 		Application.LoadLevel (theStage);
 
 	}

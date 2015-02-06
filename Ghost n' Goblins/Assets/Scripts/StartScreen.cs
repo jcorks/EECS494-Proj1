@@ -23,12 +23,14 @@ public class StartScreen : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
 			GameOver.theStage = "groundScene";
 			Respawner.checkpoint = Respawner.originalStart;
+			Respawner.checkpointNum = -1;
 			Application.LoadLevel("gameOver");
 		}
 
 		if (Input.GetKeyDown (KeyCode.Alpha2)) {
 			Respawner.checkpoint = Respawner.customStart;
 			GameOver.theStage = "custom";
+			Respawner.checkpointNum = -1;
 			Application.LoadLevel ("gameOver");
 		}
 

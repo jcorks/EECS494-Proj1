@@ -5,9 +5,11 @@ public class Key : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
+			Arthur.lives++;
 			Respawner.checkpointNum = -1;
 			Respawner.checkpoint = Respawner.customStart;
-			Application.LoadLevel ("gameOver");
+			print(GameOver.theStage);
+			Application.LoadLevel ("mainMenu");
 		}
 	}
 
