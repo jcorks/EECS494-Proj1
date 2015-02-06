@@ -4,6 +4,7 @@ using System.Collections;
 public class CameraAnchor : MonoBehaviour {
 	public bool active = false;
 	public bool isVertical = false;
+	public bool shortRespawn = false;
 	public int checkpointNum = 0;
 	float graceDist = 7.2f;
 	PhysObj wall;
@@ -23,7 +24,7 @@ public class CameraAnchor : MonoBehaviour {
 			print ("Now set to checkpoint " + checkpointNum.ToString () + "@" + transform.position.ToString ());
 
 			GameOver.theStage = Application.loadedLevelName;
-			Vector3 offset = new Vector3((isVertical?0:4f), (isVertical?0f:0f), 0);
+			Vector3 offset = new Vector3((isVertical?0:8f+(shortRespawn?-4f:0f)), (isVertical?0f:0f), 0);
 			Respawner.checkpoint = transform.position + offset;
 			Respawner.checkpointNum = checkpointNum;
 		}

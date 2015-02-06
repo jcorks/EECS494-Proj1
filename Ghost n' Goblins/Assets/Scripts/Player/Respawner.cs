@@ -19,6 +19,7 @@ public class Respawner : MonoBehaviour {
 			GameObject inst = (GameObject)Instantiate (arthur);
 			print ("Respawned at " + checkpoint.ToString ());
 			inst.transform.position = checkpoint + new Vector3(0, 0.78f, 0);
+
 		}
 
 	}
