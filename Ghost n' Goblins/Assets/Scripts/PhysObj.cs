@@ -147,7 +147,7 @@ public class PhysObj : MonoBehaviour {
 
 			// nullify y component
 			setVelocity (new Vector2 (vel.x, 0.0f));
-			print ("landing");
+			//print ("landing");
 			//}
 			isGrounded = true;
 			lastFloor = other.gameObject;

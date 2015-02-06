@@ -102,7 +102,7 @@ public class Arthur : MonoBehaviour {
 		crouching = false;
 		//priorWeapon = weapon;
 		sides = 1f;
-		Debug.Log(Sprite.GetComponent<SpriteRenderer> ().sprite);
+		//Debug.Log(Sprite.GetComponent<SpriteRenderer> ().sprite);
 
 	}
 
@@ -176,7 +176,7 @@ public class Arthur : MonoBehaviour {
 		//If I am pressing up while on the latter
 		if (commandUp() && !crouching && thisPhys.isGrounded && !jumping && onLadder) 
 		{
-			Debug.Log("going up");
+			//Debug.Log("going up");
 			thisPhys.isGrounded = false;
 			upLadder = true;
 			stepUp = true;
@@ -186,7 +186,7 @@ public class Arthur : MonoBehaviour {
 		if (commandDown () && onLadderTop) 
 		{
 			onLadder = true;
-			Debug.Log("going up");
+			//Debug.Log("going up");
 			thisPhys.isGrounded = false;
 			upLadder = true;
 			stepUp = true;
@@ -200,7 +200,7 @@ public class Arthur : MonoBehaviour {
 		{
 			//arthurObject.scale
 			weaponCount++;
-			Debug.Log ("weapon on " + weaponCount);
+			//Debug.Log ("weapon on " + weaponCount);
 			if (weaponCount < 0)
 				weaponCount = 0;
 			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
@@ -334,7 +334,6 @@ public class Arthur : MonoBehaviour {
 		if (weaponWaiting > 0 && crouching) {
 			Vector3 t = Sprite.transform.localPosition;
 			t.y = -0.11f;
-			Debug.Log("CROUCHSHOT");
 			Sprite.transform.localPosition = t;
 			if (health == 2)
 				Used = ShootC2;
@@ -408,7 +407,7 @@ public class Arthur : MonoBehaviour {
 
 
 		if (collidedWith.tag == "Item") {
-			Debug.Log("item received");
+			//Debug.Log("item received");
 			ItemType received = collidedWith.GetComponent<Items>().get();
 			Destroy(collidedWith);
 			if (received == ItemType.LANCE)
@@ -424,7 +423,6 @@ public class Arthur : MonoBehaviour {
 				score += 500;
 				scoreGT.text = score.ToString ();
 			}
-			Debug.Log(weapon);
 			if (received == ItemType.ARMOR) {
 				if (health == 1) {
 					health++;
@@ -511,7 +509,7 @@ public class Arthur : MonoBehaviour {
 			onLadderTop = false;
 		}
 		if (collidedWith.tag == "Platform") {
-			Debug.Log("off platform");
+			//Debug.Log("off platform");
 			if (!jumping && !onLadder) {
 				Vector3 Pos = transform.position;
 				Pos.x += 0.4f*sides;
@@ -524,16 +522,16 @@ public class Arthur : MonoBehaviour {
 	void climbUp() {
 		thisPhys.setVelocity (new Vector2(0f, 0.5f));
 		if (commandUp ()) {
-			Debug.Log ("up");
+			//Debug.Log ("up");
 			thisPhys.addVelocity (speed, 90f);
 		}
 		if (commandDown ()) {
 			Debug.Log (thisPhys.isGrounded);
 			if (thisPhys.isGrounded) {
-				Debug.Log ("grounded");
+				//Debug.Log ("grounded");
 				upLadder = false;
 			}
-			Debug.Log ("down");
+			//Debug.Log ("down");
 			thisPhys.addVelocity (-speed, 90f);
 		}
 

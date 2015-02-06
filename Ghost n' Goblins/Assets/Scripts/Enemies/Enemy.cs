@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour {
 							Item.GetComponent<Items>().item = ItemType.MONEY;
 					}
 				}
-				Debug.Log("score");
+				//debug.Log("score");
 				int scoreNow = int.Parse (Arthur.scoreGT.text);
 				scoreNow = scoreNow + score;
 				Arthur.scoreGT.text = scoreNow.ToString ();
@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour {
 			other.GetComponent<Weapon>().HitQueue.Enqueue(this.GetComponent<Collider>());
 			GameObject spk = GameObject.FindGameObjectWithTag("Speaker"); 
 			spk.GetComponent<AudioSource>().Play ();
-			Debug.Log (other.GetComponent<Weapon>().HitQueue.Count);
+			//debug.Log (other.GetComponent<Weapon>().HitQueue.Count);
 		}
 		
 		if (other.gameObject.GetComponent<Arthur> ()) {
