@@ -142,7 +142,7 @@ public class Weapon : MonoBehaviour {
 		//Keeps track if weapon is offscreen;
 		if (transform.position.x > arthurLastPos.x+weaponDistance && sides == 1 ||
 		    transform.position.x < arthurLastPos.x-weaponDistance && sides == -1 ||
-		    transform.position.y > arthurLastPos.y+weaponDistance/2) {
+		    transform.position.y > arthurLastPos.y+weaponDistance) {
 			//Debug.Log (arthurLastPos.x + '>' + transform.position.x+weaponDistance);
 			Arthur.weaponCount--;
 			Destroy (this.gameObject);
