@@ -10,7 +10,7 @@ public enum WeaponType {
 };
 
 public class Weapon : MonoBehaviour {
-	public static float weaponDistance = 10f;
+	public static float weaponDistance = 6.5f;
 	public Arthur thisArthur;
 	public PhysObj thisPhys;
 	public float sides;
@@ -142,7 +142,7 @@ public class Weapon : MonoBehaviour {
 		//Keeps track if weapon is offscreen;
 		if (transform.position.x > arthurLastPos.x+weaponDistance && sides == 1 ||
 		    transform.position.x < arthurLastPos.x-weaponDistance && sides == -1 ||
-		    transform.position.y > arthurLastPos.y+weaponDistance/2) {
+		    transform.position.y > arthurLastPos.y+weaponDistance) {
 			//Debug.Log (arthurLastPos.x + '>' + transform.position.x+weaponDistance);
 			Arthur.weaponCount--;
 			Destroy (this.gameObject);
