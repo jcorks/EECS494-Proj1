@@ -30,6 +30,7 @@ public class Pegasus : MonoBehaviour {
 	float minimumFireTime   = 3.5f; 
 	int   numRocks          = 7;
 	Vector3 shotOrigin		= new Vector3(0, .4f, 0f);
+	bool dramaticWait = true;
 	
 	
 	float timeSinceStarted	= 0f;
@@ -56,6 +57,7 @@ public class Pegasus : MonoBehaviour {
 	// Use this for initialization
 
 	void Awake() {
+		dramaticWait = true;
 		FinalBossManager.defeated = false;
 	}
 	void Start () {
@@ -66,6 +68,13 @@ public class Pegasus : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (dramaticWait) {
+			if (Arthur.arthurPos.y > transform.position.y - .1f) {
+				dramaticWait = false;
+			}
+			return;
+		}
 
 		if (timeFrozen > 0) {
 			thisPhys.setVelocity(new Vector2(0,thisPhys.getVelocity().y));
@@ -193,7 +202,7 @@ public class Pegasus : MonoBehaviour {
 	
 	
 	void FixedUpdate() {
-		if (!started || isDoingBigJump)
+		if (!started || isDoingBigJump || dramaticWait)
 			return;
 
 		if (timeShotLeft > 0 && !shotsFired) {

@@ -546,7 +546,7 @@ public class Arthur : MonoBehaviour {
 
 	void die() {
 		Destroy (this.gameObject);
-		weapon = priorWeapon;
+		//weapon = priorWeapon;
 		Application.LoadLevel ("gameOver");
 	}
 
