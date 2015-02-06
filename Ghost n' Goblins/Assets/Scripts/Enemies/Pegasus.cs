@@ -21,7 +21,7 @@ public class Pegasus : MonoBehaviour {
 	
 	float initWaitTime 		= 3f;
 	float chanceToGoFast 	= .006f;
-	float chanceToChangeDir = .002f;
+	float chanceToChangeDir = .03f;
 	float chanceToFire      = .004f;
 	float fastDuration 		= 4f; // durtion for fastness in seconds
 	float shotDuration   	= 1f;
@@ -173,9 +173,14 @@ public class Pegasus : MonoBehaviour {
 	
 	// initial waiting time that unicorn does when first encountering Arthur
 	void initWait() {
+		if (GetComponent<MeshRenderer> ().isVisible && !GetComponent<AudioSource> ().isPlaying) {
+			GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>().Stop();
+			GetComponent<AudioSource>().Play();
+		}
 		if (thisE.ready && !started) {
 			if (timeSinceStarted >initWaitTime) {
 				started = true;
+
 				//print ("READY!!!!!!!!!");
 				thisPhys.setVelocity(
 					new Vector2(getDir()*speed, thisPhys.getVelocity().y)
@@ -200,12 +205,29 @@ public class Pegasus : MonoBehaviour {
 			}
 			return;
 		} else if (timeShotLeft < 0 && shotsFired) {shotsFired = false;}
-		
-		if (Random.value <= chanceToChangeDir || !GetComponent<MeshRenderer>().isVisible) {
+
+
+
+		if (Random.value <= chanceToChangeDir) {
+			if (Random.value < .4) {
+				thisPhys.setVelocity(
+					new Vector2(getDir ()*Mathf.Abs (thisPhys.getVelocity().x), thisPhys.getVelocity().y)
+					);
+			} else {
+				thisPhys.setVelocity(
+					new Vector2((Random.value<.5f?-1:1)*Mathf.Abs (thisPhys.getVelocity().x), thisPhys.getVelocity().y)
+					);
+			}
+		}
+
+		// this takes priority
+		if (!GetComponent<MeshRenderer>().isVisible) {
 			thisPhys.setVelocity(
 				new Vector2(getDir ()*Mathf.Abs (thisPhys.getVelocity().x), thisPhys.getVelocity().y)
 				);
 		}
+
+
 		
 		// GOTTA Go fast 
 		if (Random.value <= chanceToGoFast) {
