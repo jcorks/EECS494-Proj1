@@ -493,8 +493,13 @@ public class Arthur : MonoBehaviour {
 			onLadderTop = false;
 		}
 		if (collidedWith.tag == "Platform") {
-			//Debug.Log("off platform");
-			platformSpeed = 0; 			
+			Debug.Log("off platform");
+			if (!jumping && !onLadder) {
+				Vector3 Pos = transform.position;
+				Pos.x += 0.4f*sides;
+				transform.position = Pos;
+			}
+			platformSpeed = 0f;
 		}
 	}
 
