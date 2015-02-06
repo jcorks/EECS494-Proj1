@@ -86,6 +86,7 @@ public class Arthur : MonoBehaviour {
 
 	
 	void Awake() {
+		arthurPos = new Vector3 (0, 0, 0);
 		origColor = GetComponent<MeshRenderer> ().material.color;
 		arthurPhys = GetComponent<PhysObj> ();
 	}

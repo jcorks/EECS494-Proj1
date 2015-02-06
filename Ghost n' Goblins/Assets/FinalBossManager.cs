@@ -33,4 +33,11 @@ public class FinalBossManager : MonoBehaviour {
 		if (alpha > 1.2f)
 						Application.LoadLevel ("congrats");
 	}
+
+	void OnDestroy() {
+		GameObject[] arr = GameObject.FindGameObjectsWithTag("Hostile");
+		foreach(GameObject o in arr) {
+			Destroy(o.gameObject);
+		}
+	}
 }
