@@ -11,6 +11,7 @@ public class Arthur : MonoBehaviour {
 	public static int weaponCount;
 	public static float sides;
 	public static PhysObj arthurPhys;
+
 	
 	static bool gameStarted = false;
 
@@ -203,6 +204,7 @@ public class Arthur : MonoBehaviour {
 			if (weaponCount < 0)
 				weaponCount = 0;
 			GameObject weaponObj = Instantiate (WeaponPrefab) as GameObject;
+			GetComponent<AudioSource>().Play();
 			if (weapon == WeaponType.XBOW) {
 				weaponCount++;
 				GameObject weaponObj2 = Instantiate (WeaponPrefab) as GameObject;

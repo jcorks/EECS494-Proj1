@@ -58,6 +58,8 @@ public class Enemy : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Weapon" && ready && !ignoreProjectiles) {
 			other.GetComponent<Weapon>().HitQueue.Enqueue(this.GetComponent<Collider>());
+			GameObject spk = GameObject.FindGameObjectWithTag("Speaker"); 
+			spk.GetComponent<AudioSource>().Play ();
 			Debug.Log (other.GetComponent<Weapon>().HitQueue.Count);
 		}
 		

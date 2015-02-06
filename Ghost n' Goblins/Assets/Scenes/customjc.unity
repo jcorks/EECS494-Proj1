@@ -89,7 +89,7 @@ GameObject:
   - 54: {fileID: 20614716}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +240,7 @@ GameObject:
   - 212: {fileID: 30543869}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -481,7 +481,7 @@ GameObject:
   - 212: {fileID: 115441617}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -601,6 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb1dbd2fb6f1542b0dd168e43d728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMedusa: 0
   spawnInterval: 6
   spawnIntervalOffset: 3
   ignoreArthurX: 1
@@ -766,7 +767,7 @@ GameObject:
   - 54: {fileID: 185267835}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -873,7 +874,7 @@ GameObject:
   - 212: {fileID: 186961772}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1013,7 +1014,7 @@ GameObject:
   - 212: {fileID: 230640866}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1069,7 +1070,7 @@ GameObject:
   - 54: {fileID: 308655691}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1277,6 +1278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6271b9b7c87f32a48b603925ca5882a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalTime: 0
+  gibson: 0
 --- !u!1001 &321242642
 Prefab:
   m_ObjectHideFlags: 0
@@ -1336,7 +1339,7 @@ GameObject:
   - 54: {fileID: 329011648}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1443,7 +1446,7 @@ GameObject:
   - 212: {fileID: 340405058}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1499,7 +1502,7 @@ GameObject:
   - 54: {fileID: 347561657}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1606,7 +1609,7 @@ GameObject:
   - 212: {fileID: 350969329}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1662,7 +1665,7 @@ GameObject:
   - 54: {fileID: 373078093}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2300,6 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb1dbd2fb6f1542b0dd168e43d728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMedusa: 0
   spawnInterval: 6
   spawnIntervalOffset: 0
   ignoreArthurX: 1
@@ -2549,7 +2553,7 @@ GameObject:
   - 54: {fileID: 547693719}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2660,7 +2664,7 @@ GameObject:
   - 54: {fileID: 571076354}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2840,6 +2844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb1dbd2fb6f1542b0dd168e43d728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMedusa: 0
   spawnInterval: 4.5999999
   spawnIntervalOffset: 0
   ignoreArthurX: 1
@@ -2859,7 +2864,7 @@ GameObject:
   - 212: {fileID: 604582715}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3051,7 +3056,7 @@ GameObject:
   - 212: {fileID: 672162886}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3143,6 +3148,7 @@ MonoBehaviour:
   dropsItem: 1
   dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
+  HitPrefab: {fileID: 100308, guid: 6727071b9b1ed734794ffd5dc6a60e22, type: 2}
 --- !u!65 &684513415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3275,7 +3281,7 @@ GameObject:
   - 54: {fileID: 690703112}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3382,7 +3388,7 @@ GameObject:
   - 212: {fileID: 699823312}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3585,7 +3591,7 @@ GameObject:
   - 54: {fileID: 799508970}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3723,7 +3729,7 @@ GameObject:
   - 54: {fileID: 832423865}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4062,7 +4068,7 @@ GameObject:
   - 212: {fileID: 962081076}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4523,7 +4529,7 @@ Transform:
   m_GameObject: {fileID: 1014613860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.69999981, y: 16, z: 0}
-  m_LocalScale: {x: 0, y: 45, z: 1}
+  m_LocalScale: {x: 0, y: 45, z: 0}
   m_Children: []
   m_Father: {fileID: 1818212545}
   m_RootOrder: 4
@@ -4542,7 +4548,7 @@ GameObject:
   - 54: {fileID: 1024523301}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4818,7 +4824,7 @@ GameObject:
   - 54: {fileID: 1067894320}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5017,7 +5023,7 @@ GameObject:
   - 54: {fileID: 1080394452}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5128,7 +5134,7 @@ GameObject:
   - 54: {fileID: 1114044974}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5365,7 +5371,7 @@ GameObject:
   - 212: {fileID: 1133881241}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5526,6 +5532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
+  isVertical: 0
+  checkpointNum: 0
 --- !u!23 &1212326716
 Renderer:
   m_ObjectHideFlags: 0
@@ -5592,7 +5600,7 @@ GameObject:
   - 212: {fileID: 1214198803}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5684,6 +5692,7 @@ MonoBehaviour:
   dropsItem: 1
   dead: 0
   ItemPrefab: {fileID: 185938, guid: d5058725b74b6e641b809fc851c184fa, type: 2}
+  HitPrefab: {fileID: 100308, guid: 6727071b9b1ed734794ffd5dc6a60e22, type: 2}
 --- !u!65 &1216347545
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5740,7 +5749,7 @@ GameObject:
   - 212: {fileID: 1223075295}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6012,7 +6021,7 @@ GameObject:
   - 212: {fileID: 1363407511}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6068,7 +6077,7 @@ GameObject:
   - 54: {fileID: 1364838607}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6175,7 +6184,7 @@ GameObject:
   - 212: {fileID: 1384586314}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6494,7 +6503,7 @@ GameObject:
   - 54: {fileID: 1439296448}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6823,7 +6832,7 @@ GameObject:
   - 212: {fileID: 1525589430}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7009,7 +7018,7 @@ GameObject:
   - 212: {fileID: 1539415044}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7133,7 +7142,7 @@ GameObject:
   - 54: {fileID: 1552688143}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7244,7 +7253,7 @@ GameObject:
   - 54: {fileID: 1611596855}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7355,7 +7364,7 @@ GameObject:
   - 54: {fileID: 1626457481}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7589,7 +7598,7 @@ GameObject:
   - 54: {fileID: 1677333553}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7696,7 +7705,7 @@ GameObject:
   - 212: {fileID: 1680552360}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7939,7 +7948,7 @@ Transform:
   m_GameObject: {fileID: 1705605841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.5, y: 15.8000002, z: 0}
-  m_LocalScale: {x: 0, y: 45, z: 1}
+  m_LocalScale: {x: 0, y: 45, z: 0}
   m_Children: []
   m_Father: {fileID: 1818212545}
   m_RootOrder: 5
@@ -8081,7 +8090,7 @@ GameObject:
   - 212: {fileID: 1763980200}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8433,6 +8442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb1dbd2fb6f1542b0dd168e43d728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMedusa: 0
   spawnInterval: 4.5999999
   spawnIntervalOffset: 2.29999995
   ignoreArthurX: 1
@@ -8464,7 +8474,7 @@ GameObject:
   - 212: {fileID: 1862872935}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8516,7 +8526,7 @@ GameObject:
   - 212: {fileID: 1873984230}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8698,7 +8708,7 @@ GameObject:
   - 212: {fileID: 1932336073}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8750,7 +8760,7 @@ GameObject:
   - 212: {fileID: 1933181999}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8920,7 +8930,7 @@ Transform:
   m_GameObject: {fileID: 1950332377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 1.32705617, z: 1}
+  m_LocalScale: {x: 0, y: 2, z: 0}
   m_Children: []
   m_Father: {fileID: 1212326719}
   m_RootOrder: 0
@@ -9058,7 +9068,7 @@ GameObject:
   - 212: {fileID: 1991791158}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9114,7 +9124,7 @@ GameObject:
   - 54: {fileID: 1996328328}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9225,7 +9235,7 @@ GameObject:
   - 54: {fileID: 2029486013}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9380,7 +9390,7 @@ GameObject:
   - 54: {fileID: 2046523229}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9491,7 +9501,7 @@ GameObject:
   - 54: {fileID: 2070617005}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9598,7 +9608,7 @@ GameObject:
   - 212: {fileID: 2083561837}
   m_Layer: 0
   m_Name: CastlePlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
