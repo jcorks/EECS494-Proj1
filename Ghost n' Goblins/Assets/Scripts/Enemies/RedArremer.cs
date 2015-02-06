@@ -55,7 +55,7 @@ public class RedArremer : MonoBehaviour {
 		grounded = false;
 		hover = false;
 		dodge = false;
-		GetComponent<Enemy>().score = 500;
+		GetComponent<Enemy>().score = 1500;
 		speed = 0.025f;
 		speedFlight = 10f;
 		leftAndRightEdge =13f;

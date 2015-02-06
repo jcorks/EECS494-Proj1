@@ -43,6 +43,8 @@ public class Unicorn : MonoBehaviour {
 	void Start () {
 		thisE = GetComponent<Enemy> ();
 		thisPhys = GetComponent<PhysObj> ();
+		GetComponent<Enemy>().score = 2000;
+
 	}
 	
 	// Update is called once per frame

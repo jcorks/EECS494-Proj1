@@ -16,6 +16,7 @@ public class FlyingKnight : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		GetComponent<Enemy>().score = 100;
 		if (isMedusa) {
 			GetComponentInChildren<SpriteRenderer>().sprite = med;;
 			GetComponent<BoxCollider>().size = new Vector3(1, .7f, 0);

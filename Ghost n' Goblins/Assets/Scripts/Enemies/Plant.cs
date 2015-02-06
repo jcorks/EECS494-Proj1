@@ -13,6 +13,7 @@ public class Plant : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		GetComponent<Enemy>().score = 100;
 		GetComponent<Enemy> ().ready = false;
 	}
 	

@@ -17,7 +17,6 @@ public class Wraith : MonoBehaviour {
 	public float leftAndRightEdge = 2.5f;
 
 	public float downLimit = 0.8f;
-
 	Vector3 startingPos;
 	Vector3 downPos;
 	float side = 0f;
@@ -27,6 +26,7 @@ public class Wraith : MonoBehaviour {
 	bool spawn = true;
 	// Use this for initialization
 	void Start () {
+		GetComponent<Enemy>().score = 100;
 		timer = Time.time + 1;
 		startingPos = transform.position; 
 		if (Arthur.arthurPos.x < transform.position.x) {
